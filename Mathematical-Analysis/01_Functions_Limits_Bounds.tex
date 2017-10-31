@@ -1,0 +1,61 @@
+\begin{center}\large{\cyr{\textbf{Визначні границі}}}\end{center}
+
+Приклади границь, що містять невизначеності виду нуль розділити на нуль (0/0) часто зустрічаються у тригонометричних функціях. Для їх розкриття використовують першу та другу визначні границі.
+
+%% *****************************************************************************
+%% Перша визначна границя
+%% *****************************************************************************
+
+\begin{center}\large{\cyr{\textbf{Перша визначна границя}}}\end{center}
+
+Це границя відношення $sin(f(x))$ до $f(x)$ що дорівнює $1$, при $x$ що прямує до нуля. Записується наступним образом:
+
+\begin{displaymath}
+  \lim_{x \to 0} \frac{sin(x)}{x} = 1
+\end{displaymath}
+
+\noindentНа її основі можна отримати ряд корисних для практики наслідків
+
+\begin{displaymath}
+    \lim_{x \to 0}\frac{sin(kx)}{kx} = 1 \qquad \lim_{x \to 0}\frac{(sin(kx))^n}{(kx)^n} = 1
+\end{displaymath}
+
+\begin{displaymath}
+  \lim_{x \to 0} \frac{tg(kx)}{kx} = 1 \qquad \lim_{x \to 0} \frac{(tg(kx))^n}{(kx)^n} = 1
+\end{displaymath}
+
+\begin{displaymath}
+  \lim_{x \to 0}\frac{arcsin(x)}{x} = 1
+\end{displaymath}
+
+%% *****************************************************************************
+%% Дргуа визначна границя
+%% *****************************************************************************
+\begin{center}\large{\cyr{\textbf{Друга визначна границя}}}\end{center}
+
+\noindentЦя границя дозволяє нам розкривати не визначеності виду $1^\infty$ і ви
+
+\begin{displaymath}
+  \lim_{x \to \infty} (1+\frac{1}{x}) = e
+\end{displaymath}
+
+\noindentНа її основі можна отримати ряд корисних для практики наслідків
+
+\begin{displaymath}
+    \lim_{x \to \infty} (1+\frac{1}{x})^{x} = e \qquad
+    \lim_{x \to \infty} (1+\frac{k}{x})^{x} = e^k \qquad
+    \lim_{x \to 0} (1+x)^{\frac{1}{x}} = e
+\end{displaymath}
+
+
+\begin{displaymath}
+    \lim_{x \to 0} \frac{\log{a}(1+x)}{x} = \frac{1}{\ln{a}} \qquad
+    \lim_{x \to 0} \frac{e^x-1}{x} = 1 \qquad
+    \lim_{x \to 0} \frac{a^x-1}{x} = \ln{a}
+\end{displaymath}
+
+
+\begin{displaymath}
+    \lim_{x \to 0} \frac{({1+x})^\alpha-1}{\alpha{x}}=1 \qquad
+\end{displaymath}
+ 
