@@ -17,7 +17,12 @@
 \usepackage[english,ukrainian]{babel}
 \usepackage{fancyhdr}
 \usepackage{mathtext}
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
+
+
+% sets
+\newcommand{\compl}{^\mathsf{c}}
+\let\emptyset\varnothing
 
 % ні номерам сторінок
 \pagenumbering{gobble}
@@ -27,7 +32,7 @@
 \usepackage{amssymb}
 \let\oldemptyset\emptyset
 \let\emptyset\varnothing
-
+\newcommand{\compl}{^\mathsf{c}}
 
 \begin{document}
 
@@ -55,7 +60,7 @@
     \item \normalsize{\cyr{Закони Доповненості / Complement Laws}}
 
       \begin{displaymath}
-        A \cup{\neg{A}} = U \quad A\cap\neg{A}=\emptyset
+        A \cup{A\compl} = U \quad A\cap{A}\compl=\emptyset
       \end{displaymath}
 
     \item \normalsize{\cyr{Закони Універсальних границь / Universal Bounds }}
@@ -87,27 +92,27 @@
         \left\{\begin{array}{l}
             A \cup{X} = U \\
             A \cap{X} = \emptyset
-            \end{array} \Rightarrow (X = \neg{A})
+            \end{array} \Rightarrow (X = A\compl)
       \end{displaymath}
 
     \item \normalsize{\cyr{Інволютивність / Involution}}
       \begin{displaymath}
-        \neg{(\neg{A})} = A
+        (A\compl)\compl = A
       \end{displaymath}
 
     \item \normalsize{\cyr{Закон Де Моргана / De Morgan's Law}}
       \begin{displaymath}
-        \neg{(A\cup{B})} = \neg{A}\cap{\neg{B}} \qquad \neg{(A\cap{B})} = \neg{A}\cup{\neg{B}}
+        (A\cup{B})\compl = A\compl\cap{B\compl} \qquad (A\cap{B})\compl = A\compl\cup{B\compl}
       \end{displaymath}
 
     \item \normalsize{\cyr{Закон Порецького}}
       \begin{displaymath}
-        A\cap{(\neg{A}\cup{B})}=A\cap{B} \qquad A\cup{(\neg{A}\cap{B})}=A\cap{B}
+        A\cap{(A\compl\cup{B})}=A\cap{B} \qquad A\cup{(A\compl\cap{B})}=A\cap{B}
       \end{displaymath}
 
     \item \normalsize{\cyr{Закон Склеювання}}
       \begin{displaymath}
-        (A\cup{B})\cap{(A\cup{\neg{B}})} = A \qquad    (A\cap{B})\cup{(A\cap{\neg{B}})} = A
+        (A\cup{B})\cap{(A\cup{B\compl})} = A \qquad    (A\cap{B})\cup{(A\cap{B\compl})} = A
       \end{displaymath}
 
   \end{enumerate}
