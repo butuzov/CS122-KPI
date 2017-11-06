@@ -1,0 +1,161 @@
+% Основні формули тригинометрії
+%
+% Данні закони оформлені на одному листку студентом
+% заочної освіти Олегом Бутузовим - в рамках вивчення
+% - Програмного пакету LaTeX,
+% - Роботи над границями функцій (що потребували тригинометричних формул для рішення)
+
+
+\documentclass[onecolumn, a4paper, 12pt, BCOR=1mm, DIV=12]{scrreprt}
+\usepackage[a4paper,top=.7cm,bottom=.7cm,left=1cm,right=1cm]{geometry}
+
+% Українська
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{fancyhdr}
+\usepackage{mathtext}
+\usepackage{amsmath,amssymb}
+
+
+% ні номерам сторінок
+\pagenumbering{gobble}
+
+\begin{document}
+  \begin{center}\large{\cyr{\textbf{Основні тригонометричні тотожності}}}\end{center} \\
+
+  \begin{center}
+    \begin{array}{ r c l }
+      \sin^2{x}+\cos^2x=1 & \qquad & \tg{x}\ctg{x}=1 \\
+      \tg{x}=\dfrac{\sin{x}}{\cos{x}} & \qquad & \ctg{x}=\dfrac{\cos{x}}{\sin{x}}  \\
+      \\
+      \tg^2x+1= \dfrac{1}{\cos^2x} & \qquad & \ctg^2x+1= \dfrac{1}{\sin^2x} \\
+    \end{array}
+  \end{center}
+
+  \\
+  \begin{center}\large{\cyr{\textbf{Формули подвійного аргументу (вугла)}}}\end{center}
+
+  $$\sin2x = 2\cos{x}\sin{x} = \frac{2\tg{x}}{1+\tg^2x}=  \frac{2\ctg{x}}{1+\ctg^2x} =  \frac{2}{\tg{x}+\ctg{x}}$$
+  $$\cos2x = \cos^2x-\sin^2x=2\cos^2x-1=1-2\sin^2x$$
+  $$\cos2x = \frac{1-\tg^2x}{1+tg^2x}= \frac{\ctg^2x-1}{\ctg^2x+1}= \frac{\ctg{x}-\tg{x}}{\ctg{x}+\tg{x}} $$
+  $$\tg2x  = \frac{2\tg{x}}{1-tg^2x}= \frac{2\ctg{x}}{\ctg^2x-1}= \frac{2}{\ctg{x}-\tg{x}}$$
+  $$\ctg2x = \frac{\ctg^2x-1}{2\ctg{x}}= \frac{\ctg{x}-\tg{x}}{2}$$
+
+  \begin{center}\large{\cyr{\textbf{Формули потрійного аргументу (вугла)}}}\end{center} \\
+  \begin{center}
+    \begin{array}{ l c l }
+      \sin{3x}=3\sin{x}-4\sin^3x & & \cos{3x}=4\cos^3{x}-3\cos{x} \\
+      \\
+      \tg{3x}= \dfrac{3\tg{x}-\tg^3{x}}{1-3\tg^2{x}} && \ctg{3x}= \dfrac{\ctg^3x-3\ctgx}{3\ctg^2x-1} \\
+    \end{array}
+  \end{center}
+
+  \begin{center}\large{\cyr{\textbf{Формули половинного аргументу (вугла)}}}\end{center} \\
+  \begin{center}
+    \begin{array}{ l c l }
+      \sin^2 \dfrac{x}{2}= \dfrac{1-\cos{x}}{2} & & \cos^2 \dfrac{x}{2}= \dfrac{1+\cos{x}}{2} \\
+      \\
+      \tg^2 \dfrac{x}{2}= \dfrac{1-\cos{x}}{1+\cos{x}} && \ctg^2 \dfrac{x}{2}= \dfrac{1+\cos{x}}{1-\cos{x}} \\
+      \\
+      \tg \dfrac{x}{2}= \dfrac{1-\cos{x}}{\sin{x}}= \dfrac{sinx}{1+\cos{x}} && \ctg \dfrac{x}{2}= \dfrac{1+\cos{x}}{\sin{x}}= \dfrac{\sin{x}}{1-\cos{x}} \\
+    \end{array}
+  \end{center}
+
+  \begin{center}\large{\cyr{\textbf{Формули квадратів тригонометричних функций}}}\end{center} \\
+
+    \begin{center}
+      \begin{array}{ r c l }
+        \sin^2{x}= \dfrac{1-\cos{2x}}{2} && \cos^2{x}= \dfrac{1+\cos{2x}}{2} \\
+        \\
+        \tg^2{x}= \dfrac{1-\cos{2x}}{1+\cos{2x}} && \ctg^2{x} = \dfrac{1+\cos{2x}}{1-\cos{2x}} \\
+        \\
+        \sin^2 \dfrac{x}{2}= \dfrac{1-\cos{x}}{2} && \cos^2 \dfrac{x}{2}= \dfrac{1+\cos{x}}{2} \\
+        \\
+        \tg^2 \dfrac{x}{2}= \dfrac{1-\cos{x}}{1+\cos{x}} && \ctg^2 \dfrac{x}{2}= \dfrac{1+\cos{x}}{1-\cos{x}} \\
+
+      \end{array}
+    \end{center}
+
+    \begin{center}\large{\cyr{\textbf{Формули 4-тої степені тригонометричних функций}}}\end{center} \\
+    \begin{center}
+      \begin{array}{ r c l }
+        \sin^4x= \dfrac{3-4\cos{2x}+\cos{4x}}{8} && \cos^4x= \dfrac{3+4\cos{2x}+\cos{4x}}{8} \\
+      \end{array}
+    \end{center}
+
+    \begin{center}\large{\cyr{\textbf{Формули кубів тригонометричних функций}}}\end{center} \\
+    \begin{center}
+      \begin{array}{ r c l }
+        \sin^3x= \dfrac{3\sin{x}-\sin{4x}}{4} && \cos^3{x}= \dfrac{3\cos{x}+\cos{3x}}{4} \\
+        \\
+        \tg^3x=  \dfrac{3\sin{x}-\sin{3x}}{3\cos{x}+\cos{3x}} && \ctg^3{x}= \dfrac{3\cos{x}+\cos{3x}}{3\sin{x}-\sin{3x}} \\
+      \end{array}
+    \end{center}
+
+
+
+    \begin{center}\large{\cyr{\textbf{Формули додавання тригонометричних функций}}}\end{center} \\
+
+    \begin{center}
+      \begin{array}{ r c l }
+
+        \sin(\alpha + \beta) = \sin \alpha \cos \beta  + \cos \alpha \sin \beta &&
+        \cos(\alpha + \beta) = \cos \alpha \cos \beta  - \sin \alpha \sin \beta  \\
+        \\
+        \sin(\alpha - \beta) = \sin \alpha \cos \beta  - \cos \alpha \sin \beta &&
+        \cos(\alpha - \beta) = \cos \alpha \cos \beta  + \sin \alpha \sin \beta \\
+        \\
+
+        \tg(\alpha + \beta)= \dfrac{\tg \alpha + \tg \beta}{1 - \tg \alpha \tg \beta} &&
+        \ctg(\alpha + \beta)= \dfrac{\ctg \alpha \ctg \beta -1}{\ctg \alpha + \ctg \beta} \\
+        \\
+        \tg(\alpha - \beta)= \dfrac{\tg \alpha - \tg \beta}{1 + \tg \alpha \tg \beta} &&
+        \ctg(\alpha - \beta)= \dfrac{\ctg \alpha \ctg \beta +1}{\ctg \alpha - \ctg \beta} \\
+
+      \end{array}
+    \end{center}
+
+
+
+    \begin{center}\large{\cyr{\textbf{Формули суми тригонометричних функций}}}\end{center} \\
+    \begin{center}
+      \begin{array}{ r c l }
+
+        \sin\alpha + \sin\beta = 2\sin \dfrac{\alpha + \beta }{2} \cdot \cos \dfrac{\alpha - \beta }{2} &&
+        \cos\alpha + \cos\beta = 2\cos \dfrac{\alpha + \beta }{2} \cdot \cos \dfrac{\alpha - \beta }{2} \\
+        \\
+        \tg\alpha + \tg\beta = \dfrac{\sin(\alpha + \beta) }{\cos \alpha \cos \beta} &&
+        \ctg\alpha + \ctg\beta = \dfrac{\sin(\alpha + \beta) }{\cos \alpha \cos \beta} \\
+        \\
+        (\sin\alpha + \cos\alpha)^2= 1+\sin2\alpha && \\
+
+      \end{array}
+    \end{center}
+
+    \begin{center}\large{\cyr{\textbf{Формули різниці тригонометричних функций}}}\end{center} \\
+    \begin{center}
+      \begin{array}{ r c l }
+      \sin\alpha - \sin\beta = 2\sin \dfrac{\alpha - \beta }{2} \cdot \cos \dfrac{\alpha + \beta }{2} &&
+      \cos\alpha - \cos\beta = -2\sin \dfrac{\alpha + \beta }{2} \cdot \sin \dfrac{\alpha - \beta }{2} \\
+      \\
+      \tg\alpha - \tg\beta = \dfrac{\sin(\alpha - \beta) }{\cos \alpha \cos \beta} &&
+      \ctg\alpha - \ctg\beta =  - \dfrac{\sin(\alpha - \beta) }{\sin \alpha \sin \beta} \\
+      \\
+      (\sin\alpha + \cos\alpha)^2= 1-\sin2\alpha &&  \\
+      \end{array}
+    \end{center}
+
+    \begin{center}\large{\cyr{\textbf{Формули добутку тригонометричних функций}}}\end{center} \\
+
+      $$ \sin\alpha \cdot \sin\beta = \dfrac{\cos(\alpha - \beta)-\cos(\alpha + \beta)}{2} $$
+      $$ \sin\alpha \cdot \cos\beta = \dfrac{\sin(\alpha - \beta)+\sin(\alpha + \beta)}{2} $$
+      $$ \cos\alpha \cdot \cos\beta = \dfrac{\cos(\alpha - \beta)+\cos(\alpha + \beta)}{2} $$
+
+
+      $$\tg\alpha \cdot \tg\beta = \dfrac{\cos(\alpha - \beta)-\cos(\alpha + \beta)}{\cos(\alpha - \beta)+\cos(\alpha + \beta)} = \frac{\tg\alpha + \tg\beta}{\ctg\alpha + \ctg\beta} $$
+
+      $$\ctg\alpha \cdot \ctg\beta = \dfrac{\cos(\alpha - \beta)+\cos(\alpha + \beta)}{\cos(\alpha - \beta)-\cos(\alpha + \beta)} = \frac{\ctg\alpha + \ctg\beta}{\tg\alpha + \tg\beta}$$
+
+      $$\tg\alpha \cdot \ctg\beta = \dfrac{\sin(\alpha - \beta)+\sin(\alpha + \beta)}{\sin(\alpha + \beta)-\sin(\alpha - \beta)}$$
+
+\end{document}
