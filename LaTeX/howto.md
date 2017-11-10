@@ -8,10 +8,12 @@ LaTex
  - RUS (приклади) http://www.ccas.ru/voron/download/voron05latex.pdf
 
 URL
-  - TEX SE https://tex.stackexchange.com/
+  - TEX StackExchange https://tex.stackexchange.com/
+  - LaTeX Help From https://www.sharelatex.com/learn
 
 TEX
   - https://www.latex-project.org/get/
+  - https://www.sharelatex.com/
 
 
 ## Редактор для набору
