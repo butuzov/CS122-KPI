@@ -1,0 +1,99 @@
+\documentclass[a4paper, 16pt, oneside, BCOR=1mm, DIV=12]{scrreprt}
+
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{fancyhdr}
+\usepackage{mathtext}
+\usepackage{amsmath}
+
+\pagenumbering{gobble}
+
+
+\usepackage{array}
+
+
+\begin{document}
+    \begin{center}\normalsize{\cyr{\textbf{Таблиця похідних основних елементів функції}}}\end{center}
+    \hline
+    \begin{center}\normalsize{\cyr{\textbf{Константа}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2 }
+        y = C & y'= 0
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Степеневі функція}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+      y = x & y'= 1 & \qquad\qquad & y = x^a & y' = ax^{a-1} \\
+      \\
+      y = \frac{1}{x} & y' = \frac{1}{x^2} & & y = \sqrt{x} & y' = \frac{1}{2\sqrt{x}}
+      \end{array}
+    \end{center}
+
+
+    \begin{center}\normalsize{\cyr{\textbf{Логарифмічна функція}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+        y = \log_a{x} & y'= \frac{1}{x\ln{a}}  & \qquad\qquad &  y = \ln{x} & y' = \frac{1}{x}
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Тригинометрична функція}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+      y = \sin{x} & y'= \cos{x} & \qquad\qquad & y = \cos{x} & y' = -\sin{x} \\
+      \\
+      y = \tg{x} & y' = \frac{1}{\cos^2{x}} & & y = \ctg{x} & y' = -\frac{1}{\sin^2{x}}
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Зворотньо-тригинометричні функції}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+      % f(x) & f'(x) & \qquad\qquad & f(x) & f'(x) \\
+      % \\
+      y = \arcsin{x} & y'= \frac{1}{\sqrt{1-x^2}} & \qquad\qquad & y = \arccos{x} & y' = -\frac{1}{\sqrt{1-x^2}} \\
+      \\
+      y = \arctg{x} & y' = \frac{1}{1+x^2} & & y = \arcctg{x} & y' = -\frac{1}{1+x^2}
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Гіперболічні функція}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+      % f(x) & f'(x) & \qquad\qquad & f(x) & f'(x) \\
+      % \\
+       y = \seh{x} & y'= \ceh{x} \qquad\qquad & y = \ceh{x} & y'= \seh{x} \\
+       \\
+       y = \teh{x} & y'= \frac{1}{\ceh^2{x}} \qquad\qquad & y = \cteh{x} & y'= -\frac{1}{\seh^2{x}} \\
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Показникова функція}}}\end{center}
+    \begin{center}
+      \begin{array}{ col1 col2 }
+       y = a^x & y'= a^x\ln{a}
+     \end{array}
+    \end{center}
+
+
+    \begin{center}\normalsize{\cyr{\textbf{Експонентціальна функція}}}\end{center}
+    \begin{center}
+      \begin{array}{col1col2col3col4col5}
+        y = e^x & y'= e^x
+      \end{array}
+    \end{center}
+
+    \begin{center}\normalsize{\cyr{\textbf{Сума і різниця, добуток та частка}}}\end{center}
+    \begin{center}
+      \begin{array}{l l c l l}
+      y = u+v & y'= u'+v' & \qquad\qquad & y = u-v & y'= u'-v' \\
+      \\
+      y = u\cdot{v} & y' =u'\cdot{v}+u\cdot{v}'  & & y = \frac{u}{v} & y' = \dfrac{u'\cdot{v}-u\cdot{v}'}{v^2}
+      \end{array}
+    \end{center}
+
+\end{document}
