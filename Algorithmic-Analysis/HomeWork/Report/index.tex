@@ -1,0 +1,56 @@
+\documentclass[a4paper, 10pt, oneside, titlepage]{article}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{scrextend}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+
+
+\pagenumbering{arabic}
+
+\setlength{\parskip}{\baselineskip}
+
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=false,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\scriptsize\ttfamily,
+}
+
+\begin{document}
+\fontsize{13}{18}\selectfont
+
+
+
+  \include{header}
+  \thispagestyle{empty}
+  % \tableofcontents
+  % \pagebreak
+  \setcounter{page}{1}
+
+
+  \include{problem_set_1}
+  \includepdf[pages={1}]{flowchart.pdf}
+
+  %{green} ready!
+  \include{problem_set_2}
+  %{green} ready!
+  \include{problem_set_3}
+  %{green} ready!
+  \include{problem_set_4}
+  %{green} ready!
+  \include{problem_set_5}
+
+\end{document}
