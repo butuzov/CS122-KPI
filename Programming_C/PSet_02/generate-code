@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+import sys, string, re
+
+def get_defaults():
+    return dict({
+        'type':['1d', '2d'],
+        'algorithm': [ 'simple', 'formula' ],
+        'allocation': [ 'static', 'dynamic',],
+        'n':6,
+    })
+
+def help( wellcome ):
+    if wellcome:
+        print("Wellcome to Generate C++ code programme:");
+
+    print("");
+    print("Help:");
+    print("     This program will generate, compille and run C code");
+    print("     which will show 2d matrix to the screen, that is filled");
+    print("     in specific manner (see description of 23rd variant of Problem Set 2)");
+    print("");
+    print("");
+
+    print("Options:");
+    for k, v in get_defaults().items():
+        if type(v) is list:
+            print( "    {:25} // other possible value is {}".format( f"-{k}={v[0]}", v[1]) )
+        else:
+            print( "    {:25} // or you can specify your positive number".format( f"-{k}={v}") )
+
+    print("");
+    print("Examples:");
+
+    print(f"    {func} type=2d n=4");
+    print(f"    {func} type=1d n=9 allocation=static");
+    print(f"    {func} type=2d n=2 allocation=dynamic algorithm=formula");
+
+    print("");
+
+def fput_contents(filename, code):
+    with open(filename, 'w', encoding='utf-8') as pattern:
+        print(code, file=pattern)
+        return True;
+    return None
+
+def fget_contents(filename):
+    with open(filename, 'r', encoding='utf-8') as pattern:
+        return "".join(pattern.readlines())
+
+    return None
+
+def generate_code(args):
+    print("")
+    print("Generating code with next parameters", args)
+    print("")
+
+    try:
+        code = fget_contents("program.cpy")
+
+        # adding N to file
+        code = code.replace( "$N", str(args['n']));
+
+        # defining signature.
+
+
+        # defaults
+        signature = "int";
+        size = "";
+
+        if   args['allocation'] == 'static':
+            size = ["[][N]","[]"][ args['type'] == '1d' ]
+            signature = "int";
+
+            if args['type'] == "1d":
+                matrix_generate = f"{signature} matrix[N*N];";
+            else:
+                matrix_generate = f"{signature} matrix[N][N];";
+
+
+
+        elif args['allocation'] == 'dynamic':
+            # dynamic function signature
+            signature = "int" + ["**","*"][ args['type'] == '1d' ]
+            size = "";
+
+            if args['type'] == "1d":
+                matrix_generate = f"int *matrix = (int *) calloc( N * N,  sizeof( int ) );";
+            else:
+                matrix_generate  = "\n    ".join([
+                    "int** matrix = (int **) calloc( N,  sizeof( int * ) );",
+                    "for (int i = 0; i < N; i++ ){",
+                    "    *(matrix+i) = (int *) calloc( N,  sizeof( int ) );",
+                    "}"
+                ]);
+
+
+        filler = "//nada";
+        if args['algorithm'] == 'simple':
+            filler = "\n    ".join([
+                "for (int row = 0; row < N; row++){",
+                "    for (int col=0,stop=N-row; col < stop; col++){",
+                "        $elem[row][row+col] = col+1;",
+                "    }",
+                "    for (int col=0; col < row; col++){",
+                "        $elem[row][col] = $elem[col][row];",
+                "    }"
+              "}"
+            ]);
+        else:
+            filler = "\n    ".join([
+                "for ( int i = 0, total=N*N; i < total; i++ ) {",
+                "    int row   = i / N;",
+                "    int col   = i % N;",
+                "    int index = row * N + col ;",
+                "   $elem[row][col] = 1 + abs( (row * N + row) - index );",
+                "}"
+            ]);
+
+
+        code = code.replace( "$filler", filler);
+        code = code.replace( "$signature", signature);
+        code = code.replace( "$size", size);
+        code = code.replace( "$matrix_generate", matrix_generate);
+
+
+        types = dict({
+            "static"  : [
+                "matrix[(({}*N) + ({}))]",
+                "matrix[{}][{}]"
+            ],
+            "dynamic" : [
+                "*(matrix + ({}*N) + ({}) )",
+                "*( *( matrix + {} ) + ({}) )"
+            ],
+        });
+
+        for item in re.findall(r"(\$elem\[(.*?)\]\[(.*?)\])", code):
+            pattern = types.get(args['allocation'])[ args['type'] == '2d'];
+            code = code.replace(item[0], pattern.format(item[1], item[2]));
+
+
+        fput_contents( f"problem_2_v23_{args['type']}_{args['allocation']}_{args['n']}_{args['algorithm']}.cpp", code);
+
+    except:
+        raise BaseException
+
+
+if __name__ == '__main__':
+
+    func = sys.argv[0];
+    del sys.argv[0];
+
+    defaults = get_defaults();
+
+    for val in sys.argv:
+        if val == "help":
+            help(True);
+            exit(0);
+        elif "=" in val:
+            key, arg = val.split("=");
+            key = key.lower()
+            arg = arg.lower()
+
+            keyStorage = defaults.get(key, None);
+
+            # не відомий ключ передано
+            if keyStorage == None:
+                print( f"\nError: Unknown Key \"{key}\" Specified.")
+                help(False)
+                exit(1)
+            elif type(keyStorage) is list and arg not in keyStorage:
+                print("\nError: Value doesn't looks correct.")
+                help(False)
+                exit(2)
+            elif type(keyStorage) is int:
+                try:
+                    arg = int(arg);
+                except Exception:
+                    print("\nError: Value doesn't looks correct. Try providing integer instead")
+                    help(False)
+                    exit(2)
+
+
+        # final value assignment
+        defaults[key] = arg
+
+    # reseting values.
+    for k,i in defaults.items():
+        if type(i) is list:
+            defaults[k] = i[0]
+
+
+
+
+    try:
+        generate_code(defaults)
+    except:
+        print("\nError: Unknown error happend")
+        help(False)
+        exit(3)
