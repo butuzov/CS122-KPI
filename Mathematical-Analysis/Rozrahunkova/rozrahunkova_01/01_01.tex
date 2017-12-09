@@ -1,0 +1,31 @@
+\descr[2]{\textbf{Завдання}: Знайти $a=\Lim{n\to\infty}{a_n}$ і визначити номер $N(\epsilon)$ такий що $|a_n-a| < \epsilon$ \forall $n>N(\epsilon)$, якщо a $a_n = \dfrac{2n+5}{3n+5}$.}
+
+$$
+  a_n \dfrac{2n+5}{3n+5} \to \dfrac{2}{3} \qquad \text{тому що} \qquad \lim_{x \to \infty} \dfrac{2n+5}{3n+5} = \dfrac{2}{3}
+$$
+
+\begin{center}
+  |a| розкривається як
+  \begin{cases}
+    -a, \qquad a < 0 \\
+    \ \ 0, \qquad a = 0 \\
+    +a, \qquad a > 0 \\
+    \end{cases}
+  \end{center}
+
+
+
+$$
+  \varepsilon > \dfrac{2n+5}{3n+5} - ( + \dfrac{2}{3} )  \Leftrightarrow
+  \varepsilon > \dfrac{3(2n+5)-2(3n+5)}{3(3n+5)} \Leftrightarrow
+  \varepsilon > \dfrac{6n+15-6n-10}{3(3n+5)} \Leftrightarrow
+  \varepsilon > \dfrac{5}{9n+5}
+$$
+
+$$
+  n > \dfrac{5}{9\varepsilon} - \dfrac{15}{9} \Leftrightarrow
+  n > \dfrac{5-15 \varepsilon}{9\varepsilon} + 1
+$$
+
+
+\setstretch{3}Візьмемо, наприклад, $\epsilon = 0,0001$. Тоді $N(\epsilon) = \dfrac{5-5  \cdot  0.0001}{(9 \cdot 0.0001)} = 5555 $ . Це означає, що, починаючи з номера $n=5556$  всі наступні члени послідовності $ \Bigg\{\dfrac{2n+5}{3n+5} \Bigg\} $ будуть знаходитись в 0,0001-околі точки $\dfrac{2}{3}$.\setstretch{1}

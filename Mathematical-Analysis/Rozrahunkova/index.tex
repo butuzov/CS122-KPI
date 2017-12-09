@@ -1,0 +1,104 @@
+\documentclass[a4paper, 12pt, oneside, titlepage, BCOR=1mm, DIV=12]{article}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{mathtext}
+\usepackage{scrextend}
+\usepackage{eqnarray,amsmath,amssymb}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{{$\displaystyle \lim_{#1}\;$}}}
+
+
+% checkboxes! щоб перевіряти чи правильно
+
+\renewcommand{\d}[1]{
+  \hspace{2pt}\text{d}\hspace{1pt}{#1}
+}
+
+\newcommand{\dx}{\hspace{2pt}\text{ERRROR}}
+\newcommand{\dt}{\hspace{2pt}\text{ERRROR}}
+\newcommand{\du}{\hspace{2pt}\text{ERRROR}}
+\newcommand{\dv}{\hspace{2pt}\text{ERRROR}}
+\newcommand{\dw}{\hspace{2pt}\text{ERRROR}}
+
+\definecolor{orange}{RGB}{255,65,0}
+\definecolor{red}{RGB}{255,0,0}
+\definecolor{gray}{RGB}{190,190,190}
+\definecolor{green}{RGB}{0,128,0}
+
+\newcommand{\task}[2]{
+  % pre print option
+  % \framebox[4cm]{ \par $\square$ {\color{#1}#2} }
+
+  % e-paper check boxes
+  \framebox[4cm]{ \par \hspace*{-.3cm}{\CheckBox[width=10pt,height=10pt,bordercolor=0 0 0,name=#2]{\null}} {\color{#1}#2}} }
+}
+\newcommand{\descr}[2][.5]{
+    %\begin{addmargin}[3.5cm]{0cm}
+    {\color{white}\fbox{
+        \parbox[c][#1cm][l]{.7\textwidth}{
+          {\color{black}#2}
+        }
+      }
+    }
+
+    %\end{addmargin}
+}
+
+
+
+
+
+\begin{document}
+
+
+  % \begin{center}
+  %   \Large{\cyr{\textbf{Математичний Аналіз - Практичний варіант}}} \\
+  % \end{center}
+
+  % Границі та похідні
+  %
+  \include{header}
+  Загальне
+  \input{general.tex}
+  Розрахункова робота - 1
+  \input{rozrahunkova_01/general.tex}
+  \pagebreak
+
+  {\task{green}{В4 - РР1 - 01.01}} \input{rozrahunkova_01/01_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.01}} \input{rozrahunkova_01/02_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.02}} \input{rozrahunkova_01/02_02.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.03}} \input{rozrahunkova_01/02_03.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.04}} \input{rozrahunkova_01/02_04.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.05}} \input{rozrahunkova_01/02_05.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.06}} \input{rozrahunkova_01/02_06.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.07}} \input{rozrahunkova_01/02_07.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.08}} \input{rozrahunkova_01/02_08.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.09}} \input{rozrahunkova_01/02_09.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 02.10}} \input{rozrahunkova_01/02_10.tex} \\ \qquad \\
+
+  {\task{green}{В4 - РР1 - 03.01}} \input{rozrahunkova_01/03_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 04.01}} \input{rozrahunkova_01/04_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 04.02}} \input{rozrahunkova_01/04_02.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.01}} \input{rozrahunkova_01/05_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.02}} \input{rozrahunkova_01/05_02.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.03}} \input{rozrahunkova_01/05_03.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.04}} \input{rozrahunkova_01/05_04.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.05}} \input{rozrahunkova_01/05_05.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.06}} \input{rozrahunkova_01/05_06.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 05.07}} \input{rozrahunkova_01/05_07.tex} \\ \qquad \\
+
+  {\task{green}{В4 - РР1 - 06.01}} \input{rozrahunkova_01/06_01.tex} \\ \qquad \\
+  {\task{green}{В4 - РР1 - 07.01}} \input{rozrahunkova_01/07_01.tex} \\ \qquad \\
+  {\task{gray}{В4 - РР1 - 07.02}} \input{rozrahunkova_01/07_02.tex} \\ \qquad \\
+
+
+
+\end{document}

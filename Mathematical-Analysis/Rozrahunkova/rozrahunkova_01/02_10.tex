@@ -1,0 +1,22 @@
+{\descr{Знайти Границю функції}}
+
+$$
+  \lim_{x\to\+0} (-\ln{x})^{\sin{x}}
+= \lim_{x\to\+0} e^{\ln{(-\ln{x})^{\sin{x}}}}
+= \lim_{x\to\+0} e^{\sin{x} \ln{(-\ln{x})} }
+= \lim_{x\to\+0} e^{\dfrac{\ln{(-\ln{x})}}{\dfrac{1}{\sin{x}}}}
+$$
+
+$$
+= \lim_{x\to\+0} e^{\dfrac{(\ln{(-\ln{x})})'}{(\dfrac{1}{\sin{x}})'}}
+= e^{\Lim{x\to0}{\dfrac{-\dfrac{1}{\ln{x}}\cdot{(-\ln{x})'}}{\dfrac{-\cos{x}}{(\sin{x})^2}}}}
+= e^{\Lim{x\to0}{ \dfrac{-\dfrac{1}{\ln{x}}\cdot{-\dfrac{1}{x}}}{\dfrac{-\cos{x}}{(\sin{x})^2}} }}
+$$
+$$
+= e^{\Lim{x\to 0}{ -\dfrac{\dfrac{1}{x\ln{x}}}{ \dfrac{\cos{x}}{\sin^2{x}} } }}
+= e^{\Lim{x\to{0}}{-\dfrac{\sin^2{x}}{x\ln{x}\cos{x}}}}
+= e^{(\Lim{x\to{0}}{-\dfrac{\sin{x}}{\ln{x}}}){\Lim{x\to{0}}{\dfrac{\sin{x}}{x}}}{\Lim{x\to{0}}{\dfrac{1}{\cos{x}}}}}
+$$
+$$
+  e^{0 \cdot 1 \cdot 1} = e^0 = 1.
+$$

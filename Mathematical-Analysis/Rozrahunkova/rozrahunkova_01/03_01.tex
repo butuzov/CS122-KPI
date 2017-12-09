@@ -1,0 +1,25 @@
+{\descr{Визначити порядок малості}}
+
+\setstretch{2}Визначити порядок малості нескінченно малої $\alpha{(x)}$ відносно $\beta{(x)}$ при $x\to0$ якщо $\alpha{(x)} = \sin3x - \sin{x}$ ,  $\beta{(x)} = 5x$
+
+\setstretch{2}Для того щоб визначити порядок малості $\alpha{(x)}$ відносно $\beta{(x)}$, треба
+встановити, при якому числу $k$ границя $\lim \dfrac{\alpha{(x)}}{(\beta{(x)})^k}$ буде дорівнювати числу, відмінному від нуля.
+
+$$
+ \lim_{x\to0} \dfrac{\sin3x-\sin{x}}{(5x)^k} =
+ \Bigg |
+    \begin{array}{lcl l}
+      \sin {\alpha} & \sim & \alpha & \alpha \to 0 \\
+      \sin 3x & \sim & 3x & \alpha \to 0 \\
+      \sin x & \sim & x & \alpha \to 0 \\
+    \end{array}
+ \Bigg | =
+ \lim_{x\to0} \dfrac{3x-x}{(5x)^k} = \lim_{x\to0} \dfrac{2x}{(5x)^k} =
+ \big |
+  \begin{array}{l}
+    k=1
+  \end{array}
+ \big | = \dfrac{2}{5}
+$$
+
+$$\alpha{(x)} {\text{ \ і \ }} \beta{(x)} \ {\text{безкінечно малі одного порядку}}$$.

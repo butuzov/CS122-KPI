@@ -1,0 +1,49 @@
+{\descr{Знайти Границю функції}}
+
+\begin{displaymath}
+  \lim_{x\to{\dfrac{\pi}{4}}} \dfrac{(1-sin2x)}{(\pi-4x)^2}
+    = \Big[ \dfrac{0}{0} \Big]
+    = \Bigg |
+        \begin{array}{ll}
+          t = x - \pi/4, & t \to 0 \\
+          x = t + \pi/4
+        \end{array}
+      \Bigg |
+    = \lim_{t\to0}} \dfrac{(1-\sin{(2t + \dfrac{2\pi}{4})})}{(\pi-4(t+\dfrac{\pi}{4}))^2}
+\end{displaymath}
+
+% $$
+%   \lim_{x\to{\pi/4}} \dfrac{(1-sin2x)}{(\pi-4x)^2}
+% = \lim_{x\to{\pi/4}} \dfrac{(1-sin2x)'}{((\pi-4x)^2)'}
+% = \lim_{x\to{\pi/4}} \dfrac{1'-(sin2x)'}{(2(\pi-4x))'}
+% $$
+
+
+% \hline
+
+$$
+  \lim_{t\to0}} \dfrac{(1-\sin{(2t + \dfrac{2\pi}{4})})}{(\pi-4(t+\dfrac{\pi}{4}))^2}
+= \lim_{t\to0}} \dfrac{(1-\sin{(2t + \dfrac{\pi}{2})})}{(\pi-4t-\pi{4})^2}
+$$
+
+$$
+  \lim_{t\to0}} \dfrac{(1-(\sin{2t}\cos{\dfrac{\pi}{2}}+\cos{2t}\sin{\dfrac{\pi}{2}}))}{(4t)^2}
+  = \Bigg |
+      \begin{array}{ll}
+        \sin{\pi/2} = 1 \\
+        \cos{\pi/2} = 0
+      \end{array}
+    \Bigg |
+= \lim_{t\to0}} \dfrac{1-\cos{2t}}{16t^2} = \lim_{t\to0}} \dfrac{(1-\cos{2t})'}{(16t^2)'} =
+$$
+
+$$
+\lim_{t\to0}} \dfrac{-\sin2t(2t)'}{32t} = - \lim_{t\to0}} \dfrac{2\sin{2t}}{32t} = |
+      \sin{2t} \sim 2t, t \to 0 | = - \lim_{t\to0}} \dfrac{4t}{32t} = -\dfrac{1}{8}
+$$
+
+
+%
+% $$
+% \dfrac{1}{8}
+% $$

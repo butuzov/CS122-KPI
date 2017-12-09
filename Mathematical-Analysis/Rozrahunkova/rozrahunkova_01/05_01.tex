@@ -1,0 +1,34 @@
+{\descr{Знайти похідну функції:}}
+
+$$
+  y = \dfrac{1}{2}\ln(e^{2x}+1)+\tg{e^x}
+$$
+
+$$
+  y' = \dfrac{1}{2}(\ln(e^{2x}+1))'+(\tg{e^x})'
+     = \ln(e^{2x}+1)\cdot(e^{2x}+1)' + \dfrac{1}{\cos e^x} (e^x)'
+     = \ln(e^{2x}+1)\cdot(e^{2x}\cdot(2x)') + \dfrac{1}{\cos e^x} e^x
+$$
+$$
+  y' = \ln(e^{2x}+1) 2e^{2x} + \frac{e^x}{\cos e^x}
+$$
+
+% $$
+%   1)
+%   \begin{array}{lcl}
+%     u & = & \ln(e^{2x}+1) \\
+%     u'& = & (\ln(e^{2x}+1))' \\
+%         & & \ln(e^{2x}+1)\cdot(e^{2x}+1)' \\
+%         & & \ln(e^{2x}+1)\cdot(e^{2x}\cdot(2x)') \\
+%         & & \ln(e^{2x}+1)\cdot 2e^{2x}
+%     \end{array}
+%   2)
+%   \begin{array}{lcl}
+%     v & = & \tg{e^x} \\
+%     v'& = & (\tg{e^x})' \\
+%         & & \frac{1}{\cos e^x} (e^x)' \\
+%         & & \frac{1}{\cos e^x} e^x \\
+%         & & \frac{e^x}{\cos e^x}
+%
+%     \end{array}
+% $$

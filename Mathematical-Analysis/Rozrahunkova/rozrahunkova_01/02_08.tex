@@ -1,0 +1,26 @@
+{\descr{Знайти Границю функції}}
+
+$$
+  \lim_{x\to{0}} \dfrac{6^x-3^{2x}}{\arctg{4x}-\sin{x}} = \big[ \dfrac{1-1}{0+0}\big] = \big[ \dfrac{0}{0}\big] = \Bigg |
+    \begin{array}{rcll}
+        \sin{\alpha}   & \sim & \alpha & , \alpha \to 0 \\
+        \arctg{\alpha} & \sim & \alpha & , \alpha \to 0 \\
+        \alpha^x-1 & \sim & x\ln\alpha & , \alpha \to 0 \\
+      \end{array}
+  \Bigg | = \lim_{x\to{0}} \dfrac{(6^x-1)-(3^{2x}-1)}{\arctg{4x}-\sin{x}}
+$$
+
+
+$$
+\lim_{x\to{0}} \dfrac{(6^x-1)-(3^{2x}-1)}{\arctg{4x}-\sin{x}}
+= \lim_{x\to{0}} \dfrac{x\ln{6}-2x\ln{3}}{4x-x}
+= \lim_{x\to{0}} \dfrac{x\ln{6}}{3x} - \lim_{x\to{0}} \dfrac{2x\ln{3}}{3x}
+= \dfrac{\ln{6}}{3} \lim_{x\to{0}} \dfrac{x}{x} - \dfrac{2\ln{3}}{3} \lim_{x\to{0}} \dfrac{x}{x}
+$$
+
+$$
+= \dfrac{\ln{6}}{3}  - \dfrac{2\ln{3}}{3}
+= \dfrac{1}{3}(\ln{6} - \ln{9})
+= \dfrac{1}{3}\ln{\dfrac{6}{9}}
+= \dfrac{1}{3}\ln{\dfrac{2}{3}}.
+$$

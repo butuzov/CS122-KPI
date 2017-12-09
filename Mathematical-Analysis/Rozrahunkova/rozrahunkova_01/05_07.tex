@@ -1,0 +1,41 @@
+{\descr{Знайти похідну функції:}}
+
+\begin{displaymath}
+  \left\{\begin{array}{rl}
+    x =& \dfrac{1}{t+2} \\
+    y =& \dfrac{t^2}{(t+2)^2}
+  \end{array} \qquad y'_x=? \qquad y''_xx=?
+\end{displaymath}
+
+$$
+  y'_x=\dfrac{y'}{x'} \qquad y''_xx=\dfrac{y'_x}{x'}
+$$
+
+$$
+  x' = \Big(\dfrac{1}{t+2}\Big)' = \dfrac{1}{(t+2)^2}(t+2)' = \dfrac{1}{(t+2)^2}
+$$
+
+$$
+  y' = \Big(\dfrac{t^2}{(t+2)^2}\Big)'
+     = \dfrac{(t^2)'(t+2)^2-(t^2)((t+2)^2)'}{(t+2)^4}
+     = \dfrac{2t(t+2)^2-2t^2(t+2)}{(t+2)^4}
+     = \dfrac{(2t(t+2)-2t^2)(t+2)}{(t+2)^4}
+$$
+$$
+  y' = \dfrac{2t(t+2)-2t^2}{(t+2)^3} = \dfrac{2t((t+2)-t)}{(t+2)^3}= \dfrac{4t}{(t+2)^3}
+$$
+
+$$
+  y'_{x}
+    = \dfrac{y'}{x'}
+    = \dfrac{\dfrac{4t}{(t+2)^3}}{\dfrac{1}{(t+2)^2}}
+    = \dfrac{4t(t+2)^2}{(t+2)^3}
+    = \dfrac{4t}{t+2}
+$$
+
+$$
+  y''_{xx} = \dfrac{(y'_{x})'}{x'}
+    = \dfrac{\Big(\dfrac{4t}{t+2}\Big)'}{\dfrac{1}{(t+2)^2}}
+    = (t+2)^2 \dfrac{(4t)'(t+2)-(4t)(t+2)'}{(t+2)^2}
+    = \dfrac{(4t+8-4t)(t+2)^2}{(t+2)^2} = 8
+$$

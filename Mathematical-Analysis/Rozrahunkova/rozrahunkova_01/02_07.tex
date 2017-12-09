@@ -1,0 +1,42 @@
+{\descr{Знайти Границю функції}}
+
+$$
+  \lim_{x\to0}(\cos{\pi{x}})^{\dfrac{1}{x\sin{x}}}
+= \lim_{x\to0}(1+\cos{\pi{x}}-1)^{\dfrac{1}{x\sin{x}}}
+= \lim_{x\to0}\Bigg[ (1+\cos{\pi{x}}-1) \Bigg]^{\dfrac{1}{x\sin{x}}}
+$$
+$$
+= \lim_{x\to0}\Bigg[ (1+\cos{\pi{x}}-1)^{\dfrac{1}{\cos{\pi{x}}-1}} \Bigg]^{\dfrac{1}{x\sin{x}}\dfrac{\cos{\pi{x}}-1}{1}}
+= e^{\lim_{x\to0}{\dfrac{\cos{\pi{x}}-1}{x\sin{x}}}}
+$$
+$$
+= e^{\Lim{x\to0}{\dfrac{\cos{\pi{x}}-1}{x\sin{x}}}}
+= e^{\Lim{x\to0}{\dfrac{(\cos{\pi{x}}-1)'}{(x\sin{x})'}}}
+= e^{\Lim{x\to0}{\dfrac{-\sin{\pi{x}}(\pi{x})'}{(x)'\sin{x}+x(\sin{x})'}}}
+$$
+$$
+= e^{\Lim{x\to0}{\dfrac{-\pi\sin{\pi{x}}}{\sin{x}+x\cos{x}}}}
+= e^{\pi \Lim{x\to0}{\dfrac{-\sin{\pi{x}}}{\sin{x}+x\cos{x}}}}
+$$
+
+$$
+\Bigg |
+\begin{array}{lcr}
+      \sin{\alpha} \sim \alpha  & , & \alpha \to 0 \\
+      \cos{\alpha} \sim 1-\dfrac{\alpha^2}{2} & , & \alpha \to 0
+    \end{array}
+\Bigg |
+$$
+
+$$
+= e^{\pi \Lim{x\to0}{ \dfrac{-(\pi{x})'}{(\sin{x}+(x\cos{x}))'}}}
+= e^{\pi \Lim{x\to0}{ \dfrac{-\pi}{(\cos{x}+(\cos{x}-x\sin{x}))}}}
+= e^{\dfrac{-\pi^2}{\Lim{x\to0}{2\cos{x}-x\sin{x}}}
+$$
+
+$$
+= e^{\dfrac{-\pi^2}{\Lim{x\to0}{2(1+\dfrac{x^2}{2})-x^2}}}
+= e^{\dfrac{-\pi^2}{\Lim{x\to0}{2+\dfrac{2x^2}{2}-x^2}}}
+= e^{\dfrac{-\pi^2}{\Lim{x\to0}{2+x^2-x^2}}}
+= e^{\dfrac{-\pi^2}{2}}.
+$$
