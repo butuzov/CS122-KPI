@@ -1,0 +1,34 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int (x+5)\ln{x}\d{x} =
+  \Bigg|
+    \begin{array}{r l r l   }
+        u  & = \ln{x} & v & = \dfrac{x^2}{2}+5x \\
+        u' & = \dfrac{1}{x} & v' & = x+5  \\
+      \end{array}
+  \Bigg|
+$$
+
+
+$$
+  \int (x+5)\ln{x}\d{x}
+= \ln{x} (\dfrac{x^2}{2}+5x) - \int (\dfrac{x^2}{2}+5x) \dfrac{1}{x} \d{x}
+$$
+$$
+= \ln{x} (\dfrac{x^2}{2}+5x) - \int \dfrac{x^2+10x}{2x}\d{x}
+= \ln{x} (\dfrac{x^2}{2}+5x) - \dfrac{1}{2}\int \dfrac{x(x+10)}{x}\d{x}
+$$
+
+$$
+= \ln{x} (\dfrac{x^2}{2}+5x) - \dfrac{1}{2} ( \int x\d{x} + \int 10\d{x} )
+= \ln{x} (\dfrac{x^2}{2}+5x) - \dfrac{1}{2} ( \dfrac{x^2}{2} + 10x) + C
+$$
+
+$$
+= \ln{x} (\dfrac{x^2}{2}+5x) - ( \dfrac{x^2}{4} + 5x) + C
+= 5x\ln{x} + \dfrac{x^2}{2}\ln{x} - \dfrac{x^2}{4} - 5x + C
+= 5x(\ln{x}-1) + \dfrac{1}{2}(\ln{x}-\dfrac{1}{2}) + C
+$$
+
+$$\boxed{5x(\ln{x}-1) + \dfrac{1}{2}(\ln{x}-\dfrac{1}{2}) + C}$$

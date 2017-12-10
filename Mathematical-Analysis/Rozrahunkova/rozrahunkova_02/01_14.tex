@@ -1,0 +1,46 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \dfrac{\d{x}}{4+\cos{x}}
+  \Bigg|
+    \begin{array}{rl rl}
+      t = & \tg{\dfrac{x}{2}}  & \d{x}= & \dfrac{2\d{t}}{1+t^2} \\
+      \\
+      x = & 2\arctg{x} & \cos{x} = & \dfrac{1-t^2}{1+t^2}
+    \end{array}
+  \Bigg| = \int \dfrac{1}{4+\dfrac{1-t^2}{1+t^2}} \cdot \dfrac{2\d{t}}{1+t^2}
+$$
+
+$$
+  \int \dfrac{2\d{t}}{\dfrac{(4(1+t^2)+(1-t^2))(1+t^2)}{1+t^2}}
+= 2 \int \dfrac{\d{t}}{(4(1+t^2)+(1-t^2))}
+= 2 \int \dfrac{\d{t}}{(4+4t^2+1-t^2)}
+= 2 \int \dfrac{\d{t}}{5+3t^2}
+$$
+
+$$
+= \dfrac{2}{5} \int \dfrac{\d{t}}{\dfrac{5}{5}+\dfrac{3t^2}{5}}
+= \dfrac{2}{5} \int \dfrac{\d{t}}{\dfrac{3t^2}{5}+1} \Bigg|
+    \begin{array}{rl rl}
+      u = & \sqrt{3/5} t          &  \d{t} = & (t)'\d{u} \\
+      \\
+      t = & \dfrac{u}{\sqrt{3/5}} &  \d{t} = & \dfrac{\d{u}}{ \sqrt{3/5} } \\
+    \end{array}
+  \Bigg| = \dfrac{2}{5} \int \dfrac{\d{u}}{(u^2+1)(\sqrt{\dfrac{3}{5}})}
+$$
+
+$$
+  \dfrac{2}{5} \cdot \dfrac{1}{\sqrt{\dfrac{3}{5}}} \int \dfrac{\d{u}}{u^2+1}
+= \dfrac{2}{\sqrt{\dfrac{25}{1}}} \cdot \dfrac{1}{\sqrt{\dfrac{3}{5}}} \int \dfrac{\d{u}}{u^2+1}
+= \dfrac{1}{\sqrt{\dfrac{75}{5}}} \int \dfrac{\d{u}}{u^2+1}
+$$
+
+$$
+  \dfrac{2}{\sqrt{15}}\arctg{u} + C
+= \dfrac{2}{\sqrt{15}}\arctg{\sqrt{\dfrac{3}{5}}t} + C
+= \dfrac{2}{\sqrt{15}}\arctg{\sqrt{\dfrac{3}{5}} \tg{\dfrac{x}{2}}} + C.
+$$
+
+$$
+\boxed{\dfrac{2}{\sqrt{15}}\arctg{\sqrt{\dfrac{3}{5}} \tg{\dfrac{x}{2}}} + C}
+$$

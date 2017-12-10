@@ -1,0 +1,22 @@
+{\descr{Обчислити визначений інтеграл}}
+
+$$
+  \int^{-1}_{-2} \sqrt{2-7x}\d{x} = \Bigg |
+    \begin{array}{l c l l l }
+      t = 2-7x           & & \d{x} = (x)'dt  & x_2 = -1 & t_2 = 9 \\
+      x = (2-t)/7 & & \d{x} = (2/7 - t/7)' = \dfrac{dt}{7} & x_1 = -2 & t_1 = 16 \\
+    \end{array}
+  \Bigg | =
+  \int^{9}_{16} \sqrt{t} \dfrac{dt}{7}
+$$
+
+$$
+  \dfrac{1}{7} \cdot \dfrac{t^{1/2+1}}{1/2+1} \Bigg |^9_{16} =
+  \dfrac{3\sqrt{t^3}}{14} \Bigg |^9_{16} = \dfrac{3}{14} ( \sqrt{9^3} - \sqrt{16^3} ) =
+  \dfrac{3}{14} ( \sqrt{3^{2+3}} - \sqrt{4^{2+3}} ) =
+  \dfrac{3}{14} ( 3^3 - 4^3 ) = \dfrac{3(27-64)}{14} = 7 \dfrac{13}{14}.
+$$
+
+$$
+\boxed{7 \dfrac{13}{14}}
+$$

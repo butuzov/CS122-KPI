@@ -1,0 +1,48 @@
+{\descr{Обчислити невласний інтеграл або довести розбіжність}}
+
+$$
+  \int^\infty_1 \dfrac{\sqrt{x}}{x+1}\d{x}
+= \lim_{A \to +\infty} \int^A_1 \dfrac{\sqrt{x}}{x+1}\d{x}
+$$
+
+Спочатку спрощуємо інтеграл (для підстановки), а потім знаходимо різницю границь.
+
+$$
+\int^\infty_1 \dfrac{\sqrt{x}}{x+1}\d{x} =
+ \Bigg|
+  \begin{array}{rl rl}
+    t & = \sqrt{x} & \d{x} & = (x)'\d{t} \\
+    x & = t^2 & \d{x} & = 2t\d{t}
+    \end{array}
+ \Bigg| = \int^\infty_1 \dfrac{2t \cdot t }{t^2+1}\d{t}
+$$
+$$
+  2 \int \dfrac{t^2}{t^2+1}\d{t}
+= 2 \int \dfrac{t^2+1 - 1}{t^2+1}\d{t}
+= 2 \Bigg( \int \dfrac{t^2+1}{t^2+1}\d{t}  - \int \dfrac{1}{t^2+1}\d{t} \Bigg)
+$$
+
+$$
+= 2 \Bigg( \int\d{t}  - \int \dfrac{1}{t^2+1}\d{t} \Bigg)
+= 2 \Bigg( t - \arctg{t} \Bigg) + C
+= 2\sqrt{x} - 2\arctg{\sqrt{x}} + C
+$$
+
+Переходимо, власне, до підстановки:
+
+$$
+   \lim_{A \to \infty} \int^{A}_1 \dfrac{\sqrt{x}}{x+1}\d{x}
+= (\lim_{x \to \infty} 2\sqrt{x} - 2\arctg{\sqrt{x}} ) - (\lim_{x \to 1} 2\sqrt{x} - 2\arctg{\sqrt{x}} )
+$$
+$$
+= (\lim_{x \to \infty} 2\sqrt{x} - \lim_{x \to \infty} 2\arctg{\sqrt{x}} ) - (\lim_{x \to 1} 2\sqrt{x} - \lim_{x \to 1} 2\arctg{\sqrt{x}} )
+$$
+$$
+= (2\lim_{x \to \infty} \sqrt{x} - 2\lim_{x \to \infty} \arctg{\sqrt{x}} ) - (2\lim_{x \to 1} \sqrt{x} - 2\lim_{x \to 1} \arctg{\sqrt{x}} )
+$$
+$$
+= (2 \cdot \infty - 2 \cdot \dfrac{\pi}{2} ) - (2 \cdot 1 - 2 \cdot \dfrac{\pi}{4} )
+= (\infty - \pi ) - (2 - \dfrac{\pi}{2} )
+$$
+
+Маємо ситуацію розбіжності інтегралів, тому що 1-ий (одна з границь) прямує в безмежність.

@@ -1,0 +1,52 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \dfrac{2x^4-9x^2-1}{x^3-7x-6}\d{x} = \int \dfrac{2x^4-9x^2-1}{(x+1)(x+2)(x-3)}\d{x}
+$$
+
+Розкладаємо многочлен:
+
+\begin{center}
+  \begin{tabular}{r r | l}
+      & 2x^4-9x^2+0x-1   & x^3-7x-6 \\ \cline{3-1}
+    - & 2x^4-14x^2-12x+0 & 2x       \\ \cline{2-1}
+      &   5x^2+12x-1 & \\
+
+  \end{tabular}
+\end{center}
+
+В свою чергу розкладаємо многочлен що залишився:
+
+$$
+  \dfrac{5x^2+12x-1}{(x+1)(x+2)(x-3)}
+    = \dfrac{A}{x+1} + \dfrac{B}{x+2} + \dfrac{C}{x-3}
+    = \dfrac{A(x+2)(x-3)+B(x+1)(x-3)+C(x+1)(x+2)}{(x+1)(x+2)(x-3)}
+$$
+
+$$
+5x^2+12x-1 = A(x^2-3x+2x-6)+B(x^2-3x+x-3)+C(x^2+2x+1x+2)
+$$
+
+
+$$
+  \begin{array}{r|c|r}
+    x^2 & 5  & A+B+C      \\
+    x^1 & 12  & -A-2B+3B  \\
+    x^0 & -1  & -6A-3B+2C \\
+    \end{array}
+    \hspace{2pt}
+    {\text{з чого виходить що}}
+    \hspace{2pt}
+    A=2, B=-1, C=4
+$$
+
+З чого (після підстановки) отримуємо спрощений інтеграл:
+
+$$
+   \int 2x + \dfrac{2}{x+1} - \dfrac{1}{x+2} + \dfrac{4}{x-3}  \d{x}
+= 2\int x \d{x} + 2 \int \dfrac{\d{x}}{x+1} - \int \dfrac{\d{x}}{x+2} + 4 \int \dfrac{\d{x}}{x-3}
+$$
+
+$$
+\boxed{x^2 + 2 \ln{|x+1|} - \ln{|x+2|} + 4\ln{|x-3|} + C}.
+$$

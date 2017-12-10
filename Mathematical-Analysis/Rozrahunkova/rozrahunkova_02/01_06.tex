@@ -1,0 +1,49 @@
+{\descr{Знайти Інтеграл}}
+
+
+$$
+  \int \dfrac{x\d{x}}{\sqrt{x^2+3x-1}}
+= \int \dfrac{x\d{x}}{\sqrt{(x+\dfrac{3}{2})^2-\dfrac{13}{4}}}
+= \Bigg |
+  \begin{array}{rrrl}
+    t = & x + \dfrac{3}{2} & \d{x} =& (x)'\d{t}\\
+    \\
+    x = & t - \dfrac{3}{2} & \d{x} =& \d{t}\\
+  \end{array}
+\Bigg |
+= \int \dfrac{t-\dfrac{3}{2}}{\sqrt{t^2-\dfrac{13}{4}}} \d{t}
+$$
+
+$$
+\int \dfrac{t\d{t}}{\sqrt{t^2-\dfrac{13}{4}}}  - \int \dfrac{\dfrac{3}{2}\d{t}}{\sqrt{t^2-\dfrac{13}{4}}}
+= \int \dfrac{t\d{t}}{\sqrt{t^2-\dfrac{13}{4}}}  - \dfrac{3}{2} \int \dfrac{\d{t}}{\sqrt{t^2-\dfrac{13}{4}}}
+=
+$$
+
+Окремо проінтегруємо обидва інтеграли:
+
+$$
+1)  \int \dfrac{t\d{t}}{\sqrt{t^2-\dfrac{13}{4}}}
+= \int (t^2-\dfrac{13}{4})^{-\dfrac{1}{2}} \cdot t\d{t}
+= \dfrac{2}{2} \int (t^2-\dfrac{13}{4})^{-\dfrac{1}{2}} \cdot t\d{t}
+= \dfrac{1}{2} \int (t^2-\dfrac{13}{4})^{-\dfrac{1}{2}} \cdot 2t\d{t}
+$$
+
+$$
+= \dfrac{1}{2} \int (t^2-\dfrac{13}{4})^{-\dfrac{1}{2}} \cdot \d{(t^2-\dfrac{13}{4})}
+= \dfrac{2 \sqrt{t^2-\dfrac{13}{4}}}{2} + C
+= \sqrt{(x + \dfrac{3}{2})^2-\dfrac{13}{4}} + C
+= \sqrt{x^2+3x-1} + C.
+$$
+
+
+$$
+2)
+  - \dfrac{3}{2} \int \dfrac{\d{t}}{\sqrt{t^2-\dfrac{13}{4}}} = - \dfrac{3}{2}  ln \Bigg|t + \sqrt{t^2-\dfrac{13}{4}}\Bigg| + C = - \dfrac{3}{2}  ln \Bigg|x + \dfrac{3}{2} + \sqrt{(x + \dfrac{3}{2})^2-\dfrac{13}{4}}\Bigg| + C
+$$
+
+Підставимо обидва розвязки назад в нашу формулу і отримаємо рішення:
+
+$$
+\sqrt{x^2+3x-1} - \dfrac{3 \ln{\bigg|x + \dfrac{3}{2} + \sqrt{x^2+3x-1}\bigg|} }{2} + C
+$$

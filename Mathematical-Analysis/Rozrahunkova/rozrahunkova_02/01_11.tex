@@ -1,0 +1,77 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \dfrac{(x^2+23)\d{x}}{(x+1)(x^2+6x+13)}
+$$
+
+Спершу, cпрощуємо многочлен:
+$$
+  \dfrac{(x^2+23)\d{x}}{(x+1)(x^2+6x+13)}
+= \dfrac{A}{(x+1)} + \dfrac{Bx+C}{(x^2+6x+13)}
+= \dfrac{A(x^2+6x+13) + (Bx+C)(x+1)}{(x+1)(x^2+6x+13)}
+$$
+$$
+  (x^2+23) = A(x^2+6x+13) + (Bx+C)(x+1) = Ax^2+6Ax+13A+Bx^2+Bx+Cx+C
+$$
+
+$$
+  \begin{array}{rcl}
+    x^2 & 0  & A+B\\
+    x^1 & 1  & 6A+B+C\\
+    x^0 & 23 & 13A+C
+    \end{array}
+    \hspace{2pt}
+    {\text{з чого виходить що}}
+    \hspace{2pt}
+    A=3, B=-2, C=-16
+$$
+
+$$
+  \int \dfrac{3}{x+1}\d{x} + \int \dfrac{-1(2x+16)}{x^2+6x+13}
+= 3\int \dfrac{1}{x+1}\d{x} - \int \dfrac{2x+16}{x^2+6x+13}\d{x}
+$$
+
+$$
+= 3\int \dfrac{1}{x+1}\d{x} - \int \dfrac{2x+6}{x^2+6x+13}\d{x} - \int \dfrac{10}{x^2+6x+13}\d{x}
+$$
+
+$$
+= 3 \ln{|x+1|} + C - \int \dfrac{\d{x^2+6x+13}}{x^2+6x+13} - 10\int \dfrac{1}{x^2+6x+13}\d{x}
+$$
+
+$$
+= 3 \ln{|x+1|} - \ln{|x^2+6x+13|} + C + 10\int \dfrac{1}{(x+3)^2+4}\d{x}
+\Bigg|
+  \begin{array}{rlrl}
+    t = & x+3   & \d{x} = & (x)'\d{t}\\
+    x = & t - 3 & \d{x} = & \d{t} \\
+    \end{array}
+\Bigg| =
+$$
+
+$$
+  = 3 \ln{|x+1|} - \ln{|x^2+6x+13|} + C - 10\int \dfrac{1}{t^2+4}\d{t}
+$$
+
+$$
+= 3 \ln{|x+1|} - \ln{|x^2+6x+13|} + C - \dfrac{10}{4}\int \dfrac{1}{\dfrac{t^2}{4}+1}\d{t}
+\Bigg|
+  \begin{array}{rlrl}
+    u = & \dfrac{t}{2}   & \d{t} = & (t)'\d{u}\\
+    t = & 2u & \d{t} = & 2\d{u} \\
+    \end{array}
+\Bigg|
+$$
+
+$$
+= 3 \ln{|x+1|} - \ln{|x^2+6x+13|} + C - \dfrac{10}{4}\int \dfrac{2}{u^2+1}\d{u} = 3 \ln{|x+1|} - \ln{|x^2+6x+13|} + C - 5\int \dfrac{1}{u^2+1}\d{u}
+$$
+
+$$
+= 3 \ln{|x+1|} - \ln{|x^2+6x+13|} - 5 \arctg{u} + C
+= 3 \ln{|x+1|} - \ln{|x^2+6x+13|} - 5 \arctg{\dfrac{t}{2}} + C
+$$
+
+$$
+\boxed{ 3 \ln{|x+1|} - \ln{|x^2+6x+13|} - 5 \arctg{\dfrac{x+3}{2}} + C }
+$$

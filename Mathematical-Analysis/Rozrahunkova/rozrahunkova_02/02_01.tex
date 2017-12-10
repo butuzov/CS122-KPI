@@ -1,0 +1,21 @@
+{\descr{Обчислити визначений інтеграл}}
+
+$$
+  \int^e_1 \dfrac{\ln^5x}{x}\d{x}
+= \int^e_1 \ln^5x \dfrac{1}{x}\d{x}
+=
+\Bigg |
+  \begin{array}{rl rl r r}
+    t =& \ln{x}               & x = & e^t &x_2 =e & t_2 = 1 \\
+    \d{t} = & (\ln{x})'\d{x}  & \d{t} = & \dfrac{1}{x}\d{x}&x_1 =1 & t_1 = 0 \\
+  \end{array}
+\Bigg |
+= \int^1_0 t^5\d{t}
+$$
+
+$$
+= \int^1_0 t^5\d{t}
+= \dfrac{t^6}{6} \Bigg |^1_0
+= \dfrac{1}{6} - \dfrac{0}{6}
+= \boxed{\dfrac{1}{6}}
+$$

@@ -1,0 +1,27 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int (x+1)2^x\d{x} =  \int x2^x\d{x} + \int 2^x\d{x} = \int x2^x\d{x} + \dfrac{2^x}{\ln{2}} + C
+$$
+
+$$
+\int x2^x\d{x}
+= \Bigg |
+  \begin{array}{rlrl}
+    u  &= x & v =& \dfrac{2^x}{\ln{2}} \\
+    \\
+    u' &= 1 & v'=& 2^x \\
+  \end{array}
+\Bigg |
+= x \dfrac{2^x}{\ln{2}} - \int \dfrac{2^x}{\ln{2}}\d{x}
+= \dfrac{x2^x}{\ln{2}} - \dfrac{1}{\ln{2}}\int  2^x\d{x}
+= \dfrac{x2^x}{\ln{2}} - \dfrac{1}{\ln{2}} \cdot \dfrac{2^x}{\ln{2}} + C
+$$
+
+
+$$
+  \int (x+1)2^x\d{x}  = \dfrac{x2^x}{\ln{2}} - \dfrac{2^x}{(\ln{2})^2} + \dfrac{2^x}{\ln{2}} + C = \dfrac{2^x}{\ln{2}} \Big( x - \dfrac{1}{\ln2}+1 \Big) + C
+$$
+
+
+$$\boxed{ \dfrac{2^x}{\ln{2}} \Big( x - \dfrac{1}{\ln2}+1 \Big) + C }$$

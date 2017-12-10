@@ -1,0 +1,21 @@
+{\descr{Обчислити визначений інтеграл}}
+
+$$
+  \int^{\dfrac{\pi}{3}}_0 \sin{x}\cos{2x}\d{x}
+  = \int^{\dfrac{\pi}{3}}_0 \dfrac{1}{2} ( \sin{-x} + \sin{3x} ) \d{x}
+  = \dfrac{1}{2} \int^{\dfrac{\pi}{3}}_0 (\sin{3x}-\sin{x}) \d{x}
+$$
+$$
+= \dfrac{1}{2} \cdot \dfrac{3}{3} \int^{\dfrac{\pi}{3}}_0 \sin{3x} \d{x} - \dfrac{1}{2} \int^{\dfrac{\pi}{3}}_0 \sin{x} \d{x}
+= \dfrac{1}{6} \int^{\pi}_0 \sin{3x} \d{3x} - \dfrac{1}{2} \int^{\dfrac{\pi}{3}}_0 \sin{x} \d{x}
+=  \Big( \dfrac{1}{6} \cdot -\cos{3x} \Bigg |^{\pi}_0 \Big) - \Big (\dfrac{1}{2} \cdot -\cos{x} \Bigg |^{\frac{\pi}{3}}_0 \Big )
+$$
+$$
+= - \dfrac{1}{6} \Big( \cos{3\pi} - \cos{0} \Big) + \dfrac{1}{2} \Big( \cos{\frac{\pi}{3}} - \cos{0} \Big)
+= - \dfrac{1}{6} (-1 - 1) + \dfrac{1}{2} ( \dfrac{1}{2} - 1)
+= \dfrac{2}{6} - \dfrac{1}{4} = \dfrac{4-3}{12} = \dfrac{1}{12}.
+$$
+
+$$
+\boxed{\dfrac{1}{12}}
+$$

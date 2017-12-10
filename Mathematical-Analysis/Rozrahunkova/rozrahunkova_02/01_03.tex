@@ -1,0 +1,25 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \dfrac{2x\d{x}}{x^4+3}
+= \int 2x \dfrac{1}{x^4+3} \d{x}
+= \Bigg|
+    \begin{array}{c l}
+      t = x^2   & \d{x} = (x)'dt \\
+      x = \sqrt{t} & \d{x} = \dfrac{1}{2\sqrt{t}}\d{t}
+      \end{array}
+  \Bigg|
+$$
+
+$$
+  2 \int \dfrac{\sqrt{t}}{2(t^2+3)(\sqrt{t})}\d{t}
+= \dfrac{2}{2} \int \dfrac{\sqrt{t}}{(t^2+3)(\sqrt{t})}\d{t}
+= \int \dfrac{1}{t^2+\sqrt{3}^2}\d{t}
+= \dfrac{arctg{\dfrac{t}{\sqrt{3}}}}{\sqrt{3}} + C
+= \dfrac{arctg{\dfrac{x^2}{\sqrt{3}}}}{\sqrt{3}} + C.
+$$
+
+
+$$
+  \boxed{\dfrac{arctg{\dfrac{x^2}{\sqrt{3}}}}{\sqrt{3}} + C}
+$$

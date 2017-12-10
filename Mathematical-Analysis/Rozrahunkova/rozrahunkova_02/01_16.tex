@@ -1,0 +1,26 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+     \int \dfrac{\sqrt{x^2-9}}{x^2}\d{x}
+  =  \int \dfrac{1}{x^2} \sqrt{x^2-9} \d{x}
+  =
+    \Bigg |
+    \begin{array}{rl rl}
+      u =& \sqrt{x^2-9}  & v =& 1/x  \\
+      u' = & \dfrac{x}{\sqrt{x^2-9}}&  v' = & 1/x^2
+      \end{array}
+    \Bigg | =  \dfrac{\sqrt{x^2-9}}{x} - \int \dfrac{x}{\sqrt{x^2-9}} \dfrac{1}{x} \d{x}
+$$
+
+
+$$
+  \dfrac{\sqrt{x^2-9}}{x} - \int \dfrac{x}{\sqrt{x^2-9}} \dfrac{1}{x} \d{x}
+= \dfrac{\sqrt{x^2-9}}{x} - \int \dfrac{\d{x}}{\sqrt{x^2-9}}
+= \dfrac{\sqrt{x^2-9}}{x} - \ln{|x+\sqrt{x^2-9}|} + C
+$$
+
+$$
+  \boxed{\dfrac{\sqrt{x^2-9}}{x} - \ln{|x+\sqrt{x^2-9}|} + C}
+$$
+
+% sqrt(x^2-9)/x^2

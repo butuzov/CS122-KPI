@@ -1,0 +1,33 @@
+{\descr[1]{Знайти обєм тіла, одержаного прі обертанні криволінійного заданого сектора навколо полярної осі:}}
+
+$$
+\rho = \alpha \sqrt{\cos{\varphi}},{\qquad} \varphi \in \Big[ 0; \dfrac{\pi}{2} \Big]
+$$
+
+Об'єм  тіла  отирманого обертанням в навколо полярної осі заданого двума поялрними координатами можна знайти за формулою
+$$
+V = \dfrac{2\pi}{3} \int_{\alpha}^{\beta} \rho^3\sin{\varphi} \d{\varphi}
+$$
+
+% http://energy.bmstu.ru/gormath/mathan2s/usint/UsingInt.htm#s121
+$$
+\dfrac{2\pi}{3} \int_0^{\dfrac{\pi}{2}} (a\sqrt{\cos{\varphi}})^3\sin{\varphi} \d{\varphi}
+= \dfrac{2\pi}{3} \int_0^{\dfrac{\pi}{2}} a^3 \cos{\varphi}^{\dfrac{3}{2}}  \sin{\varphi} \d{\varphi}
+\Bigg|
+  \begin{array}{rl rl r}
+     u =& \sin{\varphi} & \varphi_2 = & \dfrac{\pi}{2} & u_2 =   1  \\
+    \d{u} =& \cos{\varphi} & \varphi_1 = & 0 & u_1 =   0 \\
+  \end{array}
+\Bigg| = \dfrac{2\pi a^4 }{3} \int^1_0 u^{\dfrac{3}{2}}\d{u}
+$$
+
+$$
+= \dfrac{2\pi a^4 }{3} \int^1_0 u^{\dfrac{3}{2}}\d{u}
+= \dfrac{a^4 \pi}{6} \dfrac{u^{\dfrac{5}{2}}}{\dfrac{5}{2}} \Bigg|_0^{1}
+= \dfrac{a^4 \pi}{15} \sqrt{u^5} \Bigg|_0^{1}
+= \dfrac{a^4 \pi}{15}
+$$
+
+$$
+\boxed{V = \dfrac{a^4 \pi}{15} }
+$$

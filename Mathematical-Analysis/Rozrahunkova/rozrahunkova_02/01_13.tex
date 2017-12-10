@@ -1,0 +1,22 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \sin^5{x}\cos^3{x} \d{x} =
+  \Bigg|
+  \begin{array}{rl rl}
+    \sin{x} = & t  & x = & \arcsin{t} \\
+    \cos{x} = & \sqrt{1-t^2} & \d{x} = & \dfrac{\d{t}}{\sqrt{1-t^2}}
+  \end{array}
+  \Bigg| = \int \dfrac{t^5 \cdot (\sqrt{1-t^2})^3 \d{t} }{ \sqrt{1-t^2} }
+$$
+
+$$
+   \int t^5 \cdot (\sqrt{1-t^2})^2 \d{t}
+= \int t^5 \cdot (1-t^2}) \d{t}
+= \int t^5 \d{t} - \int t^7 \d{t}
+= \dfrac{t^6}{6} - \dfrac{t^8}{8} + C = \dfrac{\sin{x}^6}{6} - \dfrac{\sin{x}^8}{8} + C.
+$$
+
+$$
+\boxed{\dfrac{\sin{x}^6}{6} - \dfrac{\sin{x}^8}{8} + C}
+$$

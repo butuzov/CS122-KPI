@@ -1,0 +1,22 @@
+{\descr{Обчислити невласний інтеграл або довести розбіжність}}
+
+$$
+  \int^2_1 \dfrac{x\d{x}}{x^2-1} =
+  \lim_{\varepsilon \to 0} \int^2_{1+\varepsilon} \dfrac{x\d{x}}{x^2-1}
+$$
+
+
+$$
+\lim_{\varepsilon \to 0} \int^2_{1+\varepsilon} \dfrac{x\d{x}}{x^2-1}
+=  \lim_{\varepsilon \to 0}  \dfrac{\ln{|x^2-1|}}{2}  \Bigg|^2_{1+\varepsilon}
+=  \dfrac{1}{2} \lim_{\varepsilon \to 0} \ln{|x^2-1|} \Bigg|^2_{1+\varepsilon}
+=  \dfrac{1}{2} \lim_{\varepsilon \to 0} ( \ln{|2^2-1|} - \ln{|(1+\varepsilon)^2-1|} )
+$$
+
+$$
+= \dfrac{1}{2} \lim_{\varepsilon \to 0} \ln{\dfrac{3}{1+2\varepsilon+\varepsilon^2-1}}
+= \dfrac{1}{2} \lim_{\varepsilon \to 0} \ln{\dfrac{3}{2\varepsilon+\varepsilon^2}}
+= \infty
+$$
+
+Оскільки границя прямує до безмежності, ми можемо стверджувати що невласний інтеграл розбігається - тоюто розбіжність доведено.

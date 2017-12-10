@@ -1,0 +1,29 @@
+{\descr{Знайти Інтеграл}}
+
+$$
+  \int \dfrac{\ln{\tg{x}}}{\sin{2x}}\d{x}
+= \int \ln{\tg{x}} \dfrac{1}{2\sin{x}\cos{x}}\d{x}
+
+$$
+
+Якщо провести заміну $t = \ln{\tg{x}}$ і позначити $\d{t}$ як $t'\d{x}$ то можемо бачити що:
+
+$$
+\d{u}
+= (\ln{\tg{x}})'\d{x} = \dfrac{1}{\tg{x}} \tg{x}' \d{x}
+= \dfrac{1}{\dfrac{\sin{x}}{\cos{x}}} \cdot   \dfrac{1}{\cos^2{x}}  \d{x}
+= \dfrac{1}{\sin{x}\cos{x}}  \d{x}
+$$
+
+Як бачимо цей вираз вже присутній під інтегралом, отож можемо провести заміну:
+
+$$
+  \dfrac{1}{2} \int t\d{t}
+= \dfrac{1}{2} \cdot \dfrac{t^2}{2} + C
+= \dfrac{t^2}{4} + C =
+= \dfrac{(\ln{\tg{x}})^2}{4} + C.
+$$
+
+$$
+\boxed{\dfrac{(\ln{\tg{x}})^2}{4} + C}
+$$

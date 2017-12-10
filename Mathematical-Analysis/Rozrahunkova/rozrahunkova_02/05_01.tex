@@ -1,0 +1,133 @@
+{\descr[1]{Обчислити площу поверхні, одержаної при обертанні даннної кривої насколо осі OX}}
+
+$$
+  y = -\dfrac{1}{2}\ln{x}+\dfrac{x^2}{4} {\qquad} x \in [1;e]
+$$
+
+Для знаходження поверхні обертання використаємо наступну формулу
+
+$$Q = 2\pi\int^b_a f(x) \sqrt{1+(f'(x))^2} \d{x} $$
+
+$$
+  2\pi \int^e_1 (-\dfrac{1}{2}\ln{x}+\dfrac{x^2}{4}) \sqrt{1+((\dfrac{x^2}{4}-\dfrac{1}{2}\ln{x})')^2} \d{x}
+= 2\pi \int^e_1 \dfrac{1}{2} ( \dfrac{x^2}{2} - \ln{x} ) \sqrt{1+(\dfrac{x^2-1}{2x})^2} \d{x}
+$$
+
+$$
+= \dfrac{2\pi}{2} ( \int^e_1  ( \dfrac{x^2}{2} - \ln{x} ) \sqrt{1+(\dfrac{x^2-1}{2x})^2} \d{x} )
+= \pi \int^e_1  \dfrac{x^2}{2} \sqrt{1+(\dfrac{x^2-1}{2x})^2} \d{x} - \pi \int^e_1 \ln{x} \sqrt{1+(\dfrac{x^2-1}{2x})^2}
+$$
+
+$$
+= \dfrac{\pi}{2} \int^e_1  x^2 \sqrt{\dfrac{4x^2+x^4-2x^2+1}{4x^2}} \d{x} - \pi \int^e_1 \ln{x} \sqrt{\dfrac{4x^2+x^4-2x^2+1}{4x^2}}\d{x}
+$$
+
+$$
+= \dfrac{\pi}{2} \int^e_1  \dfrac{x^2}{2x} \sqrt{x^4+2x^2+1} \d{x} - \pi \int^e_1 \ln{x} \sqrt{\dfrac{x^2(x^2+2+\dfrac{1}{x^2})}{4x^2}}\d{x}
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1  x  \sqrt{(x^2+1)^2} \d{x} - \pi  \int^e_1 \dfrac{\ln{x}}{2} \sqrt{\dfrac{x^4+2x^2+1}{x^2}}\d{x}
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1  (x^3+x) \d{x} - \dfrac{\pi}{2}  \int^e_1 \ln{x} \sqrt{\dfrac{(x^2+1)^2}{x^2}}\d{x}
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2}  \int^e_1  \dfrac{(x^2+1)\ln{x}}{x} \d{x}
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2}( \int^e_1  \dfrac{x^2 \ln{x}}{x} \d{x} + \int^e_1 \dfrac{\ln{x}}{x} \d{x} )
+$$
+
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2}\Bigg( \int^e_1  x\ln{x} \d{x} + \int^e_1 \dfrac{\ln{x}}{x} \d{x}
+  \Bigg|
+    \begin{array}{rlrlrlrl}
+      u = & \ln{x} & x_1 = & e & y_1 = \ln{e} & = 1 \\
+      u'= & \dfrac{1}{x} & x_0 = & 1 & y_0 = \ln{1} & = 0\\
+      \end{array}
+  \Bigg|
+\Bigg)
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2}( \int^e_1  x\ln{x} \d{x} + \int^1_0 u \d{u} )
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2} \int^1_0 u \d{u}
+ -  \dfrac{\pi}{2}\int^e_1  x\ln{x}  \d{x} \Bigg|
+  \begin{array}{rlrl}
+      u  =& \ln{x} & v  = & x^2/2 \\
+      u' =& 1/x    & v' = & x \\
+    \end{array}
+\Bigg|
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2} \int^1_0 u \d{u} -  \dfrac{\pi}{2} (\dfrac{x^2\ln{x}}{2} \Bigg|^e_1 - \int^e_1 \dfrac{1}{x} \dfrac{x^2}{2} \d{x} )
+$$
+
+$$
+= \dfrac{\pi}{4} \int^e_1 x^3\d{x} + \dfrac{\pi}{4} \int^e_1 x \d{x} - \dfrac{\pi}{2} \int^1_0 u \d{u} -  \dfrac{\pi}{2} (\dfrac{x^2\ln{x}}{2} \Bigg|^e_1 - \dfrac{1}{2}\int^e_1 x\d{x} )
+$$
+
+Для більшої зручності порведемо обчислення визначених інтегралів окремо (формула вже завелика для копіювання навіть при наборі в LaTeX).
+
+$$
+1) \dfrac{\pi}{4} \int^e_1 x^3\d{x}
+  = \dfrac{\pi}{4} \times \dfrac{x^4}{4}  \Bigg|^e_1
+  = \dfrac{\pi}{16} (x^4) \Bigg|^e_1
+  = \dfrac{\pi}{16} (e^4- 1^4)
+  = \dfrac{\pi}{16} (e^4- 1)
+$$
+
+$$
+2) \dfrac{\pi}{4} \int^e_1 x \d{x}
+= \dfrac{\pi}{4} \times \dfrac{x^2}{2}  \Bigg|^e_1
+= \dfrac{\pi}{8} (x^2) \Bigg|^e_1
+= \dfrac{\pi}{8} (e^2 - 1^2)
+= \dfrac{\pi}{8} (e^2 - 1)
+$$
+
+
+$$
+3) - \dfrac{\pi}{2} \int^1_0 u \d{u} = - \dfrac{\pi}{4} (u^2)\Bigg|^1_0 = - \dfrac{\pi}{4} (1^2-0^2) = -\dfrac{\pi}{4}
+$$
+
+$$
+4)  -  \dfrac{\pi}{2} \times \dfrac{x^2\ln{x}}{2} \Bigg|^e_1
+= - \dfrac{\pi}{4} (e^2\ln{e}-1^2\ln{1})
+= - \dfrac{\pi}{4} (e^2 \times 1 - 1^2 \times 0}) =
+= - \dfrac{\pi e^2}{4}
+$$
+
+$$
+5) - \dfrac{\pi}{2} \times -\dfrac{1}{2} \int^e_1 x\d{x}
+= \dfrac{\pi}{4} \times \dfrac{x^2}{2}  \Bigg|^e_1
+= \dfrac{\pi}{8} \times ( x^2 ) \Bigg|^e_1
+= \dfrac{\pi}{8} \times ( e^2 - 1^2)
+= \dfrac{\pi}{8} \times ( e^2 - 1)
+$$
+
+Залишилось лише просумувати отримані площі.
+
+$$
+\dfrac{\pi}{16} (e^4- 1) + \dfrac{\pi}{8} (e^2 - 1) -\dfrac{\pi}{4} - \dfrac{\pi e^2}{4} + \dfrac{\pi}{8} \times ( e^2 - 1)
+= \dfrac{\pi}{16} (e^4- 1) + \dfrac{\pi}{4} (e^2 - 1) -\dfrac{\pi}{4} - \dfrac{\pi e^2}{4}
+$$
+
+$$
+= \dfrac{\pi( (e^4-1) + 4(e^2-1) - 4 -4e^2)}{16}
+= \dfrac{\pi( e^4-1 + 4e^2-4 - 4 -4e^2)}{16}
+= \dfrac{\pi( e^4-9 ) }{16}
+$$
+
+
+$$
+\boxed{ Q = \dfrac{\pi( e^4-9 ) }{16} }
+$$

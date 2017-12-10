@@ -1,0 +1,97 @@
+{\descr{Знайти координати центра мас дуги першої арки циклоїди:}}
+
+$$
+  x=\alpha(t-\sin{t}), {\qquad} y=a(1-\cos{t}), {\qquad} t \in \big[ 0; 2\pi \big]
+$$
+
+Оскільки циклоїда симетрично паралельна осі X ми можемо стверджувати що центр тяжесті лежить на ній, тобто на $\bar{x} = \pi\alpha$, для находження $\bar{y}$ спочатку знайдемо диференціал довжини арки циклоїди
+
+$$
+\d{l} = \sqrt{(\alpha(1-\cos{t}))^2+(\alpha(\sin{t}))^2} \d{t}
+=   \sqrt{\alpha^2(1-\cos{t})^2+\alpha^2\sin^2{t}} \d{t}
+=   \sqrt{\alpha^2( (1-\cos{t})^2+\sin^2{t})} \d{t}
+$$
+
+$$
+= a \sqrt{ (1-2\cos{t}+cos^2{t}+\sin^2{t}} \d{t}
+= a \sqrt{ 1-2\cos{t}+1} \d{t}
+= a \sqrt{ 2(1-cos{t})} \d{t}
+= a \sqrt{ 4(\sin^2{\dfrac{t}{2}})} \d{t}
+$$
+
+$$
+\boxed{ \d{l} = 2a\sin{\dfrac{t}{2}}\d{t} }
+$$
+
+Координати центр мас знаходяться за формулами
+
+$$
+  x_c = \dfrac{M_y}{m} = \dfrac{\int_a^b \gamma(x) \d{l}}{\int_a^b \gamma(t) \d{l}}  {\text{ та }} y_c = \dfrac{M_x}{m} = \dfrac{\int_a^b \gamma(y) \d{l}}{\int_a^b \gamma(t) \d{l}}
+$$
+
+Де $m$ це масса дуги а $M_y$ та $M_x$ це статичні моменти відносно осей X та Y.
+
+$$
+M_x = \int_0^{2\pi}  x'\d{l}
+= \int_0^{2\pi} a(1-\cos{t}) 2a \sin{\dfrac{t}{2}}\d{t}
+= \int_0^{2\pi} 2a^2 (1-\cos{t}) \sin{\dfrac{t}{2}}\d{t}
+= 2a^2 \int_0^{2\pi} (\sin{\dfrac{t}{2}}-\cos{t}\sin{\dfrac{t}{2}})\d{t}
+$$
+
+$$
+= 2a^2 \Bigg( \int \sin{\dfrac{t}{2}}\d{t} -\int \cos{t}\sin{\dfrac{t}{2}} \d{t} \Bigg)\Bigg|^{2\pi}_0
+= 2a^2 \Bigg( \int \sin{\dfrac{t}{2}}\d{t} - \dfrac{1}{2} \Big( \int \sin{(\dfrac{3t}{2})} \d{t} + \int \sin{(-\dfrac{t}{2})} \Big) \Bigg)\Bigg|^{2\pi}_0
+$$
+
+$$
+= 2a^2 \Bigg( 2 \int \sin{\dfrac{t}{2}}\d{\dfrac{t}{2}} - \dfrac{1}{2} \Big( \dfrac{2}{3} \int \sin{(\dfrac{3t}{2})} \d{\dfrac{3t}{2}} - 2 \int \sin{(\dfrac{t}{2})}\d{\dfrac{t}{2}} \Big) \Bigg)\Bigg|^{2\pi}_0
+$$
+
+$$
+= 2a^2 \Bigg( -2 \cos{\dfrac{t}{2}} - \dfrac{1}{2} \Big( -\dfrac{2}{3} \cos{\dfrac{3t}{2}} + 2 \cos{\dfrac{t}{2}} \Big) \Bigg)\Bigg|^{2\pi}_0
+= 2a^2 \Bigg( -2 \cos{\dfrac{t}{2}} -   \Big( -\dfrac{1}{3} \cos{\dfrac{3t}{2}} +  \cos{\dfrac{t}{2}} \Big) \Bigg)\Bigg|^{2\pi}_0
+$$
+
+$$
+= 2a^2 \Bigg( -2 \cos{\dfrac{t}{2}} + \dfrac{1}{3} \cos{\dfrac{3t}{2}} -  \cos{\dfrac{t}{2}}  \Bigg)\Bigg|^{2\pi}_0
+= 2a^2 \Bigg( \dfrac{1}{3} \cos{\dfrac{3t}{2}} -3 \cos{\dfrac{t}{2}}  \Bigg)\Bigg|^{2\pi}_0
+$$
+
+$$
+= 2a^2 \Bigg( \dfrac{1}{3} \cos{\dfrac{3 \cdot 2\pi }{2}} -3 \cos{\dfrac{2\pi}{2}}  \Bigg) - 2a^2 \Bigg( \dfrac{1}{3} \cos{\dfrac{3 \cdot 0 }{2}} -3 \cos{\dfrac{0}{2}}  \Bigg)
+= 2a^2 \Bigg( \dfrac{1}{3} \cos{3\pi} -3 \cos{\pi}  \Bigg) - 2a^2 \Bigg( \dfrac{1}{3} \cos{0} -3 \cos{0}  \Bigg)
+$$
+
+$$
+= 2a^2 \Bigg( \dfrac{1}{3} \cdot (-1)  -3 \cdot (-1)  \Bigg) - 2a^2 \Bigg( \dfrac{1}{3}  -3 \Bigg)
+= 2a^2 \dfrac{-1+9}{3} - 2a^2 \dfrac{1-9}{3} = 2a^2 (\dfrac{8}{3}-(-\dfrac{8}{3}))
+= 2a^2 \dfrac{16}{3}
+= \dfrac{32a}{3}
+$$
+
+Знайдемо массу (довжину дуги)
+
+$$
+ \int_0^{2\pi}  \d{l}
+= 2a \int_0^{2\pi}  \sin{\dfrac{t}{2}}\d{t}
+= 4a \int_0^{2\pi}  \sin{\dfrac{t}{2}}\d{(\dfrac{t}{2})}
+= 4a \cdot -\cos{\dfrac{t}{2}} \Bigg|_0^{2\pi}
+= -4a \cos{\dfrac{t}{2}} \Bigg|_0^{2\pi}
+= -4a(\cos{\dfrac{2\pi}{2}}-\cos{\dfrac{0}{2}})
+$$
+
+$$
+= -4a(\cos{\pi}-\cos{0})
+= -4a(-1-1)
+= 8a
+$$
+
+З чого випливає що ординатою центру масси по OY буде
+
+$$
+ \bar{y} = \dfrac{\dfrac{32a}{3}}{8a} = \dfrac{32a^2}{24a}= \dfrac{4a}{3}
+$$
+
+$$
+\boxed{ {\text{ Координати центра мас }} \pi{a} {\text{ та }} \dfrac{4a}{3}}
+$$

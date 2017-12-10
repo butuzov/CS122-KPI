@@ -1,0 +1,47 @@
+{\descr{Обчислити визначений інтеграл}}
+
+$$
+  \int^{2}_{0} (x+1)\ln{(x+1)}\d{x} =
+    \Bigg|
+      \begin{array}{ r l r l r l r l }
+      t = & x + 1 & \d{x} = & (x)'dt & x_2 = & 2 & y_2 = & 3 \\
+      x = & t - 1 & \d{x} = & dt & x_1 =  & 0 & y_1 = & 1 \\
+        \end{array}
+    \Bigg| =
+    \int^3_1 t\ln{t}\d{t}
+$$
+
+$$
+\int^3_1 t\ln{t}\d{t} \Bigg|
+  \begin{array}{ r l r l r l r l }
+  u  = & \ln{t}       & v = & t \\
+  u' = & \dfrac{1}{t} & \int v = & \dfrac{t^2}{2}  \\
+    \end{array}
+\Bigg| =
+\ln{t} \cdot \dfrac{t^2}{2} \bigg|^3_1 - \int^3_1 \dfrac{1}{t} \cdot \dfrac{t^2}{2} \d{t}
+$$
+
+$$
+  \dfrac{t^2 \ln{t}}{2} \bigg|^3_1 - \int^3_1 \dfrac{t^2}{2t} \d{t} =
+  \dfrac{t^2 \ln{t}}{2} \bigg|^3_1 - \dfrac{1}{2} \int^3_1 t \d{t} =
+  \dfrac{t^2 \ln{t}}{2} \bigg|^3_1 - \dfrac{1}{2} \cdot \dfrac{t^2}{2} \bigg|^3_1 =
+$$
+
+$$
+  \bigg( \dfrac{t^2 \ln{t}}{2}  - \dfrac{t^2}{4} \bigg) \bigg|^3_1 =
+  \bigg( \dfrac{2(t^2 \ln{t}) - t^2 } {4}        \bigg) \bigg|^3_1 =
+  \dfrac{2(3^2 \ln{3}) - 3^2 } {4} - \dfrac{2(1^2 \ln{1}) - 1^2 } {4} =
+$$
+
+$$
+  \dfrac{(18\ln{3} - 18) - (2\ln{1}-2)}{4} =
+  \dfrac{18\ln{3} - 18 - 2\ln{1}+2}{4} =
+  \dfrac{18\ln{3} - 2\ln{1} - 16 }{4} =
+  \dfrac{9\ln{3} - \ln{1} - 8 }{2} =
+  \dfrac{9\ln{3} - 8 }{2}
+$$
+
+
+$$
+\boxed{\dfrac{9\ln{3} - 8 }{2}}
+$$
