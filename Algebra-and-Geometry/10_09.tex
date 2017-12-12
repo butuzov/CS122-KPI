@@ -1,0 +1,140 @@
+{\descr{Знайти власні значення та вектора матриці}}
+
+$$
+A = \begin{pmatrix}
+  5 & -1 & -1 \\
+  0 & 4 & -1 \\
+  0 & -1 & 4
+  \end{pmatrix}
+$$
+
+$$
+\det{A-\lambda E} = \Bigg|\Bigg|\begin{array}{c c c}
+  5-\lambda & -1 & -1 \\
+  0 & 4-\lambda & -1 \\
+  0 & -1 & 4-\lambda
+\end{array}\Bigg|\Bigg| = (5-\lambda) (4-\lambda)^2 - (5-\lambda) = (5-\lambda)( (4-\lambda)^2 - 1) = 0.
+$$
+
+$$
+(5-\lambda)( (4-\lambda)^2 - 1) = 0
+$$
+
+Варіанти власних значеннь для $\lambda$ (при яких значення виразу дорівнюватиме нулю).
+$$
+\begin{array}{ll}
+  \lambda_1 = 5 & {\text{для }}  5-\lambda = 0   \\
+  \lambda_2 = 5 & {\text{для }}  (4-\lambda)^2=1 \\
+  \lambda_3 = 3 & {\text{для }}  (4-\lambda)^2=1 \\
+\end{array}
+$$
+
+
+1) При $\lambda = 5$ власним вектором буде
+
+$$
+(A-\lambda E)\V{x} =
+\begin{bmatrix}
+  5-\lambda & -1 & -1 \\
+  0 & 4-\lambda & -1 \\
+  0 & -1 & 4-\lambda
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+=
+\begin{bmatrix}
+  0 & -1 & -1 \\
+  0 & -1 & -1 \\
+  0 & -1 & -1
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = 0
+$$
+
+$x_2$ основна змінна, $x_3$ - вільна.
+
+$$
+\begin{cases}
+  -x_2 -x_3 = 0 \\
+  -x_2 -x_3 = 0 \\
+  -x_2 -x_3 = 0 \\
+\end{cases}
+\begin{array}{l}\\-\end{array}
+\Rightarrow \begin{cases}
+  -x_2 -x_3 = 0 \\
+  -x_2 -x_3 = 0 \\
+\end{cases}
+-
+\Rightarrow \begin{cases}
+  -x_2 -x_3 = 0 \\
+\end{cases}  \Rightarrow
+\begin{cases}
+  -x_2 = x_3 \\
+  x_2 = -x_3 \\
+\end{cases}
+$$
+
+
+Надаємо вільним членам довільні значення.
+
+$$ x_1=C_1 \qquad x_3=C_3 \qquad
+  \begin{cases}
+      \V{x} = (C_1;-C_3;C_3) {\text{ або }} (0;-1;1)  \\
+      \V{x} = (C_1;-C_3;C_3) {\text{ або }} (1;0;0)  \\
+    \end{cases}
+
+
+$$
+
+\vspace{1cm}
+
+2) При $\lambda_{1,2} = 3$ власним вектором буде
+
+$$
+(A-\lambda E)\V{x} =
+\begin{bmatrix}
+  5-\lambda & -1 & -1 \\
+  0 & 4-\lambda & -1 \\
+  0 & -1 & 4-\lambda
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+=
+\begin{bmatrix}
+  2 & -1 & -1 \\
+  0 &  1 & -1 \\
+  0 & -1 & 1
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = 0
+$$
+
+$x_1$ та $x_2$ основні змінні, $x_3$ - вільна.
+
+$$
+\begin{cases}
+  2x_1 -x_2 -x_3 = 0 \\
+   x_2 -x_3 = 0 \\
+  -x_2 +x_3 = 0 \\
+\end{cases}
+\begin{array}{l}\\+\end{array}
+\Rightarrow \begin{cases}
+  2x_1 -x_2 -x_3 = 0 \\
+   x_2 -x_3 = 0 \\
+\end{cases} \Rightarrow \begin{cases}
+x_1 = \dfrac{x_2+x_3}{2} \\
+x_2 = x_3 \\
+\end{cases}
+\Rightarrow \begin{cases}
+x_1 = x_3 \\
+x_2 = x_3 \\
+\end{cases}
+$$
+
+
+Надаємо вільним членам довільні значення.
+
+$$ x_3 = C_3 \qquad \V{x} = (C_3;C_3;C_3)  {\text{ або }} (1;1;1) $$
+
+Власні значення $\boxed{\lambda_{1,2}=5}$ та $\boxed{\lambda_3=3}$
+Власні вектора  $ \begin{cases}
+      \V{x} =  (C_1;-C_3;C_3) &{\text{ або }} (0;-1;1)  \\
+      \V{x} =  (C_1;-C_3;C_3) &{\text{ або }} (1;0;0)  \\
+      \V{x} =  (C_3;C_3;C_3)  &{\text{ або }} (1;1;1)  \\
+    \end{cases}$

@@ -1,0 +1,453 @@
+{\descr[2]{Написати розлад вектора $x$  по векторам $p$, $q$, $r$ , тобто, знайти такі $\alpha$, $\beta$, $\gamma$ що  $ \alpha p+ \beta q+\gamma r=x$.  Отриману систему розв’язати методом оберненої матриці, методом приєднаної матриці та за формулами Крамера.
+}}
+
+$$
+  x =\{\cord{-9,5,5}\} \qquad  p=\{\cord{4,1,1}\} \qquad q=\{\cord{2,0,-3}\}  \qquad r=\{\cord{-1,2,1}\}
+$$
+
+\begin{center}$ \alpha p+ \beta q+\gamma r=x$ може бути поданоу вигляді системи лінійних рівнянь\end{center}
+
+$$
+\begin{cases}
+    4\alpha + 1\beta + 1\gamma = -9 \\
+    2\alpha - 3\gamma = 5 \\
+    -1\alpha + 2\beta + 1\gamma = 5
+\end{cases}
+$$
+
+Спробуйємо розвязати систему рівнянь трьомарізними способами.
+
+
+\begin{center}\textbf{ Метод оберненої матриці} \end{center}
+
+  Метод полягає у знайденні оберненої матриці і множенні оберненої матриці на матрицю вільних членів, це допомогає знайти совбчик невідомих. Зазвичай використовують метод приєднаної матриці щоб знайти обернену, але так як це окреме завдання - знайдемо обернену матрицю методом Гауса.
+%
+$$
+    A = \begin{bmatrix}
+      4 & 1 &  1 \\
+      2 & 0 & -3 \\
+     -1 & 2 &  1 \\
+    \end{bmatrix} \qquad \det{A} = 3 + 4 - 2 - (- 32) = 29
+$$
+
+$$
+  \left[
+  \begin{array}{rrr}
+    4 & 1 &  1 \\
+    2 & 0 & -3 \\
+    -1 & 2 & -1 \\
+  \end{array} \Bigg| \begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+  \end{array} \right] =
+$$
+
+$$
+  \left[
+  \begin{array}{rrr}
+   -1 & 2 & 1 \\
+    2 & 0 & -3 \\
+    4 & 1 &  1 \\
+  \end{array} \Bigg|
+  \begin{array}{ccc}
+    _{III} \\
+    _{} \\
+    _{I} \\
+  \end{array}
+  \Bigg| \begin{array}{rrr}
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+  \end{array} \right]= \left[
+  \begin{array}{rrr}
+   -1 & 2 & 1 \\
+    0 & 4 & -1 \\
+    4 & 1 &  1 \\
+  \end{array} \Bigg|
+  \begin{array}{ccc}
+    _{} \\
+    _{+2 \cdot I} \\
+    _{} \\
+  \end{array}
+  \Bigg| \begin{array}{rrr}
+    0 & 0 & 1 \\
+    0 & 1 & 2 \\
+    1 & 0 & 0 \\
+  \end{array} \right] =
+$$
+
+$$
+  \left[
+  \begin{array}{rrr}
+  -1 & 2 & 1 \\
+    0 & 4 & -1 \\
+    0 & 9 &  5 \\
+  \end{array} \Bigg|
+  \begin{array}{ccc}
+    _{} \\
+    _{} \\
+    _{+4 \cdot I} \\
+  \end{array}
+  \Bigg| \begin{array}{rrr}
+    0 & 0 & 1 \\
+    0 & 1 & 2 \\
+    1 & 0 & 4 \\
+  \end{array} \right] = \left[
+  \begin{array}{rrr}
+  -1 & 2 & 1 \\
+    0 & 9 &  5 \\
+    0 & 4 & -1 \\
+  \end{array} \Bigg|
+  \begin{array}{ccc}
+    _{} \\
+    _{III} \\
+    _{II} \\
+  \end{array}
+  \Bigg| \begin{array}{rrr}
+    0 & 0 & 1 \\
+    1 & 0 & 4 \\
+    0 & 1 & 2 \\
+  \end{array} \right] =
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+-1 & 2 & 1 \\
+  0 & 9 &  5 \\
+  0 & 0 & -29/9 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{} \\
+  _{} \\
+  _{-(4\cdot{II})/9} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  0 & 0 & 1 \\
+  1 & 0 & 4 \\
+  -4/9 & 1 & 2/9 \\
+\end{array} \right] = \left[
+\begin{array}{rrr}
+-1 & 2 & 1 \\
+  0 & 9 &  5 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{} \\
+  _{} \\
+  _{\cdot -9/29} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  0 & 0 & 1 \\
+  1 & 0 & 4 \\
+  4/29 & -9/29 & -2/29 \\
+\end{array} \right]
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+-1 & 2 & 0 \\
+  0 & 9 &  0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{-III} \\
+  _{-5\cdot{III}} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  -4/29 & 9/29 & 31/29 \\
+  9/29 & 45/29 & 126/29 \\
+  4/29 & -9/29 & -2/29 \\
+\end{array} \right] = \left[
+\begin{array}{rrr}
+-1 & 2 & 0 \\
+  0 & 1 &  0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{} \\
+  _{/9} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  -4/29 & 9/29 & 31/29 \\
+  1/29 & 5/29 & 14/29 \\
+  4/29 & -9/29 & -2/29 \\
+\end{array} \right]
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+-1 & 0 & 0 \\
+  0 & 1 &  0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{-2\cdot{II}} \\
+  _{} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  -6/29 & -1/29 & 3/29 \\
+  1/29 & 5/29 & 14/29 \\
+  4/29 & -9/29 & -2/29 \\
+\end{array} \right] = \left[
+\begin{array}{rrr}
+ 1 & 0 & 0 \\
+  0 & 1 &  0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{\cdot{-1}} \\
+  _{} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  6/29 & 1/29 & -3/29 \\
+  1/29 & 5/29 & 14/29 \\
+  4/29 & -9/29 & -2/29 \\
+\end{array} \right]
+$$
+
+$$
+A = \begin{bmatrix}
+  4 & 1 &  1 \\
+  2 & 0 & -3 \\
+ -1 & 2 &  1 \\
+\end{bmatrix}^{-1} = \dfrac{1}{29}  \begin{bmatrix}
+  6 & 1 & -3 \\
+  1 & 5 & 14 \\
+  4 & -9 & -2 \\
+\end{bmatrix}
+$$
+
+Після знаходження оперненої матриці можна переходити до її множення на стопчик вільних коофіцієнтів щоб отримати стовпчик невідомих.
+
+$$
+X = \begin{bmatrix}
+  \alpha \\
+  \beta  \\
+  \gamma \\
+\end{bmatrix} =
+A^{-1} \cdot B =
+\dfrac{1}{29} \begin{bmatrix}
+  6 & 1 & -3 \\
+  1 & 5 & 14 \\
+  4 & -9 & -2 \\
+\end{bmatrix} \times \begin{bmatrix}
+  -9 \\
+  5  \\
+  5 \\
+\end{bmatrix} = \dfrac{1}{29} \begin{bmatrix}
+-54+5-15\\
+\\
+-9+25+70\\
+\\
+-36-45-10\\
+\end{bmatrix} = \begin{bmatrix}
+-\dfrac{64}{29} \\
+\\
+\dfrac{86}{29} \\
+\\
+- \dfrac{91}{29} \\
+\end{bmatrix}
+$$
+
+
+\begin{center}\textbf{ Метод приєднаної матриці } \end{center}
+
+  $$
+    A = \begin{bmatrix}
+      4 & 1 &  1 \\
+      2 & 0 & -3 \\
+     -1 & 2 &  1 \\
+    \end{bmatrix} \qquad \det{A} = 3 + 4 - 2 - (- 32) = 29
+  $$
+
+Метод приєднаної матриці являє собою майже повний аналог методу оберненої матриці, але обернена матриця виражається через - приєднану розділену на детермінант.
+
+$$
+A^* =
+\begin{bmatrix}
+  A_{11} & A_{12} & A_{13} \\
+  A_{21} & A_{22} & A_{23} \\
+  A_{31} & A_{32} & A_{33} \\
+\end{bmatrix}
+\qquad
+X = \begin{bmatrix}
+  \alpha \\
+  \beta  \\
+  \gamma \\
+\end{bmatrix}
+\qquad
+B = \begin{bmatrix}
+  -9 \\
+  5  \\
+  5 \\
+\end{bmatrix}
+$$
+
+$$
+\begin{array}{ll}
+
+  \begin{array}{lllll}
+      A_{11} = & (-1)^{1+1} & \begin{bmatrix}0&-3\\2&1 \end{bmatrix} & =  6
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{12} = & (-1)^{1+2} & \begin{bmatrix}2&-3\\-1&1 \end{bmatrix} & = -(2-3) = 1
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+      A_{13} = & (-1)^{1+3} & \begin{bmatrix}2&0\\-1&2 \end{bmatrix} & = 4
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{21} = & (-1)^{2+1} & \begin{bmatrix}1&1\\2&1 \end{bmatrix} & = -1(1-2) = 1
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+    A_{22} = & (-1)^{2+2} & \begin{bmatrix}4&1\\-1&1 \end{bmatrix} & =  4+1  = 5
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{23} = & (-1)^{2+3} & \begin{bmatrix}4&1\\-1&2 \end{bmatrix} & = -1(8+1) = -9
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+     A_{31} = & (-1)^{3+1} & \begin{bmatrix}1&1\\0&-3 \end{bmatrix} & = -3
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{32} = & (-1)^{3+2} & \begin{bmatrix}4&1\\2&-3 \end{bmatrix} & =-1(-12-2) = 14
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+      A_{33} = & (-1)^{3+3} & \begin{bmatrix}4&1\\2&0 \end{bmatrix} & = -2
+  \end{array}
+\end{array}
+$$
+
+
+Після знаходження оперненої матриці можна переходити до її множення на стопчик вільних коофіцієнтів щоб отримати стовпчик невідомих.
+
+
+$$
+A^{-1} = \dfrac{1}{\det{A}} \cdot  A^{*T} =
+\dfrac{1}{\det{A}} \begin{bmatrix}
+  A_{11} & A_{21} & A_{31} \\
+  A_{12} & A_{22} & A_{32} \\
+  A_{13} & A_{23} & A_{32} \\
+\end{bmatrix} =
+\dfrac{1}{29} \begin{bmatrix}
+  6 & 1 & -3 \\
+  1 & 5 & 14 \\
+  4 & -9 & -2 \\
+\end{bmatrix}
+$$
+
+$$
+X = \begin{bmatrix}
+  \alpha \\
+  \beta  \\
+  \gamma \\
+\end{bmatrix} =
+A^{-1} \cdot B =
+\dfrac{1}{29} \begin{bmatrix}
+  6 & 1 & -3 \\
+  1 & 5 & 14 \\
+  4 & -9 & -2 \\
+\end{bmatrix} \times \begin{bmatrix}
+  -9 \\
+  5  \\
+  5 \\
+\end{bmatrix} = \dfrac{1}{29} \begin{bmatrix}
+-54+5-15\\
+\\
+-9+25+70\\
+\\
+-36-45-10\\
+\end{bmatrix} = \begin{bmatrix}
+-\dfrac{64}{29} \\
+\\
+\dfrac{86}{29} \\
+\\
+- \dfrac{91}{29} \\
+\end{bmatrix}
+$$
+
+$$
+\boxed{X = \begin{bmatrix}
+  \alpha \\
+  \beta  \\
+  \gamma \\
+\end{bmatrix} = \begin{bmatrix}
+-\dfrac{64}{29} \\
+\\
+\dfrac{86}{29} \\
+\\
+- \dfrac{91}{29} \\
+\end{bmatrix} }}
+$$
+
+\begin{center}\textbf{ Метод Крамера }\end{center}
+
+Метод Крамера полягає у визначенні детермінантів окремо для матриць де шуканий стовбичк підміняється результатом.
+
+$$
+  A = \begin{bmatrix}
+    4 & 1 &  1 \\
+    2 & 0 & -3 \\
+   -1 & 2 &  1 \\
+  \end{bmatrix} \qquad \det{A} = 3 + 4 - 2 - (- 32) = 29
+$$
+
+$$
+\det{\alpha} = \begin{bmatrix}
+  s_1 & q_1 & r_1 \\
+  s_2 & q_2 & r_1 \\
+  s_3 & q_3 & r_1 \\
+\end{bmatrix} = \begin{bmatrix}
+  -9 & 1 &  1 \\
+   5 & 0 & -3 \\
+   5 & 2 &  1 \\
+\end{bmatrix} = -64
+$$
+
+$$
+\det{\beta} = \begin{bmatrix}
+  p_1 & s_1 & r_1 \\
+  p_2 & s_2 & r_1 \\
+  p_3 & s_3 & r_1 \\
+\end{bmatrix} = \begin{bmatrix}
+  4 & -9 &  1 \\
+  2 & 5 & -3 \\
+  -1 & 5 &  1 \\
+\end{bmatrix} = 86
+$$
+
+$$
+\det{\gamma} = \begin{bmatrix}
+  p_1 & q_1 & s_1 \\
+  p_2 & q_2 & s_1 \\
+  p_3 & q_3 & s_1 \\
+\end{bmatrix} = \begin{bmatrix}
+   4 & 1 & -9 \\
+   2 & 0 & 5  \\
+  -1 & 2 & 5  \\
+\end{bmatrix} = -91
+$$
+
+$$
+\boxed{
+  \alpha = \dfrac{\det{\alpha}}{\det{A}} = -\dfrac{64}{29} \qquad \beta = \dfrac{\det{\beta}}{\det{A}} = \dfrac{86}{29} \qquad \gamma = \dfrac{\det{\gamma}}{\det{A}} = -\dfrac{91}{29}
+}
+$$

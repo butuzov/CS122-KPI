@@ -1,0 +1,99 @@
+{\descr[1.6]{Знайти матрицю лінійного оператора у базисі $(\cord{e_1, e_2, e_3})$, где $e'_1=e_1-e_2+e_3, e'_2=e_1+e_2-2e_3, e'_3=e_1+2e_2+e_3$ якщо вона задана $(e_1, e_2, e_3)$ }}
+
+
+$$
+\begin{cases}
+    e'_1=e_1-e_2+e_3 \\
+    e'_2=e_1+e_2-2e_3 \\
+    e'_3=e_1+2e_2+e_3 \\
+  \end{cases}
+  \qquad
+A =
+\begin{bmatrix}
+  1 & 2 & 0 \\
+  3 & 0 & -1 \\
+  2 & 1 & -1
+\end{bmatrix}
+$$
+
+Матриця лінійного базису $(e_1, e_2, e_3)$ знаходиться по формулі $A'=S^{-1}AS$
+
+$$
+S = \begin{bmatrix}
+  1& -1& -1 \\
+ -1&  1&  2 \\
+  1& -2&  1 \\
+  \end{bmatrix}
+\det{S} =
+\begin{bmatrix}
+  1-2-2+1-1+4 = 1
+  \end{bmatrix}
+$$
+
+\begin{array}{lllll}
+  S_{11} = & (-1)^{2} & \begin{bmatrix}1&2\\-2&1  \end{bmatrix} & = (1+4) &= 5 \\
+  \\
+  S_{12} = & (-1)^{3} & \begin{bmatrix}-1&2\\1&1  \end{bmatrix} & = -(-1-2) &= 3 \\
+  \\
+  S_{13} = & (-1)^{4} & \begin{bmatrix}-1&1\\1&-2 \end{bmatrix} & = (2-1) &= 1  \\
+  \\
+  S_{21} = & (-1)^{3} & \begin{bmatrix}-1&-1\\-2&1\end{bmatrix} & = -(-3) &= 3 \\
+  \\
+  S_{22} = & (-1)^{4} & \begin{bmatrix}1&-1\\1&1  \end{bmatrix} & =  (1+1) &= 2 \\
+  \\
+  S_{23} = & (-1)^{5} & \begin{bmatrix}1&-1\\1&-2 \end{bmatrix} & = -(-2+1) &= 1 \\
+  \\
+  S_{31} = & (-1)^{4} & \begin{bmatrix}-1&-1\\1&2 \end{bmatrix} & =  (-2+1) &= -1 \\
+  \\
+  S_{32} = & (-1)^{5} & \begin{bmatrix}1&-1\\-1&2 \end{bmatrix} & = -(1)   &= -1 \\
+  \\
+  S_{33} = & (-1)^{6} & \begin{bmatrix}1&-1\\-1&1 \end{bmatrix} & =  (1-1) &= 0 \\
+\end{array}
+
+
+$$
+  S^{-1} = \dfrac{1}{\det{S}} S^{*T} = \dfrac{1}{1}
+    \begin{bmatrix}
+      5 & 3 & -1 \\
+      3 & 2 & 1 \\
+      1 & 1 & 0
+    \end{bmatrix}
+$$
+
+$$
+A'= \begin{bmatrix}
+  5 & 3 & -1 \\
+  3 & 2 & 1 \\
+  1 & 1 & 0
+\end{bmatrix} \times \begin{bmatrix}
+  1 & 2 & 0 \\
+  3 & 0 & -1 \\
+  2 & 1 & -1
+\end{bmatrix} \times \begin{bmatrix}
+  1& -1& -1 \\
+ -1&  1&  2 \\
+  1& -2&  1 \\
+  \end{bmatrix} = \begin{bmatrix}
+    12 & 9 & -2 \\
+    11 & 7 & -3 \\
+    4 & 2 & -1
+  \end{bmatrix} \times \begin{bmatrix}
+    1& -1& -1 \\
+   -1&  1&  2 \\
+    1& -2&  1 \\
+  \end{bmatrix} = \begin{bmatrix}
+      1& 1& 4 \\
+      1& 2& 0 \\
+      1& 0&-1 \\
+    \end{bmatrix}
+$$
+
+$$
+\boxed{
+  A' = \begin{bmatrix}
+    1& 1& 4 \\
+    1& 2& 0 \\
+    1& 0&-1 \\
+  \end{bmatrix}
+}
+$$

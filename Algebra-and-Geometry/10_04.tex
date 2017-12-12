@@ -1,0 +1,87 @@
+{\descr[.9]{Знайти координати вектору $\V{x}$ у базисі $(\cord{e'_1, e'_2, e'_3})$, якщо він заданий в базисі $(\cord{e_1, e_2, e_3})$.}}
+
+$$
+\begin{cases}
+    e'_1 = e_1 +  e_2 + \dfrac{3}{2}e_3 \\
+    e'_2 = 3e_1 - e_2 \\
+    e'_3 = -e_1 + e_2 + e_3 \\
+  \end{cases}
+x = \{\cord{2, 4, 1} \}
+$$
+
+Складемо матрицю переходу, стовбі якої будуть кординатами стовбиів векторів.
+
+$$
+S =
+\begin{bmatrix}
+  1 &3 &-1 \\
+  1 &-1& 1 \\
+  3/2 &0 & 1 \\
+\end{bmatrix}
+\qquad
+\det{S} = -1+\dfrac{9}{2} - \dfrac{3}{2}-3 = -1
+\qquad
+S^{-1} =
+\begin{bmatrix}
+  -1    & 3 &  -2 \\
+  \\
+  -\dfrac{1}{2} & -\dfrac{5}{2}   & 2 \\
+  \\
+  -\dfrac{3}{2}  & -\dfrac{9}{2}  & 4 \\
+\end{bmatrix}
+$$
+
+І координати ветору $\V{x}$ ми знайдемо за формулою $\V{x}^{-1} = S^{-1}\V{x}$
+
+$$
+\V{x}
+= \left[
+  \begin{array}{ccccc}
+    -1    & 3 &  -2 \\
+    \\
+    -\dfrac{1}{2} & -\dfrac{5}{2}   & 2 \\
+    \\
+    -\dfrac{3}{2}  & -\dfrac{9}{2}  & 4 \\
+  \end{array}
+\right] \cdot
+\begin{bmatrix}
+   2 \\ 4 \\ 1
+\end{bmatrix}
+= \left[
+  \begin{array}{rcrcr}
+    -1   \cdot 2 &+& 3    \cdot 4  &+&  -2 \cdot 1 \\
+    \\
+    -\dfrac{1}{2} \cdot 2 &+& -\dfrac{5}{2} \cdot 4  &+&   2 \cdot 1 \\
+    \\
+    -\dfrac{3}{2} \cdot 2 &+& -\dfrac{9}{2} \cdot 4  &+&   4 \cdot 1 \\
+
+  \end{array}
+\right]
+= \left[
+  \begin{array}{lcccr}
+    -2 & +&12   &-&2 \\
+   -1   &-&10   &+&2  \\
+    3   &-&18   &+&4 \\
+  \end{array}
+\right]
+= \left[
+  \begin{array}{r}
+     12 \\
+     -9 \\
+    -17 \\
+  \end{array}
+\right]
+$$
+
+
+$$
+\boxed{\V{x} =
+  \left[
+    \begin{array}{r}
+       12 \\
+       -9 \\
+      -17 \\
+    \end{array}
+  \right]
+}
+$$

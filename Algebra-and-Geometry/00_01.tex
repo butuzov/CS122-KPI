@@ -1,0 +1,83 @@
+{\descr[.9]{Розв’язати матричне рівняння. Знайти розв’язок в загальному вигляді, а потім обчислити його матричне значення.}}
+
+$$
+  (BA^T)^T(AX^{-1})^{-1} = A(A^TB)^T(AB)^{-1}
+$$
+
+
+$$
+A = \begin{bmatrix}
+  n-1 & n+4 \\
+  n-2 & n+3  \\
+  \end{bmatrix} \qquad
+B = \begin{bmatrix}
+  n+2 & n-4 \\
+  n+3 & n-3  \\
+\end{bmatrix}
+$$
+
+\begin{center}де n номер у списку (тобто)\end{center}
+
+$$
+A = \begin{bmatrix}
+  3 & 8 \\
+  2 & 7  \\
+  \end{bmatrix}
+\qquad
+B = \begin{bmatrix}
+  6 & 0 \\
+  7 & -1  \\
+\end{bmatrix}
+$$
+
+
+Розвязуємо рівняння спочатку в загальному вигляді:
+$$
+\begin{array}{rcl}
+    (BA^T)^T(AX^{-1})^{-1} &=& A(A^TB)^T(AB)^{-1} \\
+    AB^TXA^{-1} &=& AB^TAB^{-1}A^{-1} \\
+    X  &=& AB^{-1}  \\
+\end{array}
+$$
+
+Перщ ніж шукати обернену матрицю $B$ знайдемо диcкримінант
+$$
+\det{B} = -6 \qquad B^* = \begin{bmatrix}
+  B_{11} & B_{12} \\
+  B_{21} & B_{22}
+\end{bmatrix} = \begin{bmatrix}
+  -1 & 7 \\
+  0 & 6
+\end{bmatrix} \qquad
+B^{-1} = \dfrac{1}{\det{B}} \cdot B^{*T} = -\dfrac{1}{6} \begin{bmatrix}
+  -1 & 0 \\
+  7 & 6
+\end{bmatrix} = \begin{bmatrix}
+   1/6 &  0 \\
+  -7/6 & -1 \\
+\end{bmatrix}
+$$
+
+$$
+X = AB^{-1} = \begin{bmatrix}
+  3 & 8 \\
+  2 & 7
+\end{bmatrix} \times \begin{bmatrix}
+   1/6 &  0 \\
+  -7/6 & -1 \\
+\end{bmatrix} = \begin{bmatrix}
+  (3 \cdot 1/6 + 8 \cdot -7/6) & (3 \cdot 0 + 8 \cdot -1 ) \\
+  (2 \cdot 1/6 + 7 \cdot -7/6 ) & (2 \cdot 0 + 7 \cdot -1 ) \\
+\end{bmatrix} = \begin{bmatrix}
+  -53/6 & -8  \\
+  -47/6 & -7 \\
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+X = \begin{bmatrix}
+  -53/6 & -8  \\
+  -47/6 & -7 \\
+\end{bmatrix}}
+$$

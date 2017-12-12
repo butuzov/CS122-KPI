@@ -1,0 +1,201 @@
+{\descr[.9]{Знайти обернену матрицю двома методами: за формулою та методом елементарних перетворень. Зробити перевірку}}
+\\ \qquad \\
+$$
+A = \begin{bmatrix}
+  1 & 2 &  0 \\
+  3 & 0 & -1 \\
+  2 & 1 & -1 \\
+\end{bmatrix} \qquad \det{A} = -4+6+1 = 3
+$$
+\center{Знаходження оберненої матриці за методом приєднаної матриці}
+
+$$
+\begin{array}{ll}
+
+  \begin{array}{lllll}
+    A_{1,1} = & -1^{2} & \begin{bmatrix}0&-1 \\ 1&-1 \end{bmatrix} &= 1
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{1,2} = & -1^{3} & \begin{bmatrix}3&-1 \\ 2&-1 \end{bmatrix} & = -(-3-(-2)) &= 1 \\
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+      A_{1,3} = & -1^{4} & \begin{bmatrix}3&0  \\ 2&1  \end{bmatrix} & = 3
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{2,1} = & -1^{3} & \begin{bmatrix}2&0  \\ 1&-1 \end{bmatrix} & = -(-2)&=2
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+    A_{2,2} = & -1^{4} & \begin{bmatrix}1&0  \\ 2&-1 \end{bmatrix} & = -1
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{2,3} = & -1^{5} & \begin{bmatrix}1&2  \\ 2&1  \end{bmatrix} & = -(1-4)&=3
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+     A_{3,1} = & -1^{4} & \begin{bmatrix}2&0  \\ 0&-1 \end{bmatrix} & = -2
+  \end{array}
+  &
+  \begin{array}{lllll}
+    A_{3,2} = & -1^{5} & \begin{bmatrix}1&0  \\ 3&-1 \end{bmatrix} & = -(-1)&=1
+  \end{array}
+  \\
+  \\
+  \begin{array}{lllll}
+      A_{3,3} = & -1^{6} & \begin{bmatrix}1&2  \\ 3&0  \end{bmatrix} & = -6
+  \end{array}
+\end{array}
+$$
+
+
+
+$$
+A^{-1} =
+\begin{bmatrix}
+  \dfrac{A_{1,1}}{\det{A}} & \dfrac{A_{2,1}}{\det{A}} & \dfrac{A_{3,1}}{\det{A}} \\
+  \\
+  \dfrac{A_{1,2}}{\det{A}} & \dfrac{A_{2,2}}{\det{A}} & \dfrac{A_{3,2}}{\det{A}} \\
+  \\
+  \dfrac{A_{1,3}}{\det{A}} & \dfrac{A_{2,3}}{\det{A}} & \dfrac{A_{3,3}}{\det{A}} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \dfrac{1}{3} & \dfrac{2}{3} & -\dfrac{2}{3} \\
+  \\
+  \dfrac{1}{3} & -\dfrac{1}{3} & \dfrac{1}{3} \\
+  \\
+  \dfrac{3}{3} & \dfrac{3}{3} & \dfrac{-6}{3} \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \dfrac{1}{3} & \dfrac{2}{3} & -\dfrac{2}{3} \\
+    \\
+    \dfrac{1}{3} & -\dfrac{1}{3} & \dfrac{1}{3} \\
+    \\
+    1 & 1 & -2 \\
+    \end{bmatrix}
+$$
+
+
+\center{Знаходження оберненої матриці методом елементарних перетворень}
+$$
+\left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  3 & 0 & -1 \\
+  2 & 1 & -1 \\
+\end{array} \Bigg| \begin{array}{ccc}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{array} \right] =
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  0 & -6 & -1 \\
+  0 & -3 & -1 \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{} \\
+  _{-3\cdot{I}} \\
+  _{-2\cdot{I}} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1 & 0 & 0 \\
+  -3 & 1 & 0 \\
+  -2 & 0 & 1 \\
+\end{array} \right]= \left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  0 & -6 & -1 \\
+  0 & 0 & -\dfrac{1}{2} \\
+\end{array} \Bigg|
+\begin{array}{ccc}
+  _{} \\
+  _{} \\
+  _{-1/2 \cdot {II}} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1 & 0 & 0 \\
+  -3 & 1 & 0 \\
+  -\dfrac{1}{2} & -\dfrac{1}{2} & 1 \\
+\end{array} \right] =
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  0 & -6 & -1 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{l}
+  _{} \\
+  _{} \\
+  _{\times (-2) } \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1 & 0 & 0 \\
+ -3 & 1 & 0 \\
+  1 & 1 & -2 \\
+\end{array} \right] =\left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  0 & -6 & 0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{l}
+  _{} \\
+  _{+ III } \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1 & 0 & 0 \\
+  -2 & 2 & -2 \\
+  1 & 1 & -2 \\
+\end{array} \right] =
+$$
+
+$$
+\left[
+\begin{array}{rrr}
+  1 & 2 &  0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{l}
+  _{} \\
+  _{/ (-6)} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1 & 0 & 0 \\
+  1/3 & -1/3 & 1/3 \\
+  1 & 1 & -2 \\
+\end{array} \right] = \left[
+\begin{array}{rrr}
+  1 & 0 &  0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{array} \Bigg|
+\begin{array}{l}
+  _{-2 \times II} \\
+  _{} \\
+  _{} \\
+\end{array}
+\Bigg| \begin{array}{rrr}
+  1/3 & 2/3 & -2/3 \\
+  1/3 & -1/3 & 1/3 \\
+  1 & 1 & -2 \\
+\end{array} \right]
+$$

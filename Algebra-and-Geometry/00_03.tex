@@ -1,0 +1,45 @@
+{\descr{Знайти ранг матриці}}
+
+$$
+A = \begin{bmatrix}
+    7 & 3 & 1 & 4 & 2 \\
+    3 & 4 & 2 & 3 & 1 \\
+  -2 & 10 & 6 & 4 & 0 \\
+\end{bmatrix}
+$$
+
+$$
+\left[ \begin{array}{rrrrr:c}
+    7 & 3 & 1 & 4 & 2 & - 2 \times II\\
+    3 & 4 & 2 & 3 & 1 & \\
+  -2 & 10 & 6 & 4 & 0 & \\
+\end{array} \right] =
+\left[ \begin{array}{rrrrr:c}
+    1 & -5 & -3 & -2 & 0 & +  1/2 \times III \\
+    3 &  4 &  2 &  3 & 1 & \\
+   -2 & 10 &  6 &  4 & 0 & \\
+\end{array} \right]  =
+\left[ \begin{array}{rrrrr:c}
+    0 &  0 &  0 &  0 & 0 & II \\
+    3 &  4 &  2 &  3 & 1 & III\\
+   -2 & 10 &  6 &  4 & 0 & I \\
+\end{array} \right]
+$$
+
+$$
+= \left[ \begin{array}{rrrrr:c}
+    3 &  4 &  2 &  3 & 1 &     \\
+   -2 & 10 &  6 &  4 & 0 & +2  \\
+    0 &  0 &  0 &  0 & 0 &     \\
+\end{array} \right]
+= \left[ \begin{array}{rrrrr}
+    3 &  4 &  2 &  3 & 1 \\
+    0 & 12 &  8 &  6 & 2 \\
+    0 &  0 &  0 &  0 & 0 \\
+\end{array} \right]
+$$
+
+
+$$
+\boxed{ rank{A} = 2 }
+$$
