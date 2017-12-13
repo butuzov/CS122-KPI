@@ -1,0 +1,101 @@
+\section{Системний виклик (syscall) - write}
+
+  \begin{quote}
+  Syscall - в програмуванні це звернення программи до ядра операційної системи для виконання будьякої операції.
+  \end{quote}
+
+  \subsection{Що таке системний виклик write}
+  Системний виклик \texttt{write} є одним з базових викликів що проваджується ядром UNIX подібної операційної системи. Основною його функцією є запис декларованого користувачем буферу певним розміров в певний пристрій. Пристроєм при цьому може бути як файл, так і stdout (поток виводу) або stderr (поток помилок), цей аргумент має задаватись цілим числом (зокрема в мові програмування C типом int ). В POSIX існує три стандартних файлових дискриптора відповідно до трьох стандартних потоків що повязані за кожним процесом.
+
+  \subsection{Дискриптори файлу}
+  \begin{center}
+    \begin{tabular}{ l | l | l | l }
+      \textbf{Ціле Фисло} & Опис &  \textbf{Символічна константа} & Потік \\ \hline
+      0 & Стандартний ввід & STDIN\_FILENO & stdin \\ \hline
+      1 & Стандартний вивід  & STDOUT\_FILENO & stdout \\ \hline
+      2 & Стандартний вивід помилок & STDERR\_FILENO & stderr \\ \hline
+    \end{tabular}
+  \end{center}
+
+  Окрім того стандартних файлових дескрипторів - декскриптор може бути створено за допомогою інших системних викликів - таких як:
+  \begin{itemize}
+    \item open
+    \item creat
+    \item socket
+    \item accept
+    \item socketpair
+    \item pipe
+    \item opendir
+    \end{itemize}
+
+  Кожен з яких може працювати з певними примітивами і рівнями абстракції (наприклад з сокетами або файлами).
+
+  \subsection{Інтерфейс write}
+  Дані що будуть записані (допустимо для прикладу - що це якийсь текст) задекларований вказівником (pointer'ом) і розміром цього тексту в байтах (по іншому в мові програмування C не можливо передати масив данних, лише як масив і його довжину окремо), останній аргумент ще трактують як число байт з масиву \texttt{buf} що треба записати.
+
+  Інтерфейс write стандартизовано специфікаціє POSIX і описано в багатьох джерелах. Прототип функції виглядає наступним чином (\texttt{ssize\_t} декларується в бібліотеці stddef.h)
+
+  \texttt{ssize\_t write(int fd, const void *buf, size\_t nbytes);}
+
+  Як видно з прототипу інтерфейсу системний виклик такою повертає деяке число, це число байтів що були 'кудись' записано. У разі помилки повернеться unsigned int. Нижче наданий перелік можливих помилок в які можна попасти з файловими дескрипторами.
+
+  \subsection{Типові очікувані помилки при використанні write}
+
+  \begin{center}
+    \begin{tabular}{ | c | c | l | }
+      \hline N & Код & Опис \\
+      \hline 4 &  EINTR & Системний виклик було перервано. \\
+      \hline 5 &  EIO & Низько-рівнева помилка, повязана з чит/зап апаратного заб-ня. \\
+      \hline 9 & EBADF & Дескриптор не валідний або файл фідкритий в режимі читання. \\
+      \hline 13 & EACCES & Користувач не має права запису до файлу. \\
+      \hline 14 & EFAULT & Адреса вказана не правильно. \\
+      \hline 22 & EINVAL & Аргументи передані функцією не можуть бути валідовані. \\
+      \hline 27 & EFBIG & Перевищено розмір допустимого розміру буферу. \\
+      \hline 28 & ENOSPC & Недостатньо місця для запису у файл. \\
+      \hline 32 & EPIPE & Пробелема передачі потоку або файл не готовий до передачі. \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+\subsection{Імплементація, використання та тестування}
+
+Компіляція программи \\
+    \texttt{gcc write.c -o writer \&\& chmod 0777 ./writer}
+
+Запуск та отримання проміжних варіантів \\
+    \texttt{cat sample.txt | xargs ./writer result.txt \&\& chmod +rw result.txt}
+
+Перевірка результатів \\
+    \texttt{md5 result.txt \&\& md5 sample.txt}
+
+    \begin{quote}
+    \emph{Через неможливість використання кирилиці у пакеті LaTeX \texttt{listnings} коментарі подано у вигляді транслітерації.}
+    \end{quote}
+
+Код ніжче наведенної программи намагається створити файл якщо файл не існує, або відкриває файл якщо він існує і пише до цьогофайлу усі аргументи що зустрічаються після нього. Тобто запит до программи
+
+\texttt{./writer test.txt This is test!}
+
+завершиться записом файлу test.txt з змістом "This is test!"
+
+\pagebreak
+
+\lstinputlisting[language=C, style=customc]{write.c}
+
+\pagebreak
+
+  \begin{left}\small{\cyr{\textbf{Використані джерела}}}\end{left}
+  \begin{enumerate}
+
+    \item Searchable Linux Syscall Table for x86 and x86\_64 \\ https://filippo.io/linux-syscall-table/
+
+    \item Linux syscalls list \\ https://syscalls.kernelgrok.com/
+
+    \item The Definitive Guide to Linux System Calls \\ https://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/
+
+    \item Linux Programmer's Manual - Linux system calls \\ http://man7.org/linux/man-pages/man2/syscalls.2.html
+
+    \item Learn C Programming \\ https://www.programiz.com/c-programming
+
+    \item C Programming and C++ Programming \\ https://www.cprogramming.com/
+  \end{enumerate}

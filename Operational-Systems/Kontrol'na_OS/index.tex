@@ -1,0 +1,46 @@
+
+\documentclass[a4paper, 10pt, oneside, titlepage]{article}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{scrextend}
+
+\pagenumbering{arabic}
+
+\changefontsizes[16pt]{16pt}
+\setlength{\parskip}{\baselineskip}
+
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=false,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\scriptsize\ttfamily,
+}
+
+\begin{document}
+\fontsize{13}{20}\selectfont
+
+
+
+  \include{header}
+  \thispagestyle{empty}
+  \tableofcontents
+  \pagebreak
+  \setcounter{page}{1}
+  \include{freebsd}
+  \include{tcsh}
+  \include{write}
+
+
+\end{document}
