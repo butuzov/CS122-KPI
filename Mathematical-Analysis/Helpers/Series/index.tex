@@ -1,0 +1,46 @@
+\documentclass[a4paper, 10pt, twoside, BCOR=1mm, DIV=12]{scrreprt}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage[document]{ragged2e}
+ \usepackage{fancyhdr}
+\usepackage{mathtext}
+\usepackage{scrextend}
+\usepackage{eqnarray,amsmath,amssymb}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{multicol}
+
+% \geometry{landscape}
+\newcommand{\M}[1]{\begin{center}{#1}\end{center} }
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{{$\displaystyle \lim_{#1}\;$}}}
+\newcommand{\Sum}[2]{\raisebox{0.5ex}{{$\displaystyle \sum_{#1}^{#2}\;$}}}
+\newcommand{\Sqrt}[2][2]{\raisebox{1ex}{{$\displaystyle \sqrt[#1]{#2}\;$}}}
+
+
+\renewcommand{\d}[1]{
+  \hspace{2pt}\text{d}\hspace{1pt}{#1}
+}
+
+\begin{document}
+
+  \M{\LARGE{\textbf{Числові ряди / Series}}}
+  \input{properties}
+  \input{zbijnist}
+  \input{zbijnist-properties-1-2}
+  \input{zbijnist-properties-koshi}
+  \input{zbijnist-properties-dalamber}
+  \input{zbijnist-properties-integrals}
+  \input{examples}
+  \input{series}
+
+
+
+
+
+  % \end{multicols}
+\end{document}
