@@ -1,0 +1,56 @@
+\begin{center}\large{\cyr{\textbf{1.1 Довести тотожність аксіоматично}}}\end{center}
+
+\begin{displaymath}
+  A\cup((B\bigtriangleup(B\bigtriangleup{A})) \setminus B)=A
+\end{displaymath}
+
+Спростимо ліву частину завдиння поступово спрощуючи формули за допомогою основних та похідних законів алгебри множин (для кращого розуміння ходу процесу кожна дія обмежена одною-двома операціями):
+
+$$
+A\cup((B\bigtriangleup(B\bigtriangleup{A})) \setminus B) = A
+$$
+
+\begin{displaymath}
+
+
+  \text{ Операції $\setminus$ та $\bigtriangleup$ розкривати за формулами: }\\
+  A\setminus{B}=A\cap{B}\compl \\qquad A\bigtriangleup{B} = (A\cap{B\compl})\cup{(B\cap{A\compl} )}
+
+\end{displaymath}
+
+\begin{center}\normalsize{\cyr{\textbf{Розкриття}}}\end{center}
+\begin{array}{l}
+
+  A = A\cup{((B\bigtriangleup(B\bigtriangleup{A})) \setminus B)}   \\
+  A = A\cup{((B\bigtriangleup(  ( ( A\compl \cap{B} )  \cup{ ( A \cap{B\compl} )} )  )) \setminus B)}   \\
+  A = A\cup{(( (  ( ( A\compl \cap{B} )  \cup{ ( A \cap{B\compl} )} ) \compl \cap{B} )  \cup{ (  ( ( A\compl \cap{B} )  \cup{ ( A \cap{B\compl} )} )  \cap{B\compl} )} )  \setminus B)}  \\
+
+  A = A\cup{((((( A\compl \cap{B} )  \cup{ ( A \cap{B\compl} )} ) \compl \cap{B} )  \cup{ (  ( ( A\compl \cap{B} )  \cup{ ( A \cap{B\compl} )} )  \cap{B\compl} )} )  \cap{B\compl} )}   \\
+
+\end{array}
+
+
+\begin{center}\normalsize{\cyr{\textbf{Доведення}}}\end{center}
+$$
+\begin{array}{r|l}
+  \text{Закони} & \text{Тотожності} \\
+  \hline \\
+  1      & A \cup ( B\compl \cap ( ( B \cap ( ( A\compl \cap{B}) \cup ( A \cap B\compl ) )\compl ) \cup ( {B\compl} \cap ( ( A\compl\cap{B}) \cup (A \cap B\compl)) )) ) \\
+  10,11,1  & A \cup ( B\compl \cap ( ( B \cap  ( ( A\compl \cup B ) \cap ( A \cup B\compl ) ) ) \cup ( B\compl \cap ( ( A\compl \cap B ) \cup ( A \cap B\compl ) ) ) ) ) \\
+  2      & A \cup ( B\compl \cap ( ( ( B \cap ( A\compl \cup  B ) ) \cap ( B \cap (  A \cup B\compl ) ) ) \cup ( (B\compl \cap ( A\compl \cap  B ) ) \cap ( B\compl \cap ( A \cap B\compl ) ) ) ) ) \\
+  1       & A \cup ( B\compl \cap ( ( ( B \cap (  B \cup A\compl ) ) \cap ( B \cap ( B\compl \cup  A ) ) ) \cup ( (B\compl \cap (  B \cap A\compl ) ) \cap ( B\compl \cap ( B\compl \cap A ) ) ) ) ) \\
+  6       & A \cup ( B\compl \cap ( ( ( B \cap ( B \cup A\compl ) ) \cap ( B \cap ( B\compl \cup  A ) ) ) \cup ( (B\compl \cap (  B \cap A\compl ) ) \cap ( B\compl \cap ( B\compl \cap A ) ) ) ) ) \\
+  12      & A \cup ( B\compl \cap ( ( B \cap ( B \cap ( B\compl \cup  A ) ) ) \cup ( (B\compl \cap (  B \cap A\compl ) ) \cap ( B\compl \cap ( B\compl \cap A ) ) ) ) ) \\
+  8       & A \cup ( B\compl \cap ( ( ( B \cap B )  \cap A  ) \cup ( ( ( B\compl \cap B )  \cap A\compl ) \cap ( ( B\compl \cap B\compl ) \cap A  ) ) ) ) \\
+  5,4,7   & A \cup ( B\compl \cap ( ( B \cap A ) \cup ( ( \emptyset \cap A\compl ) \cap (B\compl \cap A ) ) ) \\
+  5       & A \cup ( B\compl \cap ( ( B \cap A ) \cup ( \emptyset \cap (B\compl \cap A ) ) ) \\
+  3       & A \cup ( B\compl \cap ( ( B \cap A ) \cup \emptyset   ) \\
+  8,4       & A \cup ( B\compl \cap ( B \cap A ) ) \\
+  5       & A \cup ( \emptyset \cap A   ) \\
+  5       & A \cup \emptyset  \\
+  3       & A
+
+\end{array}
+$$
+
+Тотожність доведено.

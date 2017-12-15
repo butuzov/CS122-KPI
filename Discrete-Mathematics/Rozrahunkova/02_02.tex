@@ -1,0 +1,124 @@
+\begin{center}\large{\cyr{\textbf{2.2 Обчислити $(R \circ S)^{-1}$ та $(R \circ R^{-1})_{Tr}$}}}\end{center}
+
+$$
+R = \{(a_1, b_1), (a_2, b_1), (a_3, b_2)\}, S = \{(b_2, c_1), (b_1, c_2), (b_2, c_3), (b_2, c_4)\}.
+$$
+
+$$
+R: A \to B,  \quad  R = \left[ \begin{array}{c|ccc}
+  & b_1 & b_2 \\
+  \hline
+  a_1 & 1 & 0 \\
+  a_2 & 1 & 0 \\
+  a_3 & 0 & 1 \\
+  \end{array} \right] \quad
+S: B \to C, \quad S=   \left[ \begin{array}{c|cccc}
+  & c_1 & c_2 & c_3 & c_4  \\
+  \hline
+  b_1 & 0 & 1 & 0 & 0 \\
+  b_2 & 1 & 0 & 1 & 1 \\
+  \end{array} \right]
+$$
+
+$$
+a) \qquad
+R \circ S = \left[ \begin{array}{c|cccc}
+  & c_1 & c_2 & c_3 & c_4  \\
+  \hline
+  a_1 & 0 & 1 & 0 & 0 \\
+  a_2 & 0 & 1 & 0 & 0 \\
+  a_3 & 1 & 0 & 1 & 1 \\
+\end{array} \right]
+  (R \circ S)^{-1} \left[ \begin{array}{c|ccc}
+ & a_1 & a_2 & a_3 \\
+ \hline
+ c_1 & 0 & 0 & 1 \\
+ c_2 & 1 & 1 & 0 \\
+ c_3 & 0 & 0 & 1 \\
+ c_4 & 0 & 0 & 1\\
+\end{array} \right]
+$$
+
+$$
+b) \quad R: A \to B,  \quad  R = \left[ \begin{array}{c|ccc}
+  & b_1 & b_2 \\
+  \hline
+  a_1 & 1 & 0 \\
+  a_2 & 1 & 0 \\
+  a_3 & 0 & 1 \\
+  \end{array} \right] \quad \qquad R^{-1}: B \to A,  \quad  R^{-1} = \left[ \begin{array}{c|ccc}
+  & a_1 & a_2 & a_3 \\
+  \hline
+  b_1 & 1 & 1 & 0 \\
+  b_2 & 0 & 0 & 1 \\
+  \end{array} \right]
+$$
+
+$$
+(R \circ R^{-1}) = \left[ \begin{array}{l|lll}
+     & a_1 & a_2 & a_3 \\
+ \hline
+ a_1 & 1   & 1   & 0 \\
+ a_2 & 1   & 1   & 0 \\
+ a_3 & 0   & 0   & 1 \\
+\end{array} \right]
+$$
+
+$$
+\begin{tabular*}{\linewidth}{>{$}r<{$}@{\extracolsep{\fill}}>{$}r<{$}>{$}r<{$}}
+
+    \begin{tikzpicture}[node distance=1cm]
+      % nodes
+      \node[circle, right] (A1) at (0, 0) {a1};
+      \draw[->](0,0) -- (0,2);
+      \node[circle, right, single arrow] (A2) at (0, 2) {a2};
+      \node[circle, left, single arrow]  (A3) at (3, 1) {a3};
+      % % arrows
+      \draw[line width=1pt] (0, 0) circle (1pt);
+      \draw[line width=1pt] (3, 1) circle (1pt);
+      \draw[line width=1pt] (0, 2) circle (1pt);
+
+      \draw[->,line width=.1pt](-.4, 0) circle (.4);
+      \draw[->,line width=.1pt](-.4, 2) circle (.4);
+      \draw[->,line width=.1pt](3.4, 1) circle (.4);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[node distance=1cm]
+      % nodes
+      \node[circle, right, single arrow] (A1) at (0, 0) {a1};
+      \draw[->](0,0) -- (0,2);
+      \node[circle, right, single arrow] (A2) at (0, 2) {a2};
+      \draw[->, dashed](0,2) -- (3,1);
+      \node[circle, left, single arrow]  (A3) at (3, 1) {a3};
+      % % arrows
+      \draw[line width=1pt] (0, 0) circle (1pt);
+      \draw[line width=1pt] (3, 1) circle (1pt);
+      \draw[line width=1pt] (0, 2) circle (1pt);
+
+      \draw[->,line width=.1pt](-.4, 0) circle (.4);
+      \draw[->,line width=.1pt](-.4, 2) circle (.4);
+      \draw[->,line width=.1pt](3.4, 1) circle (.4);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[node distance=1cm]
+      % nodes
+      \node[circle, right, single arrow] (A1) at (0, 0) {a1};
+      \draw[->](0,0) -- (0,2);
+      \node[circle, right, single arrow] (A2) at (0, 2) {a2};
+      \draw[->](0,2) -- (3,1);
+      \node[circle, left, single arrow]  (A3) at (3, 1) {a3};
+      \draw[->, dashed](0,0) -- (3,1);
+      % % arrows
+      \draw[line width=1pt] (0, 0) circle (1pt);
+      \draw[line width=1pt] (3, 1) circle (1pt);
+      \draw[line width=1pt] (0, 2) circle (1pt);
+
+      \draw[->,line width=.1pt](-.4, 0) circle (.4);
+      \draw[->,line width=.1pt](-.4, 2) circle (.4);
+      \draw[->,line width=.1pt](3.4, 1) circle (.4);
+    \end{tikzpicture} \\
+    R & R \cup R^2 & R \cup R^2 \cup R^3
+\end{tabular}
+$$
+
+$$ \boxed{R_{Tr} = R \cup R^2 \cup R^3}$

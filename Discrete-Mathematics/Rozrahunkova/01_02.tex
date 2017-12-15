@@ -1,0 +1,60 @@
+\begin{center}\large{\cyr{\textbf{1.2 Довести тотожність модельно}}}\end{center}
+
+$$
+  ( (A \cap (A\compl \cup {B})) \times (C \bigtriangleup D) )
+  \cup (A \times (C \cup D)) =  (A \times (C \cup D))
+$$
+%
+% Спростимо трошки вираз
+%
+$$
+  ( ( A \cap (A\compl \cup {B})) \times (C \bigtriangleup D) ) \cup (A \times (C \cup D)) =  (A \times (C \cup D)) \iff
+  \varepsilon_1 \vee \varepsilon_2 = \varepsilon_2
+$$
+
+де
+$$
+\begin{array}{ll}
+  \varepsilon_1 = (x,y) \in ( ( A \cap (A\compl \cup {B})) \times (C \bigtriangleup D) ) \\
+  \varepsilon_2 = (x,y) \in (A \times (C \cup D))
+\end{array}
+$$
+
+\begin{flushleft}
+\varepsilon_1 = \left\{
+  \begin{array}{ll}
+       & (x,y) \in ( ( A \cap (A\compl \cup {B})) \times (C \bigtriangleup D) ) \\
+  \iff & (x \in ( A \cap (A\compl \cup {B})) ) \wedge (y \in (C \bigtriangleup D)) \\
+  \iff & (x \in ( A \cup {B}) ) \wedge (y \in ( ( C \cap D \compl ) \cup ( C \compl \cup D ) )) \\
+  \iff & ( ( x \in A ) \vee ( x \in B )) \wedge ( (y \in ( C \cap D \compl )) \vee (y \in ( C \compl \cup D ) )))  \\
+  \iff & ( ( x \in A ) \vee ( x \in B )) \wedge ( ((y \in C ) \wedge (y \notin D)) \vee ((y \notin C ) \wedge (y \in D)) )  \\
+  \iff & ( ( x \in A ) \vee ( x \in B )) \wedge ( (y \in C ) \vee  (y \in D) )  \\
+  \end{array}
+\end{flushleft}
+
+\begin{flushleft}
+\varepsilon_2 = \left\{
+  \begin{array}{ll}
+       & (x,y) \in (A \times (C \cup D)) \\
+  \iff & (x \in A ) \wedge (y \in (C \cup D)) \\
+  \iff & (x \in A ) \wedge ( ( y \in D ) \vee ( y \in C ) ) \\
+  \end{array}
+\end{flushleft}
+
+Підставивши наші виразі назад у вираз отримаємо
+
+$$
+(
+  ( ( x \in A ) \vee ( x \in B )) \wedge ( (y \in C ) \vee  (y \in D) )
+)
+    \vee
+  (  (x \in A ) \wedge ( ( y \in D ) \vee ( y \in C ) ) )
+    =
+    ( (x \in A ) \wedge ( ( y \in D ) \vee ( y \in C ) ) )
+$$
+$$
+\iff ( ( x \in A ) \vee ( x \in B ) \vee (x \in A )) \wedge ( ( y \in D ) \vee ( y \in C ) ) = (x \in A ) \wedge ( ( y \in D ) \vee ( y \in C ) ) \iff
+$$
+$$
+\iff ( ( x \in A ) \vee ( x \in B ) ) \vee (x \in A )  = (x \in A ) \iff (x \in A) \wedge (x \notin B)
+$$
