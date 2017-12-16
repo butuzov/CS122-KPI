@@ -1,8 +1,9 @@
 #include <string>
 #include <iostream>
-#include <sstream>
+#include <sstream>                /* strings stream       */
 #include <stdlib.h>               /* malloc, free, atoi   */
-#include <vector>
+#include <vector>                 /* vector               */
+#include <map>                    /* maps                 */
 #include "app.hpp"
 
 
@@ -36,7 +37,7 @@ int load_csv(  const char * file, LinkedList<Employee> *employees ){
     char buffer[1];
     while( fread( buffer, 1, 1, fp ) > 0 ) {
 
-        if ( buffer[0] == 59 || buffer[0] == 10 ) {
+        if ( buffer[0] == 44 || buffer[0] == 10 ) {
 
             switch( counter % 100 ) {
                 case 0:
@@ -47,13 +48,13 @@ int load_csv(  const char * file, LinkedList<Employee> *employees ){
                     break;
                 break;
                 case 2:
-                    Day = atoi( ( value.str() ).c_str() );
+                    Year = atoi( ( value.str() ).c_str() );
                     break;
                 case 3:
                     Month = atoi( ( value.str() ).c_str() );
                     break;
                 case 4:
-                    Year = atoi( ( value.str() ).c_str() );
+                    Day = atoi( ( value.str() ).c_str() );
                     break;
                 default:
                   salary.push_back( atoi( ( value.str() ).c_str() ) );
@@ -104,4 +105,24 @@ int load_csv(  const char * file, LinkedList<Employee> *employees ){
 
     fclose( fp );
     return 0;
+}
+
+
+bool operator <  ( WorkerAge a, WorkerAge b ){
+
+    if ( std::get<1>(a) != std::get<1>(b) ) {
+        return std::get<1>(a) > std::get<1>(b);
+    }
+
+    if ( std::get<2>(a) != std::get<2>(b) ) {
+        // printf("case 2\n");
+        return std::get<2>(a) > std::get<2>(b);
+    }
+
+    if (  std::get<3>(a) != std::get<3>(b) ) {
+        // printf("case 3\n");
+        return std::get<3>(a) > std::get<3>(b);
+    }
+
+    return false;
 }

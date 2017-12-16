@@ -94,5 +94,5 @@ template <typename T> class LinkedList {
       // Utility methods
       bool insert( T, std::string );      // Insert element to position
       bool remove( std::string );         // Remove element from position
-      T retrive( std::string );           // Retrive node data at position
+      T retrive( std::string );           // Retrive node data at position 
 };

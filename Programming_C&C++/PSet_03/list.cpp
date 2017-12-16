@@ -7,8 +7,8 @@
  * created as a part of datastructures course
  * created as a part of Code Days
  */
-#include <string>
-#include <iostream>
+#include <string>                 /* std:string           */
+#include <iostream>               /* cout , cerr          */
 #include <stdlib.h>               /* malloc, free, atoi   */
 #include "list.hpp"
 
@@ -29,11 +29,10 @@ LinkedList<T>::LinkedList() {
  */
 template <typename T>
 LinkedList<T>::~LinkedList() {
-    while( !LinkedList<T>::is_empty() ){
-        LinkedList<T>::shift();
+    while( ! is_empty() ){
+        shift();
     }
 }
-
 
 /**
  * Utility (Private) Insert Method
@@ -47,18 +46,22 @@ template <typename T>
 bool LinkedList<T>::insert(T item, std::string position) {
 
     // Creating Node
-    LinkedList<T>::Node *iNode;
+    // LinkedList<T>::Node *iNode;
 
     // Memory allocation
-    iNode = ( LinkedList<T>::Node * ) calloc( 1, sizeof( LinkedList<T>::Node ) );
+    // iNode = ( LinkedList<T>::Node * ) calloc( 1, sizeof( LinkedList<T>::Node ) );
 
     // Casting item to Node value  (wraped with a struct)
-    (*iNode) = ( LinkedList<T>::Node ) item;
+    // (*iNode) = ( LinkedList<T>::Node ) item;
+
+    Node *iNode = new Node(item);
+
+    // printf( "\n%i - Adding link for %s\n", length, (item.Name).c_str() );
 
     // in case if there if list is empty we creating new value and assigning it
     // to head, tail and current =
     // which are all same and not exists at this point
-    if ( LinkedList<T>::is_empty() ) {
+    if ( is_empty() ) {
         // thay all same at this point.
         _head = _current = _tail = iNode;
         length++;
@@ -67,7 +70,7 @@ bool LinkedList<T>::insert(T item, std::string position) {
 
     // getting corresponding value
     switch( LinkedList<T>::position( position ) ) {
-        case LinkedList<T>::eHead:
+        case eHead:
           // while inseting element to the head
           // we adding pointet to exHead element to our Node
           // and then assigning our new node in place of head.
@@ -77,9 +80,9 @@ bool LinkedList<T>::insert(T item, std::string position) {
 
         break;
 
-        case LinkedList<T>::eCurrent:
+        case eCurrent:
 
-            // INserting our node AFTER current
+            // Inserting our node AFTER current
             // and moving current pointer to new node.
             (*iNode).next = (*_current).next;
             (*_current).next = iNode;
@@ -92,7 +95,7 @@ bool LinkedList<T>::insert(T item, std::string position) {
 
         break;
 
-        case LinkedList<T>::eTail:
+        case eTail:
 
           // we just inserting to the tail.
           // perhaps need some additional logic
@@ -110,19 +113,19 @@ bool LinkedList<T>::insert(T item, std::string position) {
 // Inserting T item into the head position
 template <typename T>
 bool LinkedList<T>::prepend(T item) {
-    return LinkedList<T>::insert(item, "head");
+    return insert(item, "head");
 }
 
 // Inserting T item into the current position
 template <typename T>
 bool LinkedList<T>::insert(T item) {
-    return LinkedList<T>::insert(item, "current");
+    return insert(item, "current");
 }
 
 // Inserting T item into the tail position
 template <typename T>
 bool LinkedList<T>::append(T item) {
-    return LinkedList<T>::insert(item, "tail");
+    return insert(item, "tail");
 }
 
 //* Data Removal ***************************************************************
@@ -136,7 +139,7 @@ template <typename T>
 bool LinkedList<T>::remove( std::string position ){
 
     // nothing to remove.
-    if ( LinkedList<T>::is_empty() ){
+    if ( is_empty() ){
         return true;
     }
 
@@ -145,24 +148,26 @@ bool LinkedList<T>::remove( std::string position ){
 
     // We  getting pointer of element we looking for
     int pos_enum(LinkedList<T>::position( position ));
+
     switch( pos_enum ) {
-        case LinkedList<T>::eHead:
+        case eHead:
             _look4 = _head;
         break;
 
-        case LinkedList<T>::eCurrent:
+        case eCurrent:
             _look4 = _current;
         break;
 
-        case LinkedList<T>::eTail:
+        case eTail:
             _look4 = _tail;
         break;
     }
 
 
     // we setting _this to _head and start our search.
-    LinkedList<T>::Node *_this;
-    LinkedList<T>::Node *_previous;
+    Node *_this;
+    Node *_previous;
+
     _this = _head ;
     _previous = nullptr;
     int n = 0;
@@ -199,7 +204,7 @@ bool LinkedList<T>::remove( std::string position ){
 
             }
 
-            free( _this );
+            delete _this;
             length--;
             return true;
         }
@@ -225,19 +230,19 @@ bool LinkedList<T>::remove( std::string position ){
 // Removes Item from _tail position
 template <typename T>
 bool LinkedList<T>::pop(){
-    return LinkedList<T>::remove( "tail" );
+    return remove( "tail" );
 }
 
 // Removes Item from _head position
 template <typename T>
 bool LinkedList<T>::shift(){
-    return LinkedList<T>::remove( "head" );
+    return remove( "head" );
 }
 
 // Removes Item from _current position
 template <typename T>
 bool LinkedList<T>::remove(){
-    return LinkedList<T>::remove( "current" );
+    return remove( "current" );
 }
 
 //* Data Retriving *************************************************************
@@ -251,21 +256,21 @@ bool LinkedList<T>::remove(){
  */
 template <typename T>
 T LinkedList<T>::retrive(std::string position){
-    if ( LinkedList<T>::is_empty() ) {
+    if ( is_empty() ) {
         // we should check this in front.
         throw;
     }
 
     switch( LinkedList<T>::position( position ) ) {
-        case LinkedList<T>::eHead:
+        case eHead:
           return (*_head).data;
         break;
 
-        case LinkedList<T>::eCurrent:
+        case eCurrent:
           return (*_current).data;
         break;
 
-        case LinkedList<T>::eTail:
+        case eTail:
           return (*_tail).data;
         break;
     }
@@ -276,19 +281,19 @@ T LinkedList<T>::retrive(std::string position){
 // Return .data property of the Node from head position.
 template <typename T>
 T LinkedList<T>::head(){
-    return LinkedList<T>::retrive("head");
+    return retrive("head");
 }
 
 // Return .data property of the Node from tail position.
 template <typename T>
 T LinkedList<T>::tail(){
-    return LinkedList<T>::retrive("tail");
+    return retrive("tail");
 }
 
 // Return .data property of the Node from current position.
 template <typename T>
 T LinkedList<T>::current(){
-    return LinkedList<T>::retrive("current");
+    return retrive("current");
 }
 
 //* Rewind *********************************************************************
@@ -296,7 +301,7 @@ T LinkedList<T>::current(){
 // Rewind current pointer to head.
 template <typename T>
 bool LinkedList<T>::front(){
-    if ( LinkedList<T>::is_empty() ) {
+    if ( is_empty() ) {
         return false;
     }
     return (_current = _head);
@@ -323,7 +328,7 @@ int LinkedList<T>::size() {
 // Return List State
 template <typename T>
 bool LinkedList<T>::is_empty() {
-    return LinkedList<T>::size() == 0 ? true : false;
+    return size() == 0 ? true : false;
 }
 
 // Interface for internal class enum (position)
@@ -331,21 +336,20 @@ template <typename T>
 int LinkedList<T>::position(std::string position) {
 
     if ( position == "head" ) {
-        return LinkedList<T>::eHead;
+        return eHead;
     }
 
     if ( position == "current" ) {
-        return LinkedList<T>::eCurrent;
+        return eCurrent;
     }
 
     // in all other cases - default place for adding item is tail.
-    return LinkedList<T>::eTail;
+    return eTail;
 }
 
 
-/**
- * View implementation for Int
- */
+
+// int view
 template <>
 std::string LinkedList<int>::view(int item){
     return std::to_string(item);
@@ -362,12 +366,12 @@ void LinkedList<T>::visualize() {
 
     while( true ){
 
-      std::cout << LinkedList<T>::view( (*_this).data );
+      std::cout << view( (*_this).data );
 
       // itterating to next available element.
       if ( ( *_this ).next ){
           _this = ( *( _this ) ).next;
-          printf("->");
+          printf(" -> ");
       } else {
           // or stoping itteration is this is the end.
           break;
