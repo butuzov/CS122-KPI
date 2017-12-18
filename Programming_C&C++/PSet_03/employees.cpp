@@ -1,5 +1,3 @@
-// compile
-//
 // clang++ employees.cpp -o test -std=c++14
 
 #include <iostream>                /* cout , err                 */
