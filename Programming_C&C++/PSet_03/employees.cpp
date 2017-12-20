@@ -122,7 +122,7 @@ int main(int argc, char* argv[]){
             std::cin >> salary_level;
           }
 
-
+          
           if ( salary_level <= 0 ) {
               // do nothing
               std::cerr << std::endl
@@ -137,7 +137,7 @@ int main(int argc, char* argv[]){
           try {
               month = monthes.at(in);
               BinaryTree<WorkerAge> salaryData;
-              std::cout << "Формуємо звіт за " << in ;
+              std::cout << std::endl <<  "Формуємо звіт за " << in ;
 
 
               employees.front();
@@ -188,7 +188,8 @@ int main(int argc, char* argv[]){
       }
 
       std::cout << "Бажаєте продовжити генерувати рапорти? (т/так) ";
-      std::string answer("ні");
+      //std::string answer("ні");
+      std::string answer;
 
       if (debug == false){
         std::cin >> answer;
