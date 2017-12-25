@@ -1,8 +1,10 @@
 // source stackoverflow
 // https://stackoverflow.com/questions/801740
 
-#define BT_HEIGHT 10
-#define BT_WIDTH  160
+#define BT_HEIGHT 6
+#define BT_WIDTH  170
+#define DEBUG true
+
 
 template <typename T>
 auto BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, int depth, char *array) -> int {
@@ -11,9 +13,14 @@ auto BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, in
     }
 
     char b[10];
-    int width = 5;
 
-    sprintf(b, "%02d|%02d", value(tree), tree->weight );
+    #if DEBUG == true
+        int width = 5;
+        sprintf(b, "%02d|%02d", value(tree), tree->weight );
+    #else
+        int width = 3;
+        sprintf(b, "%03d", value(tree));
+    #endif
 
     int left  = _tree(tree->left,  1, offset,                depth + 1, array);
     int right = _tree(tree->right, 0, offset + left + width, depth + 1, array);

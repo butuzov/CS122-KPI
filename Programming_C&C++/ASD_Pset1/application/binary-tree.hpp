@@ -18,9 +18,9 @@
 template <typename T>
 class BinaryTree {
     public:
-        BinaryTree();           // Constructor with balanceable
-                                // property
-        ~BinaryTree();       // Destructor
+        BinaryTree(bool auto_balance=true);     // Constructor with balanceable
+                                                // property
+        ~BinaryTree();                          // Destructor
 
         // Struct
         struct Node {                           // Our Node Structure

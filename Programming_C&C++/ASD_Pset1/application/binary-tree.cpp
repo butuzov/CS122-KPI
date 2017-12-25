@@ -4,10 +4,10 @@
 
 /****** Construction *******************************************************/
 template <typename T>
-BinaryTree<T>::BinaryTree() {
-    _root        = nullptr;    // Pointer to the root of the tree
-    _size        = 0;          // Total tree nodes number
-    _balanceable = false;      // Should this tree be balanceable automatically?
+BinaryTree<T>::BinaryTree(bool auto_balance) {
+    _root        = nullptr;          // Pointer to the root of the tree
+    _size        = 0;                // Total tree nodes number
+    _balanceable = auto_balance;     // Should this tree be balanceable automatically?
 }
 
 /****** Destruction *******************************************************/
@@ -97,6 +97,7 @@ auto BinaryTree<T>::insert(T item, BinaryTree<T>::Node *parent ) -> void {
 
     balance_node_upright( iNode, "inserted" );
     root_node_balance(_root);
+
 }
 
 
@@ -152,6 +153,7 @@ auto BinaryTree<T>::rotate_right(BinaryTree<T>::Node *node) -> void {
 
         // return;
         move(parent, _root);
+        root_node_balance(_root);
 
     } else {
         // Logic of rotation
@@ -172,6 +174,7 @@ auto BinaryTree<T>::rotate_right(BinaryTree<T>::Node *node) -> void {
         // tree(left);
 
         move(node, left);
+        root_node_balance(left);
     }
 }
 
@@ -203,6 +206,7 @@ auto BinaryTree<T>::rotate_left(BinaryTree<T>::Node *node) -> void {
 
         // return;
         move(parent, _root);
+        root_node_balance(_root);
 
     } else {
         // Logic of rotation
@@ -221,6 +225,7 @@ auto BinaryTree<T>::rotate_left(BinaryTree<T>::Node *node) -> void {
         right->top = parent;
 
         move(node, right);
+        root_node_balance(right);
     }
 }
 
@@ -336,6 +341,9 @@ auto BinaryTree<T>::root_node_balance(Node* node) -> void{
         return;
     }
 
+
+
+
     if ( is_node_balanced( node ) ) {
         return;
     }
@@ -357,7 +365,7 @@ auto BinaryTree<T>::root_node_balance(Node* node) -> void{
         rotate_left(node);
     }
 
-  //  std::cout << value(node) << " Balance Result \n";
+   // std::cout << value(node) << " Balance Result \n";
 
 
 }
@@ -393,9 +401,7 @@ auto BinaryTree<T>::move(BinaryTree<T>::Node *from, BinaryTree<T>::Node *to) -> 
    // std::cout << "Noda(" << value(from) << ")" << "\n";
 
     node_weight_reset( to );
-
     balance_node_upright( from, "moved" );
-
     root_node_balance(from);
 }
 
@@ -415,33 +421,41 @@ auto BinaryTree<T>::tree_rebalance(BinaryTree<T>::Node *node) -> void{
         tree_rebalance(node->right);
     }
 
-    if ( ! is_node_balanced( node ) ) {
-        std::cout << value(node) << " W " << node->weight << " need balance !\n";
 
-        root_node_balance(node);
-
+    if ( is_node_balanced( node ) ) {
+        return;
     }
 
+   // std::cout << value(node) << " W " << node->weight << " need balance !\n";
 
-
-    // if node weight less then 3
-    // and this node has one chield...
-    // balancing it up right.
-
-   // std::cout << value(node) << " W " << node->weight << "!\n";
-
-   // tree();
-  //  root_node_balance(node);
-
-   // std::cout << "After "  << value(node) << " W " << node->weight << "!\n";
-   // tree();
-
-    if (node->weight < 3 && is_balanceable_horizontaly(node)) {
-    //    std::cout << "fuck?\n";
-     //   balance_node_upright( node );
+    Node *iNode;
+    if (node->top){
+        iNode = node->top;
     }
-  //  tree();
 
+    // Running balance for node...
+    root_node_balance(node);
+
+    if ( iNode == NULL )
+        return;
+
+
+    if ( ! is_node_balanced( iNode ) ) {
+        // debug(iNode);
+        // tree();
+        tree_rebalance(iNode->top);
+    } else {
+        if (iNode->left) {
+            // debug(iNode);
+            // tree();
+            tree_rebalance(iNode->left);
+        }
+        if (iNode->left) {
+            // debug(iNode);
+            // tree();
+            tree_rebalance(iNode->right);
+        }
+    }
 }
 
 template <typename T>
