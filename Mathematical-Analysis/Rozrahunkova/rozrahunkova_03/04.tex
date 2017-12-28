@@ -1,0 +1,33 @@
+{\descr{Дослідіть ряд на збіжність:}}
+
+$$
+\sum_{n=1}^\infty \dfrac{n^2+1}{(3n)!}
+$$
+
+\M{Користуючись ознакою Даламбера, дослідимо ряд на збіжність:}
+
+$$
+ \lim_{n \to \infty} \dfrac{ \Big( \dfrac{(n+1)^2+1}{(3(n+1))!} \Big) }{ \Big( \dfrac{n^2+1}{(3n)!} \Big) }
+=  \lim_{n \to \infty}  \dfrac{(n+1)^2+1}{(3(n+1))!} \times \dfrac{(3n)!}{n^2+1}
+=  \lim_{n \to \infty}  \dfrac{(n+1)^2+1}{(3n+3)!} \times \dfrac{(3n)!}{n^2+1} =
+$$
+$$
+=  \lim_{n \to \infty}  \dfrac{(n+1)^2+1}{(3n+3)!} \times \dfrac{(3n)!}{n^2+1}
+= \lim_{n \to \infty}  \dfrac{n^2+2n+2}{(3n+3)(3n+2)(3n+1)(3n)!} \times \dfrac{(3n)!}{n^2+1}
+$$
+
+$$
+= \lim_{n \to \infty}  \dfrac{n^2+2n+2}{(3n+3)(3n+2)(3n+1)(n^2+1)}
+= \lim_{n \to \infty}  \dfrac{n^2+2 n+2}{27 n^5 + 54 n^4 + 60 n^3 + 60 n^2 + 33 n + 6}
+$$
+
+$$
+= \lim_{n \to \infty}  \dfrac{ \dfrac{n^2}{n^5}+\dfrac{2n}{n^5}+\dfrac{2}{n^5}}{\dfrac{27 n^5}{n^5} + \dfrac{54 n^4}{n^5} + \dfrac{60 n^3}{n^5} + \dfrac{60 n^2}{n^5} + \dfrac{33 n}{n^5} + \dfrac{6}{n^5}}
+= \lim_{n \to \infty}  \dfrac{ \dfrac{1}{n^3}^{\to0}+\dfrac{2}{n^4}^{\to0}+\dfrac{2}{n^5}^{\to0}}{27 + \dfrac{54}{n}^{\to0} + \dfrac{60}{n^2}^{\to0} + \dfrac{60}{n^3}^{\to0} + \dfrac{33}{n^4}^{\to0} + \dfrac{6}{n^5}^{\to0}} =
+$$
+
+$$
+= \dfrac{ 0 + 0 + 0}{27 + 0 + 0 + 0 + 0 + 0 } \approx  \boxed{0} < 1
+$$
+
+\M{А отже ряд є збіжним за ознакою Даламбера:}

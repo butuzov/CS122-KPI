@@ -11,13 +11,19 @@ auto load_ints_list(_ints_BinTree* tree) -> void;
 int main(){
     _ints_BinTree T1( true );
 
-    load_ints_rand(&T1, 32);
+    load_ints_rand(&T1, 13);
     //load_ints_list(&T1);
-
     T1.tree();
+
     T1.tree_rebalance(T1.root());
-    // T1.tree();
-    T1.values();
+    // T1.tree_rebalance(T1.root());
+    T1.tree();
+
+    // if ( T1.is_node_balanced( T1.find( 12 ) ) ){
+    //     std::cout << "Balanced" <<std::endl;
+    // }
+
+    //T1.values();
     return 0;
 }
 
@@ -51,7 +57,7 @@ auto load_ints_rand(_ints_BinTree* tree, int limit = 32 ) -> void {
 auto load_ints_list(_ints_BinTree* tree) -> void {
 
     // tree is perfectly balanced.
-   int array[] = { 62,89,54,13,15,25,9,19,53,22,96,69,27,47,26,35,92,21,7,83,84,85,94,42,23,31,0,16,5,81,97,73 };
+   int array[] = {16,38,36,47,65,59,80,21,95,51,15,31,82,30,9,25,19,58,78,41,24,13,75,42,56,52,68,37,12,79,4,44};
 
     // Unlabalanced.
    // int array[] = {5,24,66,17,33,3,62,37,81,99,30,42,51,93,97,71,60,64,87,47,83,35,19,73,90};

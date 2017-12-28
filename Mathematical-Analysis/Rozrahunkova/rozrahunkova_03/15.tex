@@ -1,0 +1,34 @@
+Обчисліть з точністю до $\varepsilon=10^{-3}$ інтерграл:
+
+$$
+  \int_{3}^{\infty} \dfrac{\d{x}}{1+x^4}
+$$
+
+Оскільки $x \geqslant 3 $ то розвинемо підінтегральну функцію за степенями \dfrac{1}{x}:
+
+$$
+\dfrac{1}{1+x^4}
+= \dfrac{1}{x^4} \cdot \dfrac{1}{1+\dfrac{1}{x^4}}
+= \dfrac{1}{x^4} \Big( 1 - \dfrac{1}{x^4} + \dfrac{1}{x^8} - \ldots + (-1)^n\dfrac{1}{x^{4n}}\Big)
+= \dfrac{1}{x^4} - \dfrac{1}{x^8} + \dfrac{1}{x^4} - \ldots + (-1)^n\dfrac{1}{x^{4(x+1)}}+\ldots, |x| > 1
+$$
+
+\M{Проінтегруємо цей ряд на порміжку $[3;+\infty)$ який належить області збіжності ряду.}
+
+$$
+\int^\infty_{3} \dfrac{\d{x}}{1+x^4}
+= \sum^\infty_{n=0} \int^\infty_{3} (-1)^n\dfrac{1}{x^{4x+4}} \d{x}
+= \sum^\infty_{n=0}(-1)^{n+1} \dfrac{1}{(4n+3)x^{4n+3}} \Bigg|^\infty_{3}
+$$
+$$
+= \sum^\infty_{n=0}(-1)^{n+1} \dfrac{1}{(4n+3)} \Bigg( \dfrac{1}{\infty^{4n+3}} - \dfrac{1}{3^{4n+3}} \Bigg) = \sum^\infty_{n=0}(-1)^n \dfrac{1}{(4n+3)3^{4n+3}}
+$$
+
+\M{Знаходимо кількість членів n для яких виконується рівність}
+
+$$\Big|r_n\Big| \leqslant \dfrac{1}{(4n+3)3^{4n+3}} < 10^{-3} \rightarrow n > 1$$
+
+\M{тому:}
+$$
+  \int_{3}^{\infty} \dfrac{\d{x}}{1+x^4} \approx \dfrac{1}{(0+3)3^{0+3}} = \dfrac{1}{3^4} = \boxed{0.012}
+$$

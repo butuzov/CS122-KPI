@@ -1,0 +1,58 @@
+Знайдіть інтервал збіжності степеневого ряду
+
+$$
+  \sum_{n=1}^\infty \dfrac{(n+4)}{2^n(n^2+1)}(x-2)^n
+$$
+
+% https://math.semestr.ru/math/convergence.php
+
+За допомогою ознаки Даламбера значення при якому ряд сходиться по модулю:
+
+$$
+\lim_{n \to \infty} \bigg| \dfrac{u_{n+1}}{u_n} \bigg|
+= \lim_{n \to \infty} \bigg| \dfrac{((n+1)+4)(x-2)^{n+1}}{2^{n+1}((n+1)^2+1)} : \dfrac{(n+4)(x-2)^n}{2^n(n^2+1)} \bigg| =
+$$
+
+$$
+= \lim_{n \to \infty} \bigg| \dfrac{((n+1)+4)(x-2)^{n+1}}{2^{n+1}((n+1)^2+1)} \times \dfrac{2^n(n^2+1)}{(n+4)(x-2)^n} \bigg|=
+$$
+
+$$
+= \dfrac{|x-2|}{2} \lim_{n \to \infty}  \bigg| \dfrac{(n+5)}{((n+1)^2+1)} \times \dfrac{(n^2+1)}{(n+4)} \bigg|
+= \dfrac{|x-2|}{2} \lim_{n \to \infty}  \bigg| \dfrac{n+5}{n^2+2n+3} \times \dfrac{n^2+1}{n+4} \bigg|
+$$
+
+$$
+= \dfrac{|x-2|}{2} \lim_{n \to \infty}  \bigg| \dfrac{n^3+5n^2+n+5}{(n^3+2n^2+3n)+(4n^2+8n+12)} \bigg|
+= \dfrac{|x-2|}{2} \lim_{n \to \infty}  \bigg| \dfrac{n^3+5n^2+n+5}{n^3+6n^2+11n+12} \bigg| =
+$$
+
+$$
+= \dfrac{|x-2|}{2} \lim_{n \to \infty}  \bigg| \dfrac{1+\dfrac{5}{n}+\dfrac{1}{n^2}+\dfrac{5}{n^3}}{1+\dfrac{6}{n}+\dfrac{11}{n^2}+\dfrac{12}{n^3} } \bigg|
+= \dfrac{|x-2|}{2} \times \dfrac{1+0+0+0}{1+0+0+0} = \dfrac{|x-2|}{2}
+$$
+
+\M{Данний ряд буде сходитись при $\dfrac{|x-2|}{2} <1$ тому визначимо інтервал збіжності ряду:}
+
+
+$$
+\dfrac{|x-2|}{2} <1
+\Rightarrow
+|x-2| < 2
+\Rightarrow
+-2 < x-2 < 2
+\Rightarrow
+-2 + 2 < x-2+2 < 2+2
+\Rightarrow
+0 < x < 4
+$$
+
+\M{Тобто ряд збіжний на інтервалі (0:4).}
+
+В точці $x=0$ числовий ряд $\Sum{n=1}{\infty} \dfrac{(-1)^n \cdot 2^n \cdot  (n+4)}{2^n \cdot(n^2+1)} = \Sum{n=1}{\infty} \dfrac{(-1)^n \cdot   (n+4)}{ n^2+1} $  збіжний абсолютно.
+
+В точці $x=4$ числовий ряд $\Sum{n=1}{\infty} \dfrac{ 2^n \cdot  (n+4)}{2^n \cdot(n^2+1)} = \Sum{n=1}{\infty} \dfrac{ n+4}{ n^2+1} $ збіжний абсолютно.
+
+Таким чином ряд збігається на інтервалі $\boxed{[0:4]}$
+
+% https://www.youtube.com/watch?v=pBiKBX29oto

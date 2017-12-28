@@ -1,0 +1,38 @@
+{\descr{Дослідіть ряд на збіжність:}}
+
+$$
+\sum_{n=1}^\infty \dfrac{e^{1/n}-1}{\ln^2{3n}}
+$$
+
+$$
+\lim_{n \to \infty} \dfrac{e^{1/n}-1}{\ln^2{3n}}
+= \dfrac{\Lim{n \to \infty} e^{1/n}-1 }{\Lim{n \to \infty} \ln^2{3n}}
+= \dfrac{\Lim{n \to \infty} e^{1/n}- \Lim{n \to \infty} 1  }{\Lim{n \to \infty} \ln^2{3n}} = \dfrac{1-1}{\infty} \approx 0
+$$
+
+\M{Що нe доводить  ні розбіжність, ні збіжність, але вказує на потенційну збіжність ряду}
+
+ Оскільки $\dfrac{1}{n} \to 0$ то ми можемо скористатись цим і замінити $e^{1/n}-1$ на $\dfrac{1}{n}$ (це все за допомогою еквівалетним нескінченно малим функціям).
+
+$$
+  \sum_{n=1}^\infty \dfrac{e^{1/n}-1}{\ln^2{3n}}
+= \sum_{n=1}^\infty \dfrac{1}{n\ln^2{3n}}
+$$
+
+Спробуємо скористатись інтегральною ознакою для дослідження ряду на збіжність:
+
+$$
+  \int_{1}^\infty \dfrac{\d{x}}{x\ln^2{3x}}
+= \lim_{b \to \infty} \int^{+\infty}_1 \dfrac{\d{x}}{x\ln^2{3x}}
+= - \lim_{b \to \infty} \dfrac{1}{\ln{3x}} \Bigg|^b_1
+= - \lim_{b \to \infty} \dfrac{1}{\ln{3 \cdot \infty }} - \dfrac{1}{\ln{3}}
+= - \Big( \dfrac{1}{\ln{3 \cdot \infty }} - \dfrac{1}{\ln{3}} \Big)
+$$
+
+$$
+= - \Big( 0 - \dfrac{1}{\ln{3}} \Big) = \boxed{\dfrac{1}{\ln{3}}}
+$$
+
+\M{А отже ряд збігається за інтегральною ознакою}
+
+% http://math1.ru/education/num_series/comp_test3.html

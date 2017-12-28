@@ -342,8 +342,6 @@ auto BinaryTree<T>::root_node_balance(Node* node) -> void{
     }
 
 
-
-
     if ( is_node_balanced( node ) ) {
         return;
     }
@@ -412,25 +410,28 @@ auto BinaryTree<T>::tree_rebalance(BinaryTree<T>::Node *node) -> void{
         return;
     }
 
-
-    if (node->left) {
+    if (node->left && node_weight(node->left) >= 2) {
         tree_rebalance(node->left);
     }
 
-    if (node->right) {
+    if (node->right && node_weight(node->right) >= 2) {
+        // debug(node->right);
         tree_rebalance(node->right);
     }
 
-
+    // debug(node);
+     std::cout << value(node) << " W " << node->weight << " check for  balance !\n";
     if ( is_node_balanced( node ) ) {
         return;
     }
+    std::cout << value(node) << " W " << node->weight << " need balance !\n";
 
-   // std::cout << value(node) << " W " << node->weight << " need balance !\n";
 
     Node *iNode;
     if (node->top){
         iNode = node->top;
+    } else {
+        iNode = nullptr;
     }
 
     // Running balance for node...
@@ -439,18 +440,23 @@ auto BinaryTree<T>::tree_rebalance(BinaryTree<T>::Node *node) -> void{
     if ( iNode == NULL )
         return;
 
+    if ( iNode->top == node ) {
+        std::cout << "Loop detected" << std::endl;
+        return;
+    }
+
 
     if ( ! is_node_balanced( iNode ) ) {
-        // debug(iNode);
-        // tree();
+       // debug(iNode);
+       // tree();
         tree_rebalance(iNode->top);
     } else {
-        if (iNode->left) {
+        if (iNode->left && node_weight(iNode->left) >= 2 ) {
             // debug(iNode);
             // tree();
             tree_rebalance(iNode->left);
         }
-        if (iNode->left) {
+        if (iNode->right && node_weight(iNode->right) >= 2 ) {
             // debug(iNode);
             // tree();
             tree_rebalance(iNode->right);
