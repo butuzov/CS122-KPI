@@ -55,7 +55,7 @@ def generate_code(args):
     print("")
 
     try:
-        code = fget_contents("program.cpy")
+        code = fget_contents("program.c_template")
 
         # adding N to file
         code = code.replace( "$N", str(args['n']));
