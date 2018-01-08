@@ -2,12 +2,14 @@
 // https://stackoverflow.com/questions/801740
 
 #define BT_HEIGHT 6
-#define BT_WIDTH  170
-#define DEBUG true
+#define BT_WIDTH  80
 
+#ifndef DEBUG 
+    #define DEBUG true
+#endif
 
 template <typename T>
-auto BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, int depth, char *array) -> int {
+int BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, int depth, char *array) {
      if ( !tree){
         return 0;
     }
@@ -16,7 +18,7 @@ auto BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, in
 
     #if DEBUG == true
         int width = 5;
-        sprintf(b, "%02d|%02d", value(tree), tree->weight );
+        sprintf(b, "%02d|%02d", value(tree), tree->height );
     #else
         int width = 3;
         sprintf(b, "%03d", value(tree));
@@ -49,16 +51,15 @@ auto BinaryTree<T>::_tree(BinaryTree<T>::Node *tree, int is_left, int offset, in
     return left + width + right;
 }
 
-template <typename T>
-auto BinaryTree<T>::tree()  {
-    tree(_root);
-}
+
 
 template <typename T>
-auto BinaryTree<T>::tree(BinaryTree<T>::Node *node)  {
+void BinaryTree<T>::tree(BinaryTree<T>::Node *node)  {
     if ( node == NULL ){
-      return;
+       node = _root;
     }
+
+
 
     char* array( (char *) calloc( BT_HEIGHT * BT_WIDTH, sizeof(char)) );
     memset(array, ' ', BT_HEIGHT * BT_WIDTH);
