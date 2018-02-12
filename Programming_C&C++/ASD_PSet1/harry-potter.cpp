@@ -40,7 +40,6 @@ int main(){
     Tree.rotate_right(Tree.find(25));
     Tree.tree();
 
-
     std::cout << "Right Left (Double Right) Rotation of node 28 \n";
     Tree.rotate_right_left(Tree.find(28));
     Tree.tree();

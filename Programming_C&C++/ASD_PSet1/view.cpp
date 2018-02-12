@@ -2,7 +2,7 @@
 // https://stackoverflow.com/questions/801740
 
 #define BT_HEIGHT 6
-#define BT_WIDTH  80
+#define BT_WIDTH  50
 
 #ifndef DEBUG 
     #define DEBUG true
