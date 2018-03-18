@@ -22,9 +22,9 @@ public class TriangularPointsExtruder implements Extrudable<Triangle> {
 
 	public Triangle Extrude() {
 		return new Triangle(
-					new Line(this.a, this.b),
-					new Line(this.b, this.c),
-					new Line(this.c, this.a)
+			new Line(this.a, this.b),
+			new Line(this.b, this.c),
+			new Line(this.c, this.a)
 		);
 	}
 }
