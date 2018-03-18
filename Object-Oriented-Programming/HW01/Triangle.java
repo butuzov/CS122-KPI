@@ -1,39 +1,25 @@
-public class Triangle implements Squarable {
-	private final Line A;
-	private final Line B;
-	private final Line C;
+public class Triangle {
+	final private Line A, B, C;
 
-	private final double square;
-
-	public Triangle(Point a, Point b, Point c){
-		this( new Line(a, b), new Line(b, c), new Line(c, a) );
-	}
-
-	public Triangle(Line A, Line B, Line C){
+	public Triangle( Line A, Line B, Line C ) {
 
 		// Equality Check
 		if ( A.equals(B) || A.equals(C) || C.equals(B) ) {
 			throw new IllegalArgumentException("Some of the Lines are same");
 		}
 
-		// Connectivity Check - naive check
-		if ( ! A.IsConnectedTo(B) || ! A.IsConnectedTo(C) || ! C.IsConnectedTo(B) ) {
-			throw new IllegalArgumentException("Some of the Lines are not connected.");
-		}
-
-		// // The only case not covered is /|\ when lines starts in same point.
-		Point ConnectedB = A.ConnectedAt(B);
-		Point ConnectedC = A.ConnectedAt(C);
-		if ( ConnectedB.equals(ConnectedC) ) {
-			throw new IllegalArgumentException("Shared Connection Points");
+		// // Connectivity Check - naive check
+		if ( ! A.ConnectedTo(B) || ! A.ConnectedTo(C) || ! C.ConnectedTo(B) ) {
+			throw new IllegalArgumentException(
+				"Some of the Lines are not connected."
+			);
 		}
 
 		this.A = A;
 		this.B = B;
 		this.C = C;
-
-		this.square = square();
 	}
+
 
 	public double square(){
 		double P = this.A.length() + this.B.length() + this.C.length();
@@ -49,12 +35,15 @@ public class Triangle implements Squarable {
 	// Object as string represenation
 	@Override
 	public String toString() {
-		return String.format("Triangualr(%s:%s:%s)",
+		// Points Representation
+		return String.format("T{%s;%s;%s}",
 							this.A.ConnectedAt(this.B),
 							this.B.ConnectedAt(this.C),
 							this.C.ConnectedAt(this.A)
 		);
-	}
 
+		// Liness Representation - more details.
+		// return String.format("T{%s;%s;%s}", this.A, this.B, this.C );
+	}
 
 }

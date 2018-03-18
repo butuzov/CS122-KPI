@@ -1,18 +1,19 @@
-public class Line {
-	private final Point a;
-	private final Point b;
-	private final double length;
+public class Line{
+	final private Point a, b;
 
-	public Line ( Point a, Point b ){
+	final private double length;
+
+	public Line(Point a, Point b){
 
 		if ( a.equals(b) ) {
-			throw new ArithmeticException("This Points are same");
+			throw new ArithmeticException("These Points are same");
 		}
 		this.a = a;
 		this.b = b;
 
 		this.length = (this.a).DistanceTo(this.b);
 	}
+
 
 	public Point getA(){
 		return this.a;
@@ -37,10 +38,12 @@ public class Line {
 			return this.getB();
 		}
 
-		throw new IllegalArgumentException("Connection Point between this lines not found");
+		throw new IllegalArgumentException(
+			"Connection Point between this lines not found"
+		);
 	}
 
-	public boolean IsConnectedTo(Line line) {
+	public boolean ConnectedTo(Line line) {
 
 		try {
 			Point point =  ConnectedAt(line);
@@ -58,7 +61,7 @@ public class Line {
 	// Object as string represenation
 	@Override
 	public String toString() {
-		return String.format("Line(%s:%s)", this.a, this.b);
+		return String.format("L{%s:%s}", this.a, this.b);
 	}
 
 	// Equals implementation.

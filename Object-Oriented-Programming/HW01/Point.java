@@ -1,26 +1,28 @@
-// Generic Solutions for floats, doubles, Integers?
-// see you in next version.
-
 public class Point {
+	final private double x, y;
 
-	private final double x;
-	private final double y;
+	// Other types of constructors.
+	public Point( Double x, Double y){
+		this( x.doubleValue(), y.doubleValue() );
+	}
 
-	public Point(int x, int y){
+	public Point( float x, float y){
 		this( (double) x, (double) y );
 	}
 
-	// public Point(Integer x, Integer y){
-	// 	this(x.intValue(), y.intValue());
-	// }
+	public Point( Float x, Float y){
+		this( x.doubleValue(), y.doubleValue() );
+	}
 
-	// public Point(float x, float y){
-	// 	this(double(x), double(y));
-	// }
+	public Point( int x, int y){
+		this( (double) x, (double) y );
+	}
 
-	// todo: Double? Float?
+	public Point( Integer x, Integer y){
+		this( x.doubleValue(), y.doubleValue() );
+	}
 
-	public Point(double x, double y){
+	public Point( double x, double y){
 		this.x = x;
 		this.y = y;
 	}
@@ -42,12 +44,11 @@ public class Point {
 				Math.pow( this.getY() - b.getY(), 2) );
 	}
 
-
 	// Object as string represenation
 	@Override
 	public String toString() {
 		// return String.format("P@{x:%d y:%d}", this.x, this.y);
-		return String.format("{%.2f;%.2f}", this.x, this.y);
+		return String.format("P{%.2f;%.2f}", this.x, this.y);
 	}
 
 	// Equals implementation.
