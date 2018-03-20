@@ -1,6 +1,8 @@
 public class Triangle {
     final private Line A, B, C;
 
+    final double Perimeter, Square;
+
     public Triangle( Line A, Line B, Line C ) {
 
         // Equality Check
@@ -18,11 +20,26 @@ public class Triangle {
         this.A = A;
         this.B = B;
         this.C = C;
+
+        this.Perimeter = calculatePerimeter();
+        this.Square = calculateSquare();
     }
 
+    public double GetPerimeter(){
+        return this.Perimeter;
+    }
 
-    public double square(){
-        double P = this.A.length() + this.B.length() + this.C.length();
+    public double GetSquare(){
+        return this.Square;
+    }
+
+    private double calculatePerimeter(){
+        return this.A.length() + this.B.length() + this.C.length();
+    }
+
+    private double calculateSquare(){
+
+        double P = calculatePerimeter();
 
         double HalfP = P / 2;
 
@@ -36,7 +53,7 @@ public class Triangle {
     @Override
     public String toString() {
         // Points Representation
-        return String.format("T{%s;%s;%s}",
+        return String.format("Triangle{%s;%s;%s}",
                             this.A.ConnectedAt(this.B),
                             this.B.ConnectedAt(this.C),
                             this.C.ConnectedAt(this.A)
