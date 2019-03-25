@@ -1,0 +1,35 @@
+{
+	"goal" : "To Buy a car",
+    "posibilities": {
+        "a": "Buy a Volvo",
+        "b": "Buy a Tesla",
+        "c": "Buy a Wolksvagen"
+    },
+    "convolutions": {
+        "R1": {
+            "weight": 0.4,
+            "priorities": ["a<b", "b=c"],
+            "description": "Price"
+        },
+        "R2": {
+            "weight": 0.05,
+            "priorities": ["a=b", "a>c"],
+            "description": "Design"
+        },
+        "R3": {
+            "weight": 0.2,
+            "priorities": ["c>a", "a>b"],
+            "description": "Economical"
+        },
+        "R4": {
+            "weight": 0.15,
+            "priorities": ["a>c", "c>b"],
+            "description": "Dynamic"
+        },
+        "R5": {
+            "weight": 0.2,
+            "priorities": ["a>c", "c>b"],
+            "description": "Durability"
+        }
+	}
+}

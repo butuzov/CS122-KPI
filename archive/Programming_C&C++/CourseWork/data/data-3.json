@@ -1,0 +1,26 @@
+{
+	"goal" : "Job Search",
+    "posibilities": {
+        "a": "Get a job in natinal company",
+        "b": "Get a job in goverment",
+        "c": "Get a job research institure",
+        "d": "Get a job at modern company"
+    },
+    "convolutions": {
+        "R1": {
+            "weight": 0.4,
+            "priorities": ["a=b", "b=c", "d>a"],
+            "description": "Sallary stability"
+        },
+        "R2": {
+            "weight": 0.25,
+            "priorities": ["c>b", "b<a", "a=c", "c>a"],
+            "description": "Aviability of job on market"
+        },
+        "R3": {
+            "weight": 0.35,
+            "priorities": ["b=c", "c>a", "a=b"],
+            "description": "Job perspective"
+        }
+	}
+}

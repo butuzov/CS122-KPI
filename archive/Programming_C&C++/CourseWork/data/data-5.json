@@ -1,0 +1,37 @@
+{
+	"goal" : "Univercity",
+    "posibilities": {
+        "a": "Shevchenko",
+        "b": "KPI",
+        "c": "New Private Univercity",
+        "d": "Ohio State Univercity"
+    },
+    "convolutions": {
+        "R1": {
+            "weight": 0.3,
+            "priorities": ["a=b", "a>c", "c>d"],
+            "description": "Prestije"
+        },
+        "R2": {
+            "weight": 0.15,
+            "priorities": ["b>a", "a<c", "a=d", "b=c"],
+            "description": "Work after univercity"
+        },
+        "R3": {
+            "weight": 0.2,
+            "priorities": ["a=b", "a>d", "d>c"],
+            "description": "Cost"
+        },
+        "R4": {
+            "weight": 0.15,
+            "priorities": ["c=b", "b>a", "a>d"],
+            "description": "Modern Research Base"
+		},
+		"R5": {
+            "weight": 0.2,
+            "priorities": ["a=b", "a>c", "c>d"],
+            "description": "Quality"
+        }
+
+	}
+}

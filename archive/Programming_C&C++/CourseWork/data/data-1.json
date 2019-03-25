@@ -1,0 +1,39 @@
+{
+	"goal": "Spend Money",
+	"posibilities": {
+        "a": "Buy a car",
+        "b": "Vacation",
+        "c": "Invest into a stocks",
+        "d": "Invest into a property"
+    },
+    "convolutions": {
+        "R1": {
+            "weight": 0.3,
+            "priorities": [
+                "a<c",
+                "a=b",
+                "c=d"
+            ],
+            "description": "Lowering financial losts"
+        },
+        "R2": {
+            "weight": 0.25,
+            "priorities": [
+                "a>b",
+                "a<c",
+                "d>c"
+            ],
+            "description": "Increase income"
+        },
+        "R3": {
+            "weight": 0.45,
+            "priorities": [
+				"b>a",
+				"a>c",
+				"c=d",
+				"b>c"
+            ],
+            "description": "Estetic needs"
+        }
+    }
+}

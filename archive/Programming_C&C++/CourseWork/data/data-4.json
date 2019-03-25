@@ -1,0 +1,30 @@
+{
+	"goal" : "Apartment",
+    "posibilities": {
+        "a": "Apartment in Kyiv center",
+        "b": "Apartment at outskirts of Kyiv",
+        "c": "Apartment outside of Kyiv"
+    },
+    "convolutions": {
+        "R1": {
+            "weight": 0.4,
+            "priorities": [ "c>b", "a<b" ],
+            "description": "Apartment Cost"
+        },
+        "R2": {
+            "weight": 0.25,
+            "priorities": [ "c<b", "b>c"],
+            "description": "Travel expences"
+        },
+        "R3": {
+            "weight": 0.2,
+            "priorities": ["b=c", "b>a"],
+            "description": "Ecological State"
+        },
+        "R4": {
+            "weight": 0.15,
+            "priorities": ["a>b", "b=c"],
+            "description": "Rest area"
+        }
+	}
+}
