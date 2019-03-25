@@ -33,15 +33,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	if _, err := os.Stat(*file); os.IsNotExist(err) || os.IsPermission(err) {
+	if f, err := os.Stat(*file); os.IsNotExist(err) || os.IsPermission(err) {
 		fmt.Fprintf(os.Stderr, "Can't locate or access %s ", *file)
 		os.Exit(1)
+	} else if f.IsDir() {
+		fmt.Fprintf(os.Stderr, "%s is Directory, not a file.", *file)
+		os.Exit(1)
 	}
-
-	// else if f.IsDir() {
-	// 	fmt.Fprintf(os.Stderr, "%s is Directory, not a file.", *file)
-	// 	os.Exit(1)
-	// }
 
 	solver(*file, *debug)
 }
