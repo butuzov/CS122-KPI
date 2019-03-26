@@ -3,6 +3,7 @@ package cnn
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"math"
@@ -88,6 +89,11 @@ func Create(f string, debug bool) (Model, error) {
 	raw := rawModelJsonReader(f)
 
 	convolutions := make(map[string]Convolution)
+
+	if len(raw.Convolutions) == 0 {
+		return Model{}, errors.New("Cant find any convolutions")
+	}
+
 	for key, conv := range raw.Convolutions {
 
 		m, err := NewCardinalityMatrix(conv.Priorities)
@@ -144,7 +150,7 @@ func Create(f string, debug bool) (Model, error) {
 
 	var maximum float64
 	for i, k := range Minimum {
-		fmt.Print(i, k)
+		// fmt.Print(i, k)
 		if maximum < k {
 			maximum = k
 			m.Option = i
@@ -174,18 +180,6 @@ func Create(f string, debug bool) (Model, error) {
 		names = []string{"MinumPerMatrix"}
 		minimumSelection, _ := mapsPrinter(m.Keys, names, Minimum)
 		fmt.Printf(template, "MinumPerMatrix", minimumSelection)
-
-		// fmt.Println("Q1_MaxDim\n", MaxQ1)
-		// fmt.Println("Q2_MaxDim\n", MaxQ2)
-
-		// fmt.Println("Q1_MaxDim\n", MaxQ1)
-		// fmt.Println("Q2_MaxDim\n", MaxQ2)
-
-		// fmt.Println("Q1_MaxDim_Complement\n", MaxQ1_Complement)
-		// fmt.Println("Q2_MaxDim_COmplement\n", MaxQ2_Complement)
-
-		// var names = []string{"Map1", "Map222"}
-		// out, _ := Printer(keys, names, map_a, map_b)
 
 		fmt.Println(strings.Repeat("-", 50))
 	}
