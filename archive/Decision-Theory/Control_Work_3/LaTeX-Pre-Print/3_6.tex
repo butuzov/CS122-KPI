@@ -1,0 +1,65 @@
+\begin{center}
+  \normalsize{\cyr{\textbf{№3.6}}}
+\end{center}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=13.8cm]{3_6.png}
+  \centering
+\end{figure}
+
+
+Математична модель: $x_{ij}$ метр тканини артикулу $j$ з сировини $i$
+$$
+min \quad   \sum_j^3 C_{j} x_{ij} \qquad  \text{Обмеження} \sum_i^2 a_{ij}^{(k)} x_{ij} \leqslant b_i^{(k)}
+$$
+
+
+\begin{multicols}{2}
+  $$\mu(a_{ij}) \geqslant 0.6  $$
+
+  $$ \dfrac{3}{3+(a_{ij}-\overline{a}_{ij})^2} \geqslant 0.6 $$
+  $$ \dfrac{3}{0.6} \geqslant 3+(a_{ij}-\overline{a}_{ij})^2 $$
+  $$ 5-3 \geqslant (a_{ij}-\overline{a}_{ij})^2 $$
+  $$ 2 \geqslant (a_{ij}-\overline{a}_{ij})^2 $$
+  $$ \sqrt{2} \geqslant |a_{ij}-\overline{a}_{ij}|  $$
+  $$ a_{ij} - \sqrt{2} \leqslant a_{ij} \leqslant a_{ij} + \sqrt{2}  $$
+
+  \columnbreak
+  $$\gamma(C_{j}) \geqslant 0.6 $$
+
+  $$ \dfrac{1}{1+(C_{j}-\overline{C}_{j})^2} \geqslant 0.6 $$
+  $$ \dfrac{1}{0.6} \geqslant 1+(C_{j}-\overline{C}_{j})^2 $$
+  $$ \dfrac{5}{3} - 1 \geqslant (C_{j}-\overline{C}_{j})^2 $$
+  $$ \dfrac{2}{3} \geqslant (C_{j}-\overline{C}_{j})^2 $$
+  $$ \sqrt{\dfrac{2}{3}} \geqslant |C_{j}-\overline{C}_{ij}| $$
+  $$ C_{j}-\sqrt{\dfrac{2}{3}} \leqslant C_{j} \leqslant C_{j}+\sqrt{\dfrac{2}{3}}  $$
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+  \Title{Задача песиміста}
+  \Code{
+    min \sum_i^3( \overline{C}_{j}  - \sqrt{\dfrac{2}{3}}) x_{ij}
+  }
+
+  \Title{Обмеження}
+  \Code{
+    \sum_i^2( \overline{a}_{ij} + \sqrt{2} ) x_{ij} \leqslant b_i
+  }
+
+  \columnbreak
+
+  \Title{Задача оптиміста}
+  \Code{
+    min \sum_i^3( \overline{C}_{j} +  \sqrt{\dfrac{2}{3}}) x_{ij}
+  }
+
+  \Title{Обмеження}
+  \Code{
+    \sum_i^2( \overline{a}_{ij} - \sqrt{2} ) x_{ij} \leqslant b_i
+  }
+
+\end{multicols}

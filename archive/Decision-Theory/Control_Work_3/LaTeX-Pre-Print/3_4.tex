@@ -1,0 +1,60 @@
+\begin{center}
+  \normalsize{\cyr{\textbf{№3.4}}}
+\end{center}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=14.8cm]{3_4.png}
+  \centering
+\end{figure}
+
+Математична модель: $x_{ij}$ площа дял засіву культури $j$ на ділянкі $i$
+\Code{
+min \quad   \sum_i^3\sum_j^3 C_{j} x_{ij} \qquad  \text{Обмеження} \quad  \sum_i^3 a_{ij}  x_{ij} \leqslant b_i \qquad \sum_i^3  x_{ij} \geqslant P_i
+}
+
+\begin{multicols}{2}
+  $$\mu(a_{ij}) \geqslant 0.8  $$
+
+  $$ \dfrac{1}{1+(a_{ij}-\overline{a}_{ij})^2} \geqslant 0.8 $$
+  $$ 1+(a_{ij}-\overline{a}_{ij})^2 \leqslant \dfrac{1}{0.8}   $$
+  $$ (a_{ij}-\overline{a}_{ij})^2 \leqslant \dfrac{1}{4} $$
+  $$ |a_{ij}-\overline{a}_{ij}| \leqslant \dfrac{1}{2} $$
+  $$ a_{ij} - \dfrac{1}{2} \leqslant a_{ij} \leqslant a_{ij} + \dfrac{1}{2}  $$
+
+  \columnbreak
+  $$\gamma(C_{ij}) \geqslant 0.8 $$
+
+  $$ \exp\{ - \dfrac{(C_{ij}-\overline{C}_{ij})^2}{4} \} \geqslant 0.8 $$
+  $$ -\dfrac{(C_{ij}-\overline{C}_{ij})^2}{4} \geqslant \ln{0.8} $$
+  $$ (C_{ij}-\overline{C}_{ij})^2 \leqslant -4 \ln{0.8} $$
+  $$ (C_{ij}-\overline{C}_{ij})^2 \leqslant 4 \ln{\dfrac{1}{0.8}} $$
+  $$ |C_{ij}-\overline{C}_{ij}| \leqslant  \sqrt{4 \ln{\dfrac{5}{4}}} $$
+  $$ C_{ij} - 2 \sqrt{\ln{\dfrac{5}{4}}} \leqslant C_{ij} \leqslant C_{ij} + 2 \sqrt{ \ln{\dfrac{5}{4}}}$$
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+  \Title{Задача песиміста}
+  \Code{
+    min \quad \sum_i^3\sum_j^3( \overline{C}_{ij}  + 2 \sqrt{ \ln{\dfrac{5}{4}}}) x_{ij}
+  }
+
+  \Title{Обмеження}
+  \Code{
+    \sum_i^3( \overline{a}_{ij} - \dfrac{1}{2} ) x_{ij} \leqslant b_i
+  }
+  \Code { \sum_i^3  x_{ij} \geqslant P_i }
+
+  \columnbreak
+
+  \Title{Задача оптиміста}
+  \Code{
+    min \quad \sum_i^3\sum_j^3( \overline{C}_{ij} -  2 \sqrt{ \ln{\dfrac{5}{4}}}) x_{ij}
+  }
+
+  \Title{Обмеження}
+  \Code{ \sum_i^3( \overline{a}_{ij} + \dfrac{1}{2}) x_{ij} \leqslant b_i  }
+  \Code { \sum_i^3  x_{ij} \geqslant P_i }
+\end{multicols}
