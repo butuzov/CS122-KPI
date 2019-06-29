@@ -5,4 +5,4 @@ Some of the course works, I did while getting CS Bachelor degree in [KPI](https:
 Note: Machine learning labs located in the [repo](https://github.com/butuzov/ml-labs)
 
 ---
-Finished at 26 June 2019
+Finished at 26 June 2019.
